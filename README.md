@@ -1,2 +1,0 @@
-# TwoSense
-Finance &amp; Climate
