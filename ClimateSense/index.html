@@ -1,1 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="ClimateSense — serious, evidence-based writing on climate change, sustainability, impact finance and ESG investing. Science. Solutions. Finance."/>
+<title>ClimateSense — Science. Solutions. Finance.</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;0,900;1,700;1,900&family=Epilogue:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 
+:root{
+  /* Base */
+  --base:#F0F3F8;
+  --card:#ffffff;
+  --border:rgba(40,70,140,0.12);
+
+  /* Blue — Science & primary */
+  --blue:#2A52B0;
+  --blue-mid:#3B6FD4;
+  --blue-bg:#E8EEF8;
+  --blue-text:#0E2260;
+
+  /* Red — Urgency, Finance alerts */
+  --red:#B83A3A;
+  --red-mid:#C94040;
+  --red-bg:#F5E6E6;
+  --red-text:#6B1414;
+
+  /* Amber — Solutions accent */
+  --amber:#9E6A10;
+  --amber-bg:#F5EDD8;
+  --amber-text:#5A3A06;
+
+  /* Teal — Finance */
+  --teal:#1A6B64;
+  --teal-bg:#DFF0EC;
+  --teal-text:#0C3D38;
+
+  /* Slate — neutral accent */
+  --slate:#3B4D6B;
+  --slate-bg:#E8ECF2;
+  --slate-text:#1C2A42;
+
+  /* Type */
+  --text:#0C1520;
+  --mid:#2B3A52;
+  --soft:#7A8BA8;
+
+  --r:14px;
+  --rs:8px;
+}
+
+body{background:var(--base);font-family:'Epilogue',sans-serif;color:var(--text);line-height:1.6;}
+
+/* ── NAV ── */
+nav{background:rgba(240,243,248,0.96);border-bottom:1px solid var(--border);padding:16px 40px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;backdrop-filter:blur(8px);}
+
+/* LOGO */
+.logo{font-family:'Epilogue',sans-serif;font-size:20px;font-weight:800;color:var(--text);text-decoration:none;display:flex;align-items:baseline;gap:0;letter-spacing:-0.5px;}
+.logo-deg-c{display:inline-flex;align-items:baseline;gap:0;margin-right:5px;}
+.logo-deg{font-size:16px;font-weight:800;color:var(--blue);line-height:1;vertical-align:baseline;}
+.logo-c{font-size:16px;font-weight:800;color:var(--red-mid);line-height:1;vertical-align:baseline;}
+.logo-name{font-size:19px;font-weight:700;color:var(--text);letter-spacing:-0.3px;}
+
+.nav-links{display:flex;align-items:center;gap:28px;}
+.nav-links a{font-size:14px;font-weight:500;color:var(--mid);text-decoration:none;transition:color 0.15s;}
+.nav-links a:hover{color:var(--blue);}
+.nav-cta{background:var(--blue);color:#fff !important;padding:9px 20px;border-radius:20px;font-size:13px;font-weight:600;text-decoration:none;transition:opacity 0.2s;}
+.nav-cta:hover{opacity:0.85;}
+@media(max-width:640px){.nav-links .hide-mobile{display:none;}nav{padding:14px 20px;}}
+
+/* ── HERO ── */
+.hero{padding:72px 40px 56px;max-width:900px;margin:0 auto;text-align:center;}
+.hero-badge{display:inline-block;background:var(--blue-bg);border:1px solid rgba(40,70,140,0.2);color:var(--blue);font-size:11px;font-weight:600;letter-spacing:1.4px;text-transform:uppercase;padding:6px 16px;border-radius:20px;margin-bottom:24px;}
+.hero h1{font-family:'Fraunces',serif;font-size:clamp(34px,5vw,58px);font-weight:900;color:var(--text);line-height:1.1;letter-spacing:-1.5px;margin-bottom:20px;}
+.hero h1 em{font-style:italic;color:var(--blue);}
+.hero-lead{font-size:17px;color:var(--mid);line-height:1.75;max-width:600px;margin:0 auto 36px;font-weight:300;}
+.hero-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.btn-primary{background:var(--blue);color:#fff;padding:14px 30px;border-radius:20px;font-size:14px;font-weight:600;text-decoration:none;transition:opacity 0.2s,transform 0.15s;display:inline-block;}
+.btn-primary:hover{opacity:0.87;transform:translateY(-1px);}
+.btn-ghost{border:1.5px solid rgba(40,70,140,0.25);color:var(--mid);padding:13px 28px;border-radius:20px;font-size:14px;font-weight:500;text-decoration:none;background:transparent;transition:all 0.2s;display:inline-block;}
+.btn-ghost:hover{border-color:var(--blue);color:var(--blue);}
+
+/* ── STATS STRIP ── */
+.stats-strip{display:flex;margin:0 40px 60px;border:1px solid var(--border);border-radius:16px;overflow:hidden;background:var(--card);}
+.stat-item{flex:1;padding:22px 16px;text-align:center;border-right:1px solid var(--border);}
+.stat-item:last-child{border-right:none;}
+.stat-num{font-family:'Fraunces',serif;font-size:30px;font-weight:700;color:var(--blue);display:block;line-height:1;margin-bottom:5px;}
+.stat-num.red{color:var(--red-mid);}
+.stat-label{font-size:12px;color:var(--soft);font-weight:400;letter-spacing:0.3px;}
+@media(max-width:560px){.stats-strip{margin:0 16px 40px;flex-wrap:wrap;}.stat-item{min-width:50%;}.stat-num{font-size:22px;}.stat-label{font-size:11px;}}
+
+/* ── SECTION WRAPS ── */
+.section-wrap{max-width:900px;margin:0 auto;padding:0 40px;}
+.section-hdr{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:24px;}
+.section-title{font-family:'Fraunces',serif;font-size:26px;font-weight:700;color:var(--text);letter-spacing:-0.4px;}
+.section-link{font-size:13px;font-weight:500;color:var(--blue);text-decoration:none;cursor:pointer;}
+.section-link:hover{text-decoration:underline;}
+.section-label-sm{font-size:11px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:var(--soft);margin-bottom:8px;}
+.divider{height:1px;background:var(--border);margin:56px 40px;}
+
+/* ── THREE PILLARS ── */
+.pillars-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-bottom:56px;background:var(--card);border-radius:var(--r);border:1px solid var(--border);overflow:hidden;}
+.pillar{padding:32px 28px;border-right:1px solid var(--border);position:relative;}
+.pillar:last-child{border-right:none;}
+.pillar-stripe{height:3px;border-radius:2px;margin-bottom:24px;width:48px;}
+.pillar-stripe.blue{background:var(--blue);}
+.pillar-stripe.red{background:var(--red-mid);}
+.pillar-stripe.teal{background:var(--teal);}
+.pillar-number{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;letter-spacing:1.2px;color:var(--soft);margin-bottom:10px;}
+.pillar-name{font-family:'Fraunces',serif;font-size:20px;font-weight:900;color:var(--text);letter-spacing:-0.3px;margin-bottom:14px;line-height:1.2;}
+.pillar-name.blue{color:var(--blue);}
+.pillar-name.red{color:var(--red-mid);}
+.pillar-name.teal{color:var(--teal);}
+.pillar-tagline{font-size:14px;font-weight:700;color:var(--text);margin-bottom:10px;line-height:1.4;}
+.pillar-desc{font-size:13px;color:var(--soft);line-height:1.65;font-weight:300;}
+.pillar-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px;}
+.ptag{font-size:11px;font-weight:600;padding:4px 10px;border-radius:20px;letter-spacing:0.4px;}
+.ptag.blue{background:var(--blue-bg);color:var(--blue-text);}
+.ptag.red{background:var(--red-bg);color:var(--red-text);}
+.ptag.teal{background:var(--teal-bg);color:var(--teal-text);}
+@media(max-width:720px){.pillars-grid{grid-template-columns:1fr;}.pillar{border-right:none;border-bottom:1px solid var(--border);}.pillar:last-child{border-bottom:none;}}
+
+/* ── FEATURED CARD ── */
+.featured-wrap{max-width:900px;margin:0 auto;padding:0 40px;margin-bottom:56px;}
+.card-featured{background:var(--card);border-radius:20px;border:1px solid var(--border);overflow:hidden;text-decoration:none;color:inherit;display:table;width:100%;transition:transform 0.2s,box-shadow 0.2s;}
+.card-featured:hover{transform:translateY(-3px);box-shadow:0 14px 44px rgba(40,70,140,0.10);}
+.cf-visual{display:table-cell;width:36%;background:linear-gradient(135deg,var(--blue-bg) 0%,#D0DCEF 100%);padding:32px;vertical-align:bottom;position:relative;overflow:hidden;}
+.cf-visual-bg{position:absolute;right:-10px;bottom:-16px;font-family:'Fraunces',serif;font-size:100px;font-weight:900;color:rgba(42,82,176,0.10);line-height:1;pointer-events:none;user-select:none;}
+.cf-live-badge{display:inline-flex;align-items:center;gap:6px;background:var(--blue);color:#fff;font-size:11px;font-weight:600;letter-spacing:0.8px;padding:5px 12px;border-radius:20px;position:absolute;top:28px;left:28px;}
+.cf-live-dot{width:6px;height:6px;border-radius:50%;background:#8FB4FF;flex-shrink:0;}
+.cf-visual-word{font-family:'Fraunces',serif;font-size:38px;font-weight:900;color:var(--blue);line-height:1.1;position:relative;z-index:1;padding-top:64px;letter-spacing:-1px;opacity:0.85;}
+.cf-body{display:table-cell;width:64%;padding:28px 28px 28px 32px;vertical-align:top;background:var(--card);}
+.cf-tag-row{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;}
+.cf-tag{font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:4px 12px;border-radius:20px;}
+.cf-tag.blue{background:var(--blue-bg);color:var(--blue-text);}
+.cf-tag.red{background:var(--red-bg);color:var(--red-text);}
+.cf-tag.teal{background:var(--teal-bg);color:var(--teal-text);}
+.cf-title{font-family:'Fraunces',serif;font-size:21px;font-weight:700;color:var(--text);line-height:1.3;margin-bottom:12px;letter-spacing:-0.3px;}
+.cf-excerpt{font-size:14px;color:var(--soft);line-height:1.7;margin-bottom:16px;font-weight:300;}
+.cf-meta{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--soft);flex-wrap:wrap;}
+.cf-meta-dot{width:3px;height:3px;border-radius:50%;background:var(--soft);}
+.cf-read-btn{display:inline-block;background:var(--blue);color:#fff;padding:11px 22px;border-radius:20px;font-size:13px;font-weight:600;text-decoration:none;margin-top:18px;transition:opacity 0.2s;}
+.cf-read-btn:hover{opacity:0.85;}
+@media(max-width:640px){
+  .card-featured{display:block;}
+  .cf-visual{display:block;width:100%;padding:24px;min-height:150px;}
+  .cf-live-badge{top:20px;left:20px;}
+  .cf-visual-word{padding-top:48px;font-size:28px;}
+  .cf-body{display:block;width:100%;padding:24px;}
+}
+
+/* ── ARTICLE CARDS GRID ── */
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-bottom:56px;}
+.card-article{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:24px;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:12px;position:relative;transition:transform 0.2s,box-shadow 0.2s;}
+.card-article:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(40,70,140,0.09);}
+.card-article.coming{opacity:0.68;cursor:default;}
+.card-article.coming:hover{transform:none;box-shadow:none;}
+.ca-pillar-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.ca-pillar-dot.blue{background:var(--blue);}
+.ca-pillar-dot.red{background:var(--red-mid);}
+.ca-pillar-dot.teal{background:var(--teal);}
+.ca-pillar-row{display:flex;align-items:center;gap:7px;}
+.ca-pillar-label{font-size:11px;font-weight:600;letter-spacing:0.8px;text-transform:uppercase;color:var(--soft);}
+.ca-tag{font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:20px;width:fit-content;}
+.ca-tag.blue{background:var(--blue-bg);color:var(--blue-text);}
+.ca-tag.red{background:var(--red-bg);color:var(--red-text);}
+.ca-tag.teal{background:var(--teal-bg);color:var(--teal-text);}
+.ca-tag.amber{background:var(--amber-bg);color:var(--amber-text);}
+.ca-tag.slate{background:var(--slate-bg);color:var(--slate-text);}
+.ca-title{font-family:'Fraunces',serif;font-size:16px;font-weight:700;color:var(--text);line-height:1.35;letter-spacing:-0.2px;}
+.ca-excerpt{font-size:13px;color:var(--soft);line-height:1.6;font-weight:300;}
+.coming-pill{position:absolute;top:16px;right:16px;font-size:10px;font-weight:600;letter-spacing:0.8px;text-transform:uppercase;background:var(--base);color:var(--soft);border:1px solid var(--border);padding:3px 10px;border-radius:20px;}
+
+/* ── TOPIC CHIPS ── */
+.topic-chips{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:56px;}
+.topic-chip{padding:10px 20px;border-radius:20px;font-size:13.5px;font-weight:500;text-decoration:none;border:1.5px solid transparent;transition:all 0.2s;cursor:pointer;}
+.tc-blue{background:var(--blue-bg);color:var(--blue-text);border-color:rgba(40,70,140,0.18);}
+.tc-red{background:var(--red-bg);color:var(--red-text);border-color:rgba(185,58,58,0.18);}
+.tc-teal{background:var(--teal-bg);color:var(--teal-text);border-color:rgba(26,107,100,0.18);}
+.tc-amber{background:var(--amber-bg);color:var(--amber-text);border-color:rgba(158,106,16,0.18);}
+.tc-slate{background:var(--slate-bg);color:var(--slate-text);border-color:rgba(59,77,107,0.18);}
+.topic-chip:hover{transform:translateY(-2px);filter:brightness(0.94);}
+
+/* ── SIGNAL BAND (dark) ── */
+.signal-band{background:var(--text);padding:56px 40px;}
+.signal-inner{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
+.signal-label{font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#8FAFF8;margin-bottom:12px;}
+.signal-heading{font-family:'Fraunces',serif;font-size:32px;font-weight:900;color:#fff;line-height:1.2;margin-bottom:14px;letter-spacing:-0.5px;}
+.signal-text{font-size:15px;color:rgba(255,255,255,0.55);line-height:1.7;font-weight:300;margin-bottom:28px;}
+.signal-cta{display:inline-block;background:var(--red-mid);color:#fff;padding:13px 26px;border-radius:20px;font-size:14px;font-weight:600;text-decoration:none;transition:opacity 0.2s;}
+.signal-cta:hover{opacity:0.87;}
+.signal-rows{display:flex;flex-direction:column;gap:12px;}
+.signal-row{display:flex;align-items:center;gap:10px;}
+.signal-pill{flex:1;padding:12px 16px;border-radius:10px;font-size:13px;font-weight:500;text-align:center;line-height:1.4;}
+.pill-claim{background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.38);text-decoration:line-through;}
+.pill-fact{background:rgba(42,82,176,0.28);color:#8FAFF8;}
+.vs-badge{font-size:10px;font-weight:700;color:#8FAFF8;background:rgba(42,82,176,0.22);padding:4px 8px;border-radius:6px;flex-shrink:0;white-space:nowrap;}
+@media(max-width:640px){.signal-inner{grid-template-columns:1fr;}.signal-band{padding:40px 20px;}}
+
+/* ── NEWSLETTER ── */
+.newsletter-wrap{max-width:900px;margin:0 auto;padding:56px 40px;}
+.newsletter-card{background:linear-gradient(135deg,var(--blue-bg) 0%,#E8D8D8 100%);border-radius:20px;padding:40px;display:flex;align-items:center;justify-content:space-between;gap:32px;border:1px solid rgba(40,70,140,0.12);}
+.nl-left{flex:1;}
+.nl-label{font-size:11px;font-weight:600;letter-spacing:1.4px;text-transform:uppercase;color:var(--blue);margin-bottom:10px;}
+.nl-heading{font-family:'Fraunces',serif;font-size:26px;font-weight:700;color:var(--text);line-height:1.2;margin-bottom:8px;letter-spacing:-0.4px;}
+.nl-sub{font-size:14px;color:var(--mid);font-weight:300;}
+.nl-form{display:flex;gap:10px;flex-shrink:0;}
+.nl-input{padding:12px 18px;border-radius:20px;border:1.5px solid rgba(40,70,140,0.2);background:rgba(255,255,255,0.88);font-family:'Epilogue',sans-serif;font-size:14px;color:var(--text);outline:none;width:220px;transition:border-color 0.2s;}
+.nl-input:focus{border-color:var(--blue);}
+.nl-btn{padding:12px 22px;background:var(--blue);color:#fff;border:none;border-radius:20px;font-family:'Epilogue',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:opacity 0.2s;}
+.nl-btn:hover{opacity:0.87;}
+@media(max-width:640px){.newsletter-card{flex-direction:column;padding:28px 24px;}.nl-form{flex-direction:column;width:100%;}.nl-input{width:100%;}.newsletter-wrap{padding:40px 16px;}}
+
+/* ── FOOTER ── */
+footer{background:var(--text);padding:40px;color:rgba(255,255,255,0.5);font-size:13px;}
+.footer-inner{max-width:900px;margin:0 auto;}
+.footer-top{display:flex;align-items:flex-start;justify-content:space-between;gap:32px;margin-bottom:32px;flex-wrap:wrap;}
+.footer-logo{display:flex;align-items:baseline;gap:0;margin-bottom:8px;}
+.fl-deg{font-size:15px;font-weight:800;color:var(--blue-mid);vertical-align:baseline;}
+.fl-c{font-size:15px;font-weight:800;color:var(--red-mid);vertical-align:baseline;}
+.fl-name{font-size:18px;font-weight:700;color:#fff;margin-left:5px;letter-spacing:-0.3px;}
+.footer-tagline{font-size:13px;color:rgba(255,255,255,0.38);line-height:1.6;max-width:220px;}
+.footer-links-title{font-size:11px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:12px;}
+.footer-links{display:flex;flex-direction:column;gap:8px;}
+.footer-links a{font-size:13px;color:rgba(255,255,255,0.48);text-decoration:none;transition:color 0.15s;}
+.footer-links a:hover{color:#8FAFF8;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.footer-copy{font-size:12px;color:rgba(255,255,255,0.28);}
+.footer-disclaimer{font-size:11px;color:rgba(255,255,255,0.22);max-width:440px;line-height:1.55;}
+@media(max-width:640px){footer{padding:32px 20px;}.footer-top{gap:24px;}.footer-bottom{flex-direction:column;align-items:flex-start;}}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a href="../index.html" class="logo">
+    <span class="logo-deg-c"><span class="logo-deg">°</span><span class="logo-c">C</span></span>
+    <span class="logo-name">ClimateSense</span>
+  </a>
+  <div class="nav-links">
+    <a href="../index.html" class="hide-mobile" style="color:var(--soft);font-size:13px;">&#8592; TwoSense</a>
+    <a href="#pillars" class="hide-mobile">Our Coverage</a>
+    <a href="#articles" class="hide-mobile">Articles</a>
+    <a href="#topics" class="hide-mobile">Topics</a>
+    <a href="#newsletter" class="nav-cta">Subscribe Free</a>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-badge">Climate &middot; Science &middot; Solutions &middot; Finance</div>
+  <h1>The climate emergency<br>demands <em>rigorous thinking.</em></h1>
+  <p class="hero-lead">ClimateSense covers the climate crisis across three lenses — the science behind it, the technologies solving it, and the capital mobilising around it. Evidence-based. India-aware. Built for readers who want depth, not headlines.</p>
+  <div class="hero-actions">
+    <a href="#articles" class="btn-primary">Read the Articles</a>
+    <a href="#pillars" class="btn-ghost">Our Coverage</a>
+  </div>
+</section>
+
+<!-- ── STATS STRIP ── -->
+<div class="stats-strip">
+  <div class="stat-item"><span class="stat-num red">1.5°C</span><span class="stat-label">The line that cannot be crossed</span></div>
+  <div class="stat-item"><span class="stat-num">$8.3T</span><span class="stat-label">Annual clean energy investment needed by 2030</span></div>
+  <div class="stat-item"><span class="stat-num">0</span><span class="stat-label">Greenwash. Zero tolerance.</span></div>
+  <div class="stat-item"><span class="stat-num">Free</span><span class="stat-label">Always and forever</span></div>
+</div>
+
+<!-- ── THREE PILLARS ── -->
+<div class="section-wrap" id="pillars">
+  <div class="section-label-sm">What we cover</div>
+  <div class="section-hdr" style="margin-bottom:20px;">
+    <div class="section-title">Three lenses. One crisis.</div>
+  </div>
+  <div class="pillars-grid">
+
+    <div class="pillar">
+      <div class="pillar-stripe blue"></div>
+      <div class="pillar-number">PILLAR 01</div>
+      <div class="pillar-name blue">Science</div>
+      <div class="pillar-tagline">What the data actually says — not what anyone wants it to say.</div>
+      <div class="pillar-desc">We translate peer-reviewed climate science, IPCC findings, and real-world emissions data into language that is rigorous without being impenetrable. We chase numbers, not narratives. Every claim is sourced. Every myth is stress-tested. When the science is contested, we say so.</div>
+      <div class="pillar-tags">
+        <span class="ptag blue">IPCC Reports</span>
+        <span class="ptag blue">Emissions Data</span>
+        <span class="ptag blue">Myth vs Evidence</span>
+        <span class="ptag blue">India Climate Risk</span>
+      </div>
+    </div>
+
+    <div class="pillar">
+      <div class="pillar-stripe red"></div>
+      <div class="pillar-number">PILLAR 02</div>
+      <div class="pillar-name red">Solutions</div>
+      <div class="pillar-tagline">What is actually being built — and whether it works at scale.</div>
+      <div class="pillar-desc">Beyond the headlines of solar and EVs sits a landscape of hard engineering problems, pioneering startups, contested technologies, and genuine breakthroughs. We cover the full solutions stack — from breakthrough materials and green hydrogen to carbon removal and climate-resilient agriculture — with a sharp eye for what is real versus what is still a slide deck.</div>
+      <div class="pillar-tags">
+        <span class="ptag red">Cleantech</span>
+        <span class="ptag red">Climate Startups</span>
+        <span class="ptag red">Deep Tech</span>
+        <span class="ptag red">Energy Transition</span>
+      </div>
+    </div>
+
+    <div class="pillar">
+      <div class="pillar-stripe teal"></div>
+      <div class="pillar-number">PILLAR 03</div>
+      <div class="pillar-name teal">Finance</div>
+      <div class="pillar-tagline">How capital flows — and where the $5 trillion gap actually sits.</div>
+      <div class="pillar-desc">The climate crisis is not only a scientific or engineering problem. It is a capital allocation problem. We cover the instruments, structures, and actors moving money toward decarbonisation — green bonds, blended finance, transition finance, carbon markets, impact funds — and interrogate where the flows fall short, who bears the risk, and what India's role in climate finance looks like.</div>
+      <div class="pillar-tags">
+        <span class="ptag teal">Green Bonds</span>
+        <span class="ptag teal">Impact Investing</span>
+        <span class="ptag teal">Carbon Markets</span>
+        <span class="ptag teal">ESG</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- DIVIDER -->
+<div class="divider"></div>
+
+<!-- ── FEATURED ARTICLE ── -->
+<div class="featured-wrap" id="articles">
+  <div class="section-label-sm">Featured &middot; Live now</div>
+  <div class="section-hdr">
+    <div class="section-title">Start here</div>
+  </div>
+
+  <a href="articles/climatesense-scope3-article.html" class="card-featured">
+    <div class="cf-visual">
+      <div class="cf-live-badge"><span class="cf-live-dot"></span>Live &middot; Read Now</div>
+      <div class="cf-visual-word">Scope<br>3.</div>
+      <div class="cf-visual-bg">70%</div>
+    </div>
+    <div class="cf-body">
+      <div class="cf-tag-row">
+        <span class="cf-tag blue">Climate Science</span>
+        <span class="cf-tag red">Emissions</span>
+        <span class="cf-tag teal">Disclosure</span>
+      </div>
+      <div class="cf-title">Scope 3 emissions — the 70% of a company's footprint nobody reports</div>
+      <div class="cf-excerpt">Every corporate sustainability report leads with Scope 1 and 2. Clean numbers, manageable targets, good optics. But for most companies, those two scopes account for less than 30% of their actual climate impact. The rest lives in the supply chain, in product use, in financed portfolios — and almost nobody is counting it honestly.</div>
+      <div class="cf-meta">
+        <span>12 min read</span>
+        <span class="cf-meta-dot"></span>
+        <span>June 2026</span>
+        <span class="cf-meta-dot"></span>
+        <span>India + Global</span>
+      </div>
+      <span class="cf-read-btn">Read the Article &rarr;</span>
+    </div>
+  </a>
+</div>
+
+<!-- ── MORE ARTICLES ── -->
+<div class="section-wrap">
+  <div class="section-label-sm">In the pipeline</div>
+  <div class="section-hdr">
+    <div class="section-title">Next on ClimateSense</div>
+    <span class="section-link">Notify me</span>
+  </div>
+  <div class="cards-grid">
+
+    <div class="card-article coming">
+      <div class="coming-pill">Coming soon</div>
+      <div class="ca-pillar-row">
+        <div class="ca-pillar-dot blue"></div>
+        <span class="ca-pillar-label">Science</span>
+      </div>
+      <span class="ca-tag blue">Climate Policy</span>
+      <div class="ca-title">Net Zero by 2050: What companies are actually promising — and what the numbers say</div>
+      <div class="ca-excerpt">Over 9,000 companies have made net-zero pledges. Fewer than 4% have a plan verified as credible. We map the gap between corporate climate commitments and what transition science actually requires.</div>
+    </div>
+
+    <div class="card-article coming">
+      <div class="coming-pill">Coming soon</div>
+      <div class="ca-pillar-row">
+        <div class="ca-pillar-dot red"></div>
+        <span class="ca-pillar-label">Science</span>
+      </div>
+      <span class="ca-tag red">Climate Risk</span>
+      <div class="ca-title">Physical climate risk in India — the assets most exposed by 2035</div>
+      <div class="ca-excerpt">From coastal real estate in Mumbai to agricultural supply chains in Punjab — which balance sheets carry the most unpriced physical risk, and who is paying attention.</div>
+    </div>
+
+    <div class="card-article coming">
+      <div class="coming-pill">Coming soon</div>
+      <div class="ca-pillar-row">
+        <div class="ca-pillar-dot teal"></div>
+        <span class="ca-pillar-label">Finance</span>
+      </div>
+      <span class="ca-tag teal">ESG Investing</span>
+      <div class="ca-title">ESG ratings are broken — here is the evidence</div>
+      <div class="ca-excerpt">The same company scores 72 on one ESG scale and 28 on another. We map the rating divergence problem and what it means for investors trying to allocate with integrity.</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── TOPICS ── -->
+<div class="section-wrap" id="topics">
+  <div class="section-label-sm">Browse by topic</div>
+  <div class="section-hdr" style="margin-bottom:20px;">
+    <div class="section-title">What we cover</div>
+  </div>
+  <div class="topic-chips">
+    <span class="topic-chip tc-blue">Climate Science &amp; IPCC</span>
+    <span class="topic-chip tc-red">Physical Climate Risk</span>
+    <span class="topic-chip tc-blue">Emissions &amp; Net Zero</span>
+    <span class="topic-chip tc-teal">ESG Investing</span>
+    <span class="topic-chip tc-teal">Green &amp; Transition Bonds</span>
+    <span class="topic-chip tc-teal">Impact Finance</span>
+    <span class="topic-chip tc-red">Energy Transition</span>
+    <span class="topic-chip tc-amber">Cleantech &amp; Deep Tech</span>
+    <span class="topic-chip tc-amber">Climate Startups</span>
+    <span class="topic-chip tc-teal">Carbon Markets</span>
+    <span class="topic-chip tc-blue">India Climate Policy</span>
+    <span class="topic-chip tc-slate">Greenwash Watch</span>
+  </div>
+</div>
+
+<!-- ── SIGNAL DARK BAND ── -->
+<div class="signal-band">
+  <div class="signal-inner">
+    <div>
+      <div class="signal-label">Our Editorial Standard</div>
+      <div class="signal-heading">The signal<br>through the noise.</div>
+      <div class="signal-text">Climate coverage is full of both catastrophism and complacency. ClimateSense exists in neither camp. We follow the evidence — wherever it leads. When a corporate pledge doesn't stack up, we say so. When a technology genuinely changes the equation, we say that too. No agenda except accuracy.</div>
+      <a href="#articles" class="signal-cta">Read our first deep-dive &rarr;</a>
+    </div>
+    <div class="signal-rows">
+      <div class="signal-row">
+        <div class="signal-pill pill-claim">"We are carbon neutral"</div>
+        <div class="vs-badge">CLAIM</div>
+        <div class="signal-pill pill-fact">Offsets &ne; emission reductions</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-pill pill-claim">"India can't afford climate action"</div>
+        <div class="vs-badge">MYTH</div>
+        <div class="signal-pill pill-fact">Inaction costs 2.5&times; more by 2050</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-pill pill-claim">"ESG funds underperform markets"</div>
+        <div class="vs-badge">CLAIM</div>
+        <div class="signal-pill pill-fact">Period, scope &amp; method all determine this</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-pill pill-claim">"Renewables can't power a grid"</div>
+        <div class="vs-badge">MYTH</div>
+        <div class="signal-pill pill-fact">Portugal ran 100% renewable for 6 days</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── NEWSLETTER ── -->
+<div class="newsletter-wrap" id="newsletter">
+  <div class="newsletter-card">
+    <div class="nl-left">
+      <div class="nl-label">Fortnightly Briefing</div>
+      <div class="nl-heading">One deep-dive.<br>Every fortnight.</div>
+      <div class="nl-sub">Free. No sponsored content. No greenwash. Read in under 10 minutes.</div>
+    </div>
+    <div class="nl-form">
+      <input class="nl-input" type="email" placeholder="your@email.com"/>
+      <button class="nl-btn">Subscribe &rarr;</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">
+          <span class="fl-deg">&deg;</span><span class="fl-c">C</span>
+          <span class="fl-name">ClimateSense</span>
+        </div>
+        <div class="footer-tagline">Science. Solutions. Finance. Serious writing on the defining challenge of our time.</div>
+      </div>
+      <div>
+        <div class="footer-links-title">Articles</div>
+        <div class="footer-links">
+          <a href="articles/climatesense-scope3-article.html">Scope 3 Emissions — The 70% Nobody Reports</a>
+          <a href="#articles">Net Zero by 2050 (soon)</a>
+          <a href="#articles">Physical Climate Risk in India (soon)</a>
+          <a href="#articles">ESG Ratings Are Broken (soon)</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-links-title">Topics</div>
+        <div class="footer-links">
+          <a href="#topics">Climate Science &amp; IPCC</a>
+          <a href="#topics">ESG Investing</a>
+          <a href="#topics">Impact Finance</a>
+          <a href="#topics">Energy Transition</a>
+          <a href="#topics">Carbon Markets</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-links-title">Site</div>
+        <div class="footer-links">
+          <a href="#pillars">About</a>
+          <a href="#newsletter">Newsletter</a>
+          <a href="#">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">&copy; 2026 ClimateSense</div>
+      <div class="footer-disclaimer">For informational and educational purposes only. Not financial or investment advice. Climate projections are drawn from cited scientific sources. Always consult qualified professionals before making investment decisions.</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
