@@ -97,6 +97,25 @@ nav{background:rgba(237,245,242,0.95);border-bottom:1px solid var(--border);padd
 @media(max-width:600px){.stat-band{grid-template-columns:1fr;}.stat-item{border-right:none;border-bottom:1px solid var(--border);}.stat-item:last-child{border-bottom:none;}}
 
 /* ── COMPARISON TABLE ── */
+.st-mode-btn{padding:7px 18px;font-size:12px;font-weight:600;cursor:pointer;border:none;font-family:inherit;transition:all 0.15s;background:transparent;color:var(--soft);}
+.st-mode-btn.active{background:var(--text);color:#fff;border-radius:20px;}
+.calc-mode-btn{padding:8px 20px;border-radius:20px;font-size:13px;font-weight:600;cursor:pointer;border:1px solid var(--border);font-family:inherit;transition:all 0.15s;background:#fff;color:var(--mid);}
+.ev-mode-btn{padding:7px 16px;border-radius:20px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;transition:all 0.15s;border:1px solid var(--border);background:#fff;color:var(--mid);}
+.ev-mode-btn.active{background:#E8F5EF;color:#0E7A5A;border-color:#0E7A5A;}
+.ev-mode-btn.active.replace-mode{background:#FEF0E6;color:#C04A10;border-color:#C04A10;}
+.threshold-tick{position:absolute;top:12px;transform:translateX(-50%);pointer-events:none;text-align:center;}
+.calc-mode-btn.active{background:var(--g1);color:#fff;border-color:var(--g1);}
+.bd-tbl{width:100%;border-collapse:collapse;font-size:13px;}
+.bd-tbl th{background:#fafafa;color:var(--soft);font-weight:600;padding:8px 14px;text-align:right;border-bottom:0.5px solid var(--border);font-size:11px;text-transform:uppercase;letter-spacing:0.5px;}
+.bd-tbl th:first-child{text-align:left;}
+.bd-tbl td{padding:9px 14px;border-bottom:0.5px solid var(--border);color:var(--text);vertical-align:top;text-align:right;}
+.bd-tbl td:first-child{text-align:left;color:var(--mid);}
+.bd-tbl .bd-sub td{background:#fafafa;font-weight:600;color:var(--text);}
+.bd-tbl .bd-sub td:first-child{color:var(--text);}
+.bd-tbl .bd-total td{font-weight:700;border-top:1px solid var(--border);border-bottom:none;font-size:14px;}
+.bd-win{color:#0E7A5A !important;font-weight:600;}
+.bd-lose{color:#A32D2D !important;}
+.bd-warn{color:#C06A10 !important;}
 .comp-table-wrap{background:var(--card);border:0.5px solid var(--border);border-radius:var(--r);overflow:hidden;margin:24px 0;}
 .comp-table-head{padding:12px 18px;font-size:12px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;color:var(--soft);background:#fafafa;border-bottom:1px solid var(--border);}
 table.comp{width:100%;border-collapse:collapse;font-size:14px;}
@@ -267,7 +286,80 @@ footer a:hover{color:#6FD9A8;}
     <div style="font-size:11px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:var(--soft);margin-bottom:4px;">Petrol price movement -- top metros (&#8377;/litre, Jan to Jun 2026)</div>
     <div style="font-size:12px;color:var(--soft);margin-bottom:14px;">Shaded area marks the 11-day hike window in May 2026.</div>
     <div style="position:relative;width:100%;height:220px;">
-      <canvas id="fuelChart" role="img" aria-label="Line chart of petrol prices in Delhi, Mumbai, Kolkata, Bengaluru, Chennai from January to June 2026 showing sharp rise in May 2026">Petrol prices rose sharply across all metros in May 2026 across four hikes in eleven days.</canvas>
+      <div style="width:100%;overflow:hidden;"><svg viewBox="0 0 700 290" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+<line x1="52" y1="215.9" x2="660" y2="215.9" stroke="#E8F0EC" stroke-width="1"/>
+<text x="47" y="219.9" text-anchor="end" font-size="10" fill="#7A9990" font-family="DM Sans,sans-serif">₹90</text>
+<line x1="52" y1="180.5" x2="660" y2="180.5" stroke="#E8F0EC" stroke-width="1"/>
+<text x="47" y="184.5" text-anchor="end" font-size="10" fill="#7A9990" font-family="DM Sans,sans-serif">₹95</text>
+<line x1="52" y1="145.2" x2="660" y2="145.2" stroke="#E8F0EC" stroke-width="1"/>
+<text x="47" y="149.2" text-anchor="end" font-size="10" fill="#7A9990" font-family="DM Sans,sans-serif">₹100</text>
+<line x1="52" y1="109.9" x2="660" y2="109.9" stroke="#E8F0EC" stroke-width="1"/>
+<text x="47" y="113.9" text-anchor="end" font-size="10" fill="#7A9990" font-family="DM Sans,sans-serif">₹105</text>
+<line x1="52" y1="74.5" x2="660" y2="74.5" stroke="#E8F0EC" stroke-width="1"/>
+<text x="47" y="78.5" text-anchor="end" font-size="10" fill="#7A9990" font-family="DM Sans,sans-serif">₹110</text>
+<line x1="52" y1="39.2" x2="660" y2="39.2" stroke="#E8F0EC" stroke-width="1"/>
+<text x="47" y="43.2" text-anchor="end" font-size="10" fill="#7A9990" font-family="DM Sans,sans-serif">₹115</text>
+<text x="52.0" y="245" text-anchor="middle" font-size="10" fill="#7A9990" font-family="DM Sans,sans-serif">Jan</text>
+<text x="138.9" y="245" text-anchor="middle" font-size="10" fill="#7A9990" font-family="DM Sans,sans-serif">Feb</text>
+<text x="225.7" y="245" text-anchor="middle" font-size="10" fill="#7A9990" font-family="DM Sans,sans-serif">Mar</text>
+<text x="312.6" y="245" text-anchor="middle" font-size="10" fill="#7A9990" font-family="DM Sans,sans-serif">Apr</text>
+<text x="399.4" y="245" text-anchor="middle" font-size="10" fill="#7A9990" font-family="DM Sans,sans-serif">May 1</text>
+<text x="486.3" y="245" text-anchor="middle" font-size="10" fill="#7A9990" font-family="DM Sans,sans-serif">May 15</text>
+<text x="573.1" y="245" text-anchor="middle" font-size="10" fill="#7A9990" font-family="DM Sans,sans-serif">May 25</text>
+<text x="660.0" y="245" text-anchor="middle" font-size="10" fill="#7A9990" font-family="DM Sans,sans-serif">Jun</text>
+<polyline points="52.0,122.6 138.9,119.8 225.7,107.0 312.6,107.0 399.4,107.0 486.3,85.8 573.1,68.2 660.0,49.8" fill="none" stroke="#E8602C" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="52.0" cy="122.6" r="2.8" fill="#E8602C" stroke="#fff" stroke-width="1.2"/>
+<circle cx="138.9" cy="119.8" r="2.8" fill="#E8602C" stroke="#fff" stroke-width="1.2"/>
+<circle cx="225.7" cy="107.0" r="2.8" fill="#E8602C" stroke="#fff" stroke-width="1.2"/>
+<circle cx="312.6" cy="107.0" r="2.8" fill="#E8602C" stroke="#fff" stroke-width="1.2"/>
+<circle cx="399.4" cy="107.0" r="2.8" fill="#E8602C" stroke="#fff" stroke-width="1.2"/>
+<circle cx="486.3" cy="85.8" r="2.8" fill="#E8602C" stroke="#fff" stroke-width="1.2"/>
+<circle cx="573.1" cy="68.2" r="2.8" fill="#E8602C" stroke="#fff" stroke-width="1.2"/>
+<circle cx="660.0" cy="49.8" r="2.8" fill="#E8602C" stroke="#fff" stroke-width="1.2"/>
+<text x="666" y="54" font-size="10" fill="#E8602C" font-weight="600" font-family="DM Sans,sans-serif">Kolkata</text>
+<polyline points="52.0,184.1 138.9,181.9 225.7,181.9 312.6,180.5 399.4,180.5 486.3,159.3 573.1,141.0 660.0,130.4" fill="none" stroke="#0E7A5A" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="52.0" cy="184.1" r="2.8" fill="#0E7A5A" stroke="#fff" stroke-width="1.2"/>
+<circle cx="138.9" cy="181.9" r="2.8" fill="#0E7A5A" stroke="#fff" stroke-width="1.2"/>
+<circle cx="225.7" cy="181.9" r="2.8" fill="#0E7A5A" stroke="#fff" stroke-width="1.2"/>
+<circle cx="312.6" cy="180.5" r="2.8" fill="#0E7A5A" stroke="#fff" stroke-width="1.2"/>
+<circle cx="399.4" cy="180.5" r="2.8" fill="#0E7A5A" stroke="#fff" stroke-width="1.2"/>
+<circle cx="486.3" cy="159.3" r="2.8" fill="#0E7A5A" stroke="#fff" stroke-width="1.2"/>
+<circle cx="573.1" cy="141.0" r="2.8" fill="#0E7A5A" stroke="#fff" stroke-width="1.2"/>
+<circle cx="660.0" cy="130.4" r="2.8" fill="#0E7A5A" stroke="#fff" stroke-width="1.2"/>
+<text x="666" y="134" font-size="10" fill="#0E7A5A" font-weight="600" font-family="DM Sans,sans-serif">Delhi</text>
+<polyline points="52.0,124.0 138.9,121.9 225.7,120.5 312.6,120.5 399.4,120.5 486.3,99.3 573.1,83.0 660.0,66.1" fill="none" stroke="#1A6BAE" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="52.0" cy="124.0" r="2.8" fill="#1A6BAE" stroke="#fff" stroke-width="1.2"/>
+<circle cx="138.9" cy="121.9" r="2.8" fill="#1A6BAE" stroke="#fff" stroke-width="1.2"/>
+<circle cx="225.7" cy="120.5" r="2.8" fill="#1A6BAE" stroke="#fff" stroke-width="1.2"/>
+<circle cx="312.6" cy="120.5" r="2.8" fill="#1A6BAE" stroke="#fff" stroke-width="1.2"/>
+<circle cx="399.4" cy="120.5" r="2.8" fill="#1A6BAE" stroke="#fff" stroke-width="1.2"/>
+<circle cx="486.3" cy="99.3" r="2.8" fill="#1A6BAE" stroke="#fff" stroke-width="1.2"/>
+<circle cx="573.1" cy="83.0" r="2.8" fill="#1A6BAE" stroke="#fff" stroke-width="1.2"/>
+<circle cx="660.0" cy="66.1" r="2.8" fill="#1A6BAE" stroke="#fff" stroke-width="1.2"/>
+<text x="666" y="70" font-size="10" fill="#1A6BAE" font-weight="600" font-family="DM Sans,sans-serif">Mumbai</text>
+<polyline points="52.0,120.5 138.9,118.3 225.7,116.9 312.6,116.9 399.4,116.9 486.3,95.7 573.1,79.5 660.0,67.5" fill="none" stroke="#6B35A8" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="52.0" cy="120.5" r="2.8" fill="#6B35A8" stroke="#fff" stroke-width="1.2"/>
+<circle cx="138.9" cy="118.3" r="2.8" fill="#6B35A8" stroke="#fff" stroke-width="1.2"/>
+<circle cx="225.7" cy="116.9" r="2.8" fill="#6B35A8" stroke="#fff" stroke-width="1.2"/>
+<circle cx="312.6" cy="116.9" r="2.8" fill="#6B35A8" stroke="#fff" stroke-width="1.2"/>
+<circle cx="399.4" cy="116.9" r="2.8" fill="#6B35A8" stroke="#fff" stroke-width="1.2"/>
+<circle cx="486.3" cy="95.7" r="2.8" fill="#6B35A8" stroke="#fff" stroke-width="1.2"/>
+<circle cx="573.1" cy="79.5" r="2.8" fill="#6B35A8" stroke="#fff" stroke-width="1.2"/>
+<circle cx="660.0" cy="67.5" r="2.8" fill="#6B35A8" stroke="#fff" stroke-width="1.2"/>
+<text x="666" y="71" font-size="10" fill="#6B35A8" font-weight="600" font-family="DM Sans,sans-serif">Bengaluru</text>
+<polyline points="52.0,143.1 138.9,141.0 225.7,139.5 312.6,139.5 399.4,139.5 486.3,118.3 573.1,102.1 660.0,90.1" fill="none" stroke="#B07060" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="52.0" cy="143.1" r="2.8" fill="#B07060" stroke="#fff" stroke-width="1.2"/>
+<circle cx="138.9" cy="141.0" r="2.8" fill="#B07060" stroke="#fff" stroke-width="1.2"/>
+<circle cx="225.7" cy="139.5" r="2.8" fill="#B07060" stroke="#fff" stroke-width="1.2"/>
+<circle cx="312.6" cy="139.5" r="2.8" fill="#B07060" stroke="#fff" stroke-width="1.2"/>
+<circle cx="399.4" cy="139.5" r="2.8" fill="#B07060" stroke="#fff" stroke-width="1.2"/>
+<circle cx="486.3" cy="118.3" r="2.8" fill="#B07060" stroke="#fff" stroke-width="1.2"/>
+<circle cx="573.1" cy="102.1" r="2.8" fill="#B07060" stroke="#fff" stroke-width="1.2"/>
+<circle cx="660.0" cy="90.1" r="2.8" fill="#B07060" stroke="#fff" stroke-width="1.2"/>
+<text x="666" y="94" font-size="10" fill="#B07060" font-weight="600" font-family="DM Sans,sans-serif">Chennai</text>
+<line x1="52" y1="18" x2="52" y2="230" stroke="#C8D8D4" stroke-width="1"/>
+<line x1="52" y1="230" x2="660" y2="230" stroke="#C8D8D4" stroke-width="1"/>
+</svg></div>
     </div>
     <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:12px;">
       <span style="display:flex;align-items:center;gap:5px;font-size:12px;color:var(--mid);"><span style="width:18px;height:3px;background:#E8602C;display:inline-block;border-radius:2px;"></span>Kolkata</span>
@@ -278,34 +370,7 @@ footer a:hover{color:#6FD9A8;}
     </div>
   </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
-  <script>
-  (function(){
-    var ctx = document.getElementById('fuelChart');
-    if(!ctx) return;
-    new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels: ['Jan','Feb','Mar','Apr','May 1','May 15','May 25','Jun'],
-        datasets: [
-          {label:'Kolkata',  data:[103.2,103.6,105.4,105.4,105.4,108.4,110.9,113.5], borderColor:'#E8602C',backgroundColor:'rgba(232,96,44,0.05)',  borderWidth:2.5,pointRadius:3,tension:0.3},
-          {label:'Delhi',    data:[94.5, 94.8, 94.8, 95.0, 95.0, 98.0,100.6,102.1], borderColor:'#0E7A5A',backgroundColor:'rgba(14,122,90,0.05)',   borderWidth:2.5,pointRadius:3,tension:0.3},
-          {label:'Mumbai',   data:[103.0,103.3,103.5,103.5,103.5,106.5,108.8,111.2], borderColor:'#1A6BAE',backgroundColor:'rgba(26,107,174,0.05)', borderWidth:2.5,pointRadius:3,tension:0.3},
-          {label:'Bengaluru',data:[103.5,103.8,104.0,104.0,104.0,107.0,109.3,111.0], borderColor:'#6B35A8',backgroundColor:'rgba(107,53,168,0.05)',borderWidth:2.5,pointRadius:3,tension:0.3},
-          {label:'Chennai',  data:[100.3,100.6,100.8,100.8,100.8,103.8,106.1,107.8], borderColor:'#B07060',backgroundColor:'rgba(176,112,96,0.05)', borderWidth:2.5,pointRadius:3,tension:0.3}
-        ]
-      },
-      options:{
-        responsive:true, maintainAspectRatio:false,
-        plugins:{legend:{display:false},tooltip:{mode:'index',intersect:false}},
-        scales:{
-          x:{grid:{color:'rgba(0,0,0,0.04)'},ticks:{font:{size:11},color:'#7A9990'}},
-          y:{min:88,max:118,grid:{color:'rgba(0,0,0,0.04)'},ticks:{font:{size:11},color:'#7A9990',callback:function(v){return '₹'+v;}}}
-        }
-      }
-    });
-  })();
-  </script>
+<!-- Chart rendered as inline SVG, no external dependency -->
 
   <p class="body-text" style="margin-top:0;">
     Brent crude moved 59% from its pre-conflict level. OMCs bled &#8377;1,700 crore a day. Another &#8377;2 to &#8377;5 per litre is being priced in before year-end. India's fuel pricing structure defers pain -- it does not absorb it. Which brings back the question everyone had shelved: <strong>is it finally time to look seriously at an EV?</strong>
@@ -313,156 +378,42 @@ footer a:hover{color:#6FD9A8;}
 
   <div class="divider"></div>
 
+  <div class="section-label">The Numbers</div>
+  <h2 class="section-heading">What actually decides whether an EV makes sense for you</h2>
 
-  <div class="section-label">The Cost Comparison</div>
-  <h2 class="section-heading">What does 1,200 km a month actually cost -- petrol vs EV?</h2>
+  <p class="body-text">The answer is never just the fuel price. It is a combination of running cost and owning cost, both shaped by factors specific to your city, your car, and how long you plan to keep it.</p>
 
-  <p class="body-text">Same car, same roads, same distance. The Nexon exists in both petrol and EV variants so we can compare like for like. Real-world mileage, not ARAI figures.</p>
-
-  <div class="alert-box">
-    <div class="alert-title">About these numbers</div>
-    <div class="alert-body">Petrol price: &#8377;113.5/litre (Kolkata, June 2026). Home electricity rate: &#8377;9/unit (CESC domestic slab -- among the highest in India). Real-world mileage: 14 km/litre for petrol, 7 km/kWh for Nexon EV. Public fast charger rate: &#8377;20/unit where applicable.</div>
-  </div>
-
-  <!-- MONTHLY RUNNING COST -->
-  <div class="cost-grid">
-    <div class="cost-card petrol-card">
-      <span class="cost-card-badge orange">Nexon Petrol (1.2T)</span>
-      <div class="cost-row">
-        <span class="cost-label">Monthly km</span>
-        <span class="cost-val orange">1,200 km</span>
-      </div>
-      <div class="cost-row">
-        <span class="cost-label">Fuel needed</span>
-        <span class="cost-val">86 litres</span>
-      </div>
-      <div class="cost-row">
-        <span class="cost-label">Fuel cost @ &#8377;102/L</span>
-        <span class="cost-val orange">&#8377;9,729</span>
-      </div>
-      <div class="cost-row">
-        <span class="cost-label">Servicing (monthly avg)</span>
-        <span class="cost-val">&#8377;1,000</span>
-      </div>
-      <div class="cost-row">
-        <span class="cost-label">Cost per km</span>
-        <span class="cost-val orange">&#8377;9.11/km</span>
-      </div>
-      <div class="cost-row">
-        <span class="cost-label cost-total">Monthly running total</span>
-        <span class="cost-val orange cost-total">&#8377;10,729</span>
-      </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:28px 0;">
+    <div style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--g1);border-radius:var(--r);padding:20px;">
+      <div style="font-size:10px;text-transform:uppercase;letter-spacing:1.5px;font-weight:700;color:var(--g1);margin-bottom:8px;">Running Cost</div>
+      <p style="font-size:14px;font-weight:600;margin:0 0 8px;color:var(--text);">What you pay every month</p>
+      <p style="font-size:13px;color:var(--mid);line-height:1.65;margin:0;">Fuel or charging, service, and insurance. EVs cost significantly less to run -- but the exact saving depends on your city's electricity tariff, petrol price, and monthly km.</p>
     </div>
-
-    <div class="cost-card ev-card">
-      <span class="cost-card-badge green">Nexon EV (45 kWh)</span>
-      <div class="cost-row">
-        <span class="cost-label">Monthly km</span>
-        <span class="cost-val green">1,200 km</span>
-      </div>
-      <div class="cost-row">
-        <span class="cost-label">Electricity needed</span>
-        <span class="cost-val">171 kWh</span>
-      </div>
-      <div class="cost-row">
-        <span class="cost-label">Charging cost @ &#8377;8/unit</span>
-        <span class="cost-val green">&#8377;1,540</span>
-      </div>
-      <div class="cost-row">
-        <span class="cost-label">Servicing (monthly avg)</span>
-        <span class="cost-val">&#8377;300</span>
-      </div>
-      <div class="cost-row">
-        <span class="cost-label">Cost per km</span>
-        <span class="cost-val green">&#8377;1.53/km</span>
-      </div>
-      <div class="cost-row">
-        <span class="cost-label cost-total">Monthly running total</span>
-        <span class="cost-val green cost-total">&#8377;1,840</span>
-      </div>
+    <div style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--orange);border-radius:var(--r);padding:20px;">
+      <div style="font-size:10px;text-transform:uppercase;letter-spacing:1.5px;font-weight:700;color:var(--orange);margin-bottom:8px;">Owning Cost</div>
+      <p style="font-size:14px;font-weight:600;margin:0 0 8px;color:var(--text);">The upfront and end-of-period math</p>
+      <p style="font-size:13px;color:var(--mid);line-height:1.65;margin:0;">On-road price, resale value when you sell, and whether the battery needs replacing. EVs cost more upfront and lose resale value faster in a thin used-EV market.</p>
+    </div>
+    <div style="background:var(--card);border:1px solid var(--border);border-left:3px solid #6B35A8;border-radius:var(--r);padding:20px;">
+      <div style="font-size:10px;text-transform:uppercase;letter-spacing:1.5px;font-weight:700;color:#6B35A8;margin-bottom:8px;">Subsidy and Tax</div>
+      <p style="font-size:14px;font-weight:600;margin:0 0 8px;color:var(--text);">Entirely state-dependent</p>
+      <p style="font-size:13px;color:var(--mid);line-height:1.65;margin:0;">No central scheme covers private 4-wheelers after FAME-II ended March 2024. Delhi, Maharashtra, Gujarat offer &#8377;1.5 lakh each. Most other states offer nothing beyond a road tax waiver.</p>
+    </div>
+    <div style="background:var(--card);border:1px solid var(--border);border-left:3px solid #1A6BAE;border-radius:var(--r);padding:20px;">
+      <div style="font-size:10px;text-transform:uppercase;letter-spacing:1.5px;font-weight:700;color:#1A6BAE;margin-bottom:8px;">Charging Access</div>
+      <p style="font-size:14px;font-weight:600;margin:0 0 8px;color:var(--text);">The single biggest variable</p>
+      <p style="font-size:13px;color:var(--mid);line-height:1.65;margin:0;">Home charging at &#8377;5 to &#8377;9 per unit versus commercial chargers at &#8377;18 to &#8377;22 changes the economics entirely. If home charging is not an option, the monthly saving drops sharply -- often enough to flip the verdict.</p>
     </div>
   </div>
 
-  <p class="body-text">
-    Monthly saving: <strong>&#8377;8,889</strong> -- if Rini charges at home. Kolkata's CESC tariff (&#8377;9/unit) is one of India's highest, which narrows the advantage. On public fast chargers at &#8377;20/unit, the saving compresses to &#8377;6,960. Still meaningful, but home charging is the assumption doing all the work.
-  </p>
-
-  <div class="pullquote">The EV wins on running cost by a wide margin. The question is whether you can unlock that saving, or whether your living situation locks you out of it.</div>
+  <p class="body-text">Rini's situation -- 1,200 km a month, home charging in Kolkata, Nexon EV against Nexon Petrol -- is the starting point. Change any variable and the answer changes. The calculator below runs every combination in real time.</p>
 
   <div class="divider"></div>
 
-  <!-- 5 YEAR TCO -->
-  <div class="section-label">Total Cost of Ownership</div>
-  <h2 class="section-heading">The real question: which car costs less over five years?</h2>
-
-  <p class="body-text">Running cost is only part of the picture. The EV costs more upfront. What matters is the five-year total.</p>
-
-  <div class="comp-table-wrap">
-    <div class="comp-table-head">5-Year Net Total Cost of Ownership -- Nexon Petrol vs Nexon EV (Kolkata)</div>
-    <table class="comp">
-      <thead>
-        <tr>
-          <th>Cost Head</th>
-          <th>Nexon Petrol</th>
-          <th>Nexon EV 45</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>On-road price (Kolkata, approx)<div class="td-label">Ex-showroom + road tax + registration + insurance</div></td>
-          <td>&#8377;13.5 lakh</td>
-          <td>&#8377;18 lakh</td>
-        </tr>
-        <tr>
-          <td>Less: estimated resale after 5 years<div class="td-label">Petrol: ~50% retained (market avg, Spinny/Cars24 data) &middot; EV: ~40% retained (weak used-EV market, battery health doubts)</div></td>
-          <td class="td-green">-&#8377;6.75 lakh</td>
-          <td class="td-amber">-&#8377;7.20 lakh</td>
-        </tr>
-        <tr style="background:#fafafa;">
-          <td><strong>Net vehicle cost</strong><div class="td-label">What you effectively pay after recovering resale value</div></td>
-          <td><strong>&#8377;6.75 lakh</strong></td>
-          <td class="td-red"><strong>&#8377;10.80 lakh</strong></td>
-        </tr>
-        <tr>
-          <td>Fuel / charging over 5 years<div class="td-label">1,200 km/month, home charging for EV at &#8377;9/unit (CESC Kolkata)</div></td>
-          <td class="td-red">&#8377;6.72 lakh</td>
-          <td class="td-green">&#8377;1.14 lakh</td>
-        </tr>
-        <tr>
-          <td>Maintenance over 5 years<div class="td-label">EVs have fewer moving parts, lower servicing</div></td>
-          <td>&#8377;60,000</td>
-          <td class="td-green">&#8377;18,000</td>
-        </tr>
-        <tr>
-          <td>Insurance over 5 years<div class="td-label">EV insurance slightly higher currently</div></td>
-          <td>&#8377;80,000</td>
-          <td>&#8377;1,00,000</td>
-        </tr>
-        <tr>
-          <td><strong>5-Year Net TCO</strong><div class="td-label">True cost to owner after resale. No state subsidy for Kolkata. Use the calculator below for your city.</div></td>
-          <td class="td-amber"><strong>&#8377;14.87 lakh</strong></td>
-          <td class="td-green"><strong>&#8377;13.12 lakh</strong></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div style="background:var(--warn-bg);border-radius:var(--rs);padding:14px 18px;margin:8px 0 24px;font-size:13px;color:var(--warn-text);line-height:1.65;">
-    <strong>A note on how we calculate depreciation.</strong> We use the <strong>resale-value approach</strong> -- what the market actually pays for a used car -- not the replacement-cost approach (battery cost &divide; battery life). The replacement-cost method looks neater on paper but assumes a mature used-EV market that does not yet exist in India. Real listings tell the truth: a used EV today sells for far less than its battery condition alone would justify, because buyers discount heavily for battery-health uncertainty and thin resale demand. As the used-EV market matures over the next 5 to 10 years, EV residual values should improve and this gap should narrow.
-  </div>
-
-  <div class="breakeven-box">
-    <div class="be-icon">&#9432;</div>
-    <div>
-      <div class="be-title">The break-even changes with your driving</div>
-      <div class="be-body">At 1,200 km/month in Kolkata, the Nexon EV breaks even on total cost in roughly <span class="be-hl">4 to 4.5 years</span>. But this number is highly variable -- it shifts with your monthly km, your city's electricity tariff, and the price gap between the cars you choose. Rini's Kolkata numbers are a starting point. The tool below lets you run it for your own situation.</div>
-    </div>
-  </div>
-
-  <div style="margin:32px 0;" id="calc-tool">
-    <div style="font-size:11px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:var(--soft);margin-bottom:8px;">Run Your Own Numbers</div>
-    <div style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--text);margin-bottom:6px;letter-spacing:-0.4px;">EV vs Petrol: Your Break-Even Calculator</div>
-    <p style="font-size:15px;color:var(--mid);line-height:1.7;font-weight:300;margin-bottom:20px;">Select your city, choose any EV and petrol car, set your monthly km. The maths updates in real time.</p>
+    <div style="margin:32px 0;" id="calc-tool">
+    <div style="font-size:11px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:var(--soft);margin-bottom:8px;">Interactive Calculator</div>
+    <div style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--text);margin-bottom:6px;letter-spacing:-0.4px;">Your EV vs Petrol Numbers</div>
+    <p style="font-size:15px;color:var(--mid);line-height:1.7;font-weight:300;margin-bottom:20px;">Defaults to Rini's situation: Kolkata, Nexon EV vs Nexon Petrol, 1,200 km/month, 5 years. Change any variable and all numbers update in real time.</p>
 
     <div style="background:var(--card);border:1px solid var(--border);border-radius:20px;padding:32px;font-family:'DM Sans',sans-serif;">
 
@@ -473,14 +424,14 @@ footer a:hover{color:#6FD9A8;}
 
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;">
         <div>
-          <p style="font-size:11px;color:var(--soft);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;font-weight:600;">Electric car</p>
-          <select id="calc-ev" style="width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:var(--rs);font-family:'DM Sans',sans-serif;font-size:13px;color:var(--text);background:#fff;outline:none;"></select>
-          <div id="calc-ev-meta" style="font-size:12px;color:var(--soft);margin-top:5px;min-height:14px;"></div>
-        </div>
-        <div>
           <p style="font-size:11px;color:var(--soft);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;font-weight:600;">Petrol car</p>
           <select id="calc-petrol" style="width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:var(--rs);font-family:'DM Sans',sans-serif;font-size:13px;color:var(--text);background:#fff;outline:none;"></select>
           <div id="calc-petrol-meta" style="font-size:12px;color:var(--soft);margin-top:5px;min-height:14px;"></div>
+        </div>
+        <div>
+          <p style="font-size:11px;color:var(--soft);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;font-weight:600;">Electric car</p>
+          <select id="calc-ev" style="width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:var(--rs);font-family:'DM Sans',sans-serif;font-size:13px;color:var(--text);background:#fff;outline:none;"></select>
+          <div id="calc-ev-meta" style="font-size:12px;color:var(--soft);margin-top:5px;min-height:14px;"></div>
         </div>
       </div>
 
@@ -491,6 +442,37 @@ footer a:hover{color:#6FD9A8;}
         </div>
         <input type="range" id="calc-km" min="300" max="3000" step="100" value="1200" style="width:100%;accent-color:var(--g1);">
         <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--soft);margin-top:4px;"><span>300 km</span><span>1,200 avg</span><span>3,000 km</span></div>
+      </div>
+
+      <div style="background:var(--base);border-radius:14px;padding:16px 18px;margin-bottom:16px;">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px;">
+          <p style="font-size:11px;color:var(--soft);letter-spacing:1.5px;text-transform:uppercase;font-weight:600;">Use for</p>
+          <div>
+            <span id="calc-years-lbl" style="font-size:17px;font-weight:700;color:var(--text);font-family:'Playfair Display',serif;">7 years</span>
+            <span style="font-size:12px;color:var(--soft);margin-left:8px;" id="calc-km-total-lbl">1,00,800 km</span>
+          </div>
+        </div>
+        <div style="position:relative;margin-bottom:20px;">
+          <input type="range" id="calc-years-slider" min="1" max="15" step="1" value="7"
+            style="width:100%;accent-color:var(--g1);cursor:pointer;" oninput="onYearsSlider(this.value)">
+          <div class="threshold-tick" id="calc-threshold-tick" style="left:50%;">
+            <div style="width:2px;height:8px;background:#C04A10;margin:0 auto 1px;"></div>
+            <span id="calc-threshold-tick-lbl" style="font-size:9px;color:#C04A10;white-space:nowrap;font-weight:700;">8yr limit</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--soft);margin-top:18px;">
+            <span>1 yr</span>
+            <span id="calc-threshold-status" style="font-size:10px;"></span>
+            <span>15 yr</span>
+          </div>
+        </div>
+        <div style="border-top:1px solid var(--border);padding-top:12px;">
+          <div style="font-size:11px;color:var(--soft);text-transform:uppercase;letter-spacing:1px;font-weight:600;margin-bottom:8px;">At end of period, EV is:</div>
+          <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+            <button class="ev-mode-btn active" id="ev-sell-btn" onclick="setEvMode('sell')">Sold</button>
+            <button class="ev-mode-btn" id="ev-replace-btn" onclick="setEvMode('replace')">Battery replaced</button>
+            <span id="calc-ev-mode-note" style="font-size:11px;color:var(--soft);font-style:italic;"></span>
+          </div>
+        </div>
       </div>
 
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;">
@@ -521,6 +503,21 @@ footer a:hover{color:#6FD9A8;}
       <div id="calc-results" style="display:none;">
         <div style="height:1px;background:var(--border);margin-bottom:24px;"></div>
 
+        <!-- Running cost table -->
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:20px;margin-bottom:16px;">
+          <div style="font-size:11px;color:var(--g1);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;font-weight:600;">Monthly running cost</div>
+          <table style="width:100%;border-collapse:collapse;font-size:13px;" id="calc-run-table">
+            <thead>
+              <tr>
+                <th style="text-align:left;padding:8px 12px;border-bottom:1px solid var(--border);font-size:11px;color:var(--soft);text-transform:uppercase;letter-spacing:0.5px;font-weight:600;">Cost head</th>
+                <th id="calc-run-p-hd" style="text-align:right;padding:8px 12px;border-bottom:1px solid var(--border);font-size:11px;color:var(--soft);text-transform:uppercase;letter-spacing:0.5px;font-weight:600;">Petrol car</th>
+                <th id="calc-run-ev-hd" style="text-align:right;padding:8px 12px;border-bottom:1px solid var(--border);font-size:11px;color:var(--soft);text-transform:uppercase;letter-spacing:0.5px;font-weight:600;">EV</th>
+              </tr>
+            </thead>
+            <tbody id="calc-run-tbody"></tbody>
+          </table>
+        </div>
+
         <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px;">
           <div style="background:var(--new-bg);border-radius:var(--r);padding:16px;">
             <div style="font-size:11px;color:var(--soft);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Monthly saving</div>
@@ -537,7 +534,14 @@ footer a:hover{color:#6FD9A8;}
         </div>
 
         <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:20px;margin-bottom:16px;">
-          <div style="font-size:11px;color:var(--soft);text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;font-weight:600;">8-year net total cost of ownership (after est. resale)</div>
+          <div style="font-size:11px;color:var(--orange);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;font-weight:600;" id="calc-breakdown-title">Cost breakdown</div>
+          <div style="overflow-x:auto;">
+            <table class="bd-tbl" id="calc-breakdown-table"><tbody><tr><td colspan="3" style="text-align:center;color:var(--soft);padding:20px;font-family:inherit;">Calculating...</td></tr></tbody></table>
+          </div>
+        </div>
+
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:20px;margin-bottom:16px;">
+          <div style="font-size:11px;color:var(--soft);text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;font-weight:600;" id="calc-tco-title">8-year net total cost (after resale)</div>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;">
             <div>
               <div id="calc-ev-tco-lbl" style="font-size:12px;color:var(--soft);margin-bottom:3px;"></div>
@@ -796,11 +800,16 @@ function copyLink(btn){
 
 <script>
 try{(function(){
-const BASE_YRS=8,EV_RESID=0.22,ICE_RESID=0.30;
-// Smooth monotonic front-loaded residual curves (fraction of on-road retained), index = year 0..8
-// EV: year5=40%, year8=22% | ICE: year5=47%, year8=30% -- verified against Spinny/Cars24 market data
-const evResidCurve=[1.00,0.76,0.63,0.53,0.46,0.40,0.34,0.28,0.22];
-const iceResidCurve=[1.00,0.80,0.69,0.60,0.53,0.47,0.41,0.35,0.30];
+const EV_RESID=0.22,ICE_RESID=0.30,KM_WARRANTY=160000,YR_WARRANTY=8;
+// Battery scrap/residual value as % of new pack cost, yr0-15 (sliding: 25%@yr9 → 9%@yr15)
+const battScrapPct=[0,0,0,0,0,0,0,0,0,0.25,0.22,0.19,0.16,0.13,0.11,0.09];
+// Smooth monotonic residual curves yr0-15 (EV: yr5=40%,yr8=22% | ICE: yr5=47%,yr8=30%)
+const evResidCurve=[1.00,0.76,0.63,0.53,0.46,0.40,0.34,0.28,0.22,0.17,0.13,0.10,0.08,0.06,0.05,0.04];
+const iceResidCurve=[1.00,0.80,0.69,0.60,0.53,0.47,0.41,0.35,0.30,0.25,0.20,0.16,0.13,0.11,0.09,0.07];
+// Battery replacement expected cost fraction of battRepl, yr0-15 (prob: 0%→10%→25%→35%→50%→60%→65%→70%)
+const battExpFrac=[0,0,0,0,0,0,0,0,0,0.10,0.25,0.35,0.50,0.60,0.65,0.70];
+// ICE accumulated major maintenance cost by year, yr0-15
+const iceMaintCost=[0,0,0,0,0,0,30000,50000,75000,100000,125000,140000,160000,175000,185000,200000];
 const evCars=[
   {id:'tiago_ev',name:'Tata Tiago EV',exS:850000,eff:8.2,kWh:24,svc:2500,range:250,battRepl:360000},
   {id:'punch_ev',name:'Tata Punch EV (LR)',exS:1199000,eff:7.5,kWh:40,svc:3000,range:320,battRepl:600000},
@@ -858,7 +867,7 @@ const cities=[
 const fmtI=n=>'\u20b9'+Math.round(n).toLocaleString('en-IN');
 const fmtL=n=>'\u20b9'+(Math.abs(Math.round(n)/100000)).toFixed(1)+'L';
 
-let st={cityId:'kolkata',evId:'nexon_ev',petrolId:'nexon_p',km:1200,home:true,comm:false};
+let st={cityId:'kolkata',evId:'nexon_ev',petrolId:'nexon_p',km:1200,home:true,comm:false,years:7,evMode:'sell',evModeManual:false};
 
 function getCity(){return cities.find(c=>c.id===st.cityId);}
 function getEV(){return evCars.find(c=>c.id===st.evId);}
@@ -895,6 +904,25 @@ const kmSlider=document.getElementById('calc-km');
 kmSlider.oninput=()=>{st.km=parseInt(kmSlider.value);document.getElementById('calc-km-display').textContent=parseInt(kmSlider.value).toLocaleString('en-IN')+' km';recalc();};
 document.getElementById('calc-home').onchange=e=>{st.home=e.target.checked;recalc();};
 document.getElementById('calc-comm').onchange=e=>{st.comm=e.target.checked;recalc();};
+window.onYearsSlider=function(v){
+  var prev=st.years; st.years=parseInt(v);
+  var kmYrs=KM_WARRANTY/(st.km*12),t=Math.min(YR_WARRANTY,kmYrs);
+  if((prev>t)!==(st.years>t)) st.evModeManual=false;
+  if(!st.evModeManual){
+    st.evMode=st.years>t?'replace':'sell';
+    document.getElementById('ev-sell-btn').classList.toggle('active',st.evMode==='sell');
+    document.getElementById('ev-replace-btn').classList.toggle('active',st.evMode==='replace');
+    document.getElementById('ev-replace-btn').classList.toggle('replace-mode',st.evMode==='replace');
+  }
+  recalc();
+};
+window.setEvMode=function(m){
+  st.evMode=m; st.evModeManual=true;
+  document.getElementById('ev-sell-btn').classList.toggle('active',m==='sell');
+  document.getElementById('ev-replace-btn').classList.toggle('active',m==='replace');
+  document.getElementById('ev-replace-btn').classList.toggle('replace-mode',m==='replace');
+  recalc();
+};
 
 function recalc(){
   const city=getCity(),ev=getEV(),petrol=getPetrol();
@@ -939,19 +967,32 @@ function recalc(){
   const pSvc=Math.round(petrol.svc/12);
   const pTot=pFuel+pSvc;
 
-  // Net vehicle cost (on-road minus estimated resale after 8yr)
-  const evNetVeh=Math.round(orEV*(1-EV_RESID));
-  const pNetVeh=Math.round(orP*(1-ICE_RESID));
-  // Monthly depreciation (net vehicle cost annualised)
-  const evDeprM=Math.round(evNetVeh/BASE_YRS/12);
-  const pDeprM=Math.round(pNetVeh/BASE_YRS/12);
+  const YRS=Math.min(st.years,15);
+  const evMos=st.years*12;
+  const KM_TOTAL=st.km*st.years*12;
+  const kmWarrantyYrs=KM_WARRANTY/(st.km*12);
+  const warrantyThreshold=Math.min(YR_WARRANTY,kmWarrantyYrs);
+  const postWarranty=st.years>warrantyThreshold;
+  const SELL=(st.evMode==='sell');
 
+  // EV: Sell = resale value approach; Replace = full cost + battery net
+  let evResaleVal=0,evBattReplCost=0,evBattScrapVal=0,evNetVeh;
+  if(SELL){
+    evResaleVal=Math.round(orEV*evResidCurve[YRS]);
+    evNetVeh=orEV-evResaleVal;
+  } else {
+    if(postWarranty){evBattReplCost=ev.battRepl;evBattScrapVal=Math.round(ev.battRepl*battScrapPct[YRS]);}
+    evNetVeh=orEV;
+  }
+  // Petrol: always sold
+  const pResaleVal=Math.round(orP*iceResidCurve[YRS]);
+  const pNetVeh=orP-pResaleVal;
+  const pIceMaint=st.years>6?iceMaintCost[YRS]:0;
+  const evInsTotal=Math.round(ev.exS*0.022*st.years);
+  const pInsTotal=Math.round(petrol.exS*0.018*st.years);
   const saving=pTot-evTot;
-
-  // 8-year net TCO (net vehicle cost + running + insurance)
-  const evMos=BASE_YRS*12;
-  const ev8=evNetVeh+Math.round(evTot*evMos)+Math.round(ev.exS*0.022*BASE_YRS);
-  const p8=pNetVeh+Math.round(pTot*evMos)+Math.round(petrol.exS*0.018*BASE_YRS);
+  const ev8=evNetVeh+Math.round(evTot*evMos)+evInsTotal+evBattReplCost-evBattScrapVal;
+  const p8=pNetVeh+Math.round(pTot*evMos)+pInsTotal+pIceMaint;
   const ev8w=ev8<p8;
   const evCPK=(evTot/st.km).toFixed(2);
   const pCPK=(pTot/st.km).toFixed(2);
@@ -967,22 +1008,102 @@ function recalc(){
   as.style.color=saving>0?'#0E7A5A':'#A32D2D';
   document.getElementById('calc-r-perkm').textContent='₹'+evCPK+' EV vs ₹'+pCPK+' petrol';
 
-  document.getElementById('calc-ev-tco-lbl').textContent=ev.name.split('(')[0].trim()+' — 8yr total';
-  document.getElementById('calc-p-tco-lbl').textContent=petrol.name.split('(')[0].trim()+' — 8yr total';
-  document.getElementById('calc-ev-depr-note').textContent='Net vehicle cost: '+fmtL(evNetVeh)+' (on-road − est. '+Math.round(EV_RESID*100)+'% resale after 8yr)';
-  document.getElementById('calc-p-depr-note').textContent='Net vehicle cost: '+fmtL(pNetVeh)+' (on-road − est. '+Math.round(ICE_RESID*100)+'% resale after 8yr)';
+  // Running cost table render
+  (function(){
+    var rb=document.getElementById('calc-run-tbody');
+    if(!rb) return;
+    var ph=document.getElementById('calc-run-p-hd');
+    var eh=document.getElementById('calc-run-ev-hd');
+    if(ph) ph.textContent=petrol.name.split(' ').slice(0,3).join(' ');
+    if(eh) eh.textContent=ev.name.split(' ').slice(0,3).join(' ');
+    var pFuelMo=Math.round(pLit*city.petrol);
+    var evFuelMo=Math.round(evKwh*cr);
+    var pSvcMo=Math.round(petrol.svc/12);
+    var evSvcMo=Math.round(ev.svc/12);
+    var pInsMo=Math.round(petrol.exS*0.018/12);
+    var evInsMo=Math.round(ev.exS*0.022/12);
+    var pRunMo=pFuelMo+pSvcMo+pInsMo;
+    var evRunMo=evFuelMo+evSvcMo+evInsMo;
+    // Saving uses fuel+service only (insurance is annual, not variable -- matches main saving card)
+    var savMo=(pFuelMo+pSvcMo)-(evFuelMo+evSvcMo);
+    var bdr='border-bottom:0.5px solid var(--border);';
+    var rBase='padding:9px 12px;text-align:right;font-size:13px;'+bdr;
+    var lBase='padding:9px 12px;text-align:left;font-size:13px;color:var(--mid);'+bdr;
+    function td(style,v){return '<td style="'+style+'">'+v+'</td>';}
+    var html='';
+    html+='<tr>'+td(lBase,'Fuel / charging<div style="font-size:11px;color:var(--soft);margin-top:1px;">₹'+city.petrol+'/L petrol &middot; EV ₹'+cr.toFixed(1)+'/unit, '+st.km.toLocaleString('en-IN')+' km/mo</div>')+td(rBase+'color:#A32D2D;','₹'+pFuelMo.toLocaleString('en-IN'))+td(rBase+'color:#0E7A5A;','₹'+evFuelMo.toLocaleString('en-IN'))+'</tr>';
+    html+='<tr>'+td(lBase,'Service / maintenance')+td(rBase,'₹'+pSvcMo.toLocaleString('en-IN'))+td(rBase+'color:#0E7A5A;','₹'+evSvcMo.toLocaleString('en-IN'))+'</tr>';
+    html+='<tr>'+td(lBase,'Insurance (monthly equiv.)')+td(rBase,'₹'+pInsMo.toLocaleString('en-IN'))+td(rBase,'₹'+evInsMo.toLocaleString('en-IN'))+'</tr>';
+    html+='<tr style="border-top:1.5px solid var(--border);">'+td('padding:10px 12px;text-align:left;font-weight:700;color:var(--text);font-size:13px;','Total monthly running')+td('padding:10px 12px;text-align:right;font-weight:700;font-size:13px;','<strong>₹'+pRunMo.toLocaleString('en-IN')+'</strong>')+td('padding:10px 12px;text-align:right;font-weight:700;font-size:13px;','<strong>₹'+evRunMo.toLocaleString('en-IN')+'</strong>')+'</tr>';
+    html+='<tr style="background:#E8F5EF;">'+td('padding:10px 12px;text-align:left;font-weight:700;color:#0E7A5A;font-size:13px;border-radius:0 0 0 8px;','Monthly saving with EV')+td('padding:10px 12px;text-align:right;color:var(--soft);font-size:13px;','&mdash;')+td('padding:10px 12px;text-align:right;font-weight:700;color:#0E7A5A;font-size:15px;border-radius:0 0 8px 0;','+₹'+savMo.toLocaleString('en-IN'))+'</tr>';
+    rb.innerHTML=html;
+  })();
+
+  // Detailed breakdown table
+  (function(){
+    var bt=document.getElementById('calc-breakdown-table');
+    if(!bt)return;
+    var g=function(cls,v){return '<td class="'+cls+'">'+v+'</td>';};
+    var pName=petrol.name.split(' ').slice(0,3).join(' ');
+    var eName=ev.name.split(' ').slice(0,3).join(' ');
+    var rows='<thead><tr><th>Cost head</th><th>'+pName+'</th><th>'+eName+'</th></tr></thead><tbody>';
+    rows+='<tr>'+g('','On-road price<div style="font-size:11px;color:var(--soft);margin-top:2px;">'+city.name+', on-road</div>')+g('',fmtL(orP))+g('',fmtL(orEV))+'</tr>';
+    // Petrol resale (always)
+    rows+='<tr>'+g('','Less: resale at '+st.years+'yr<div style="font-size:11px;color:var(--soft);margin-top:2px;">Petrol ~'+Math.round(iceResidCurve[YRS]*100)+'% retained</div>')+g('bd-win','-'+fmtL(pResaleVal));
+    if(SELL){rows+=g(evResaleVal<pResaleVal?'bd-warn':'bd-win','-'+fmtL(evResaleVal)+'<div style="font-size:11px;margin-top:2px;">EV ~'+Math.round(evResidCurve[YRS]*100)+'% (thin used-EV market)</div>');}
+    else{rows+=g('','<span style="color:var(--soft);font-size:12px;">— (battery replaced)</span>');}
+    rows+='</tr>';
+    rows+='<tr style="background:#fafafa;">'+g('','<strong>Net vehicle cost</strong>')+g('','<strong>'+fmtL(pNetVeh)+'</strong>');
+    if(SELL){rows+=g(evNetVeh>pNetVeh?'bd-lose':'','<strong>'+fmtL(evNetVeh)+'</strong>');}
+    else{rows+=g('','<strong>'+fmtL(orEV)+'</strong> <span style="font-size:11px;color:var(--soft);">(full, no resale)</span>');}
+    rows+='</tr>';
+    // Running costs
+    var evFuel=Math.round(evKwh*cr)*evMos, pFuel2=Math.round(pLit*city.petrol)*evMos;
+    rows+='<tr>'+g('','Fuel / charging ('+st.years+'yr)<div style="font-size:11px;color:var(--soft);margin-top:2px;">'+st.km.toLocaleString('en-IN')+' km/mo &middot; EV &#8377;'+cr.toFixed(1)+'/unit &middot; Petrol &#8377;'+city.petrol+'/L</div>')+g('bd-lose',fmtL(pFuel2))+g('bd-win',fmtL(evFuel))+'</tr>';
+    rows+='<tr>'+g('','Service / maintenance ('+st.years+'yr)')+g('',fmtL(Math.round(pSvc*evMos)))+g('bd-win',fmtL(Math.round(evSvc*evMos)))+'</tr>';
+    rows+='<tr>'+g('','Insurance ('+st.years+'yr)')+g('',fmtL(pInsTotal))+g('',fmtL(evInsTotal))+'</tr>';
+    if(st.years>6){rows+='<tr>'+g('','ICE major maintenance<div style="font-size:11px;color:var(--soft);margin-top:2px;">Petrol only: timing belt, suspension to '+st.years+'yr</div>')+g('bd-warn',fmtI(pIceMaint))+g('','—')+'</tr>';}
+    // Battery section (Replace mode)
+    if(!SELL){
+      if(postWarranty){
+        rows+='<tr>'+g('','Battery replacement cost<div style="font-size:11px;color:var(--soft);margin-top:2px;">Full pack replacement at '+st.years+'yr</div>')+g('','—')+g('bd-lose',fmtL(evBattReplCost))+'</tr>';
+        rows+='<tr>'+g('','Less: battery scrap / residual value<div style="font-size:11px;color:var(--soft);margin-top:2px;">~'+Math.round(battScrapPct[YRS]*100)+'% at '+st.years+'yr (secondary use / raw material value)</div>')+g('','—')+g('bd-win','-'+fmtL(evBattScrapVal))+'</tr>';
+        rows+='<tr style="background:#fafafa;">'+g('','<strong>Net battery cost</strong>')+g('','—')+g('bd-lose','<strong>'+fmtL(evBattReplCost-evBattScrapVal)+'</strong>')+'</tr>';
+      } else {
+        rows+='<tr>'+g('','Battery replacement<div style="font-size:11px;color:var(--soft);margin-top:2px;">Within warranty at '+st.years+'yr ('+Math.round(KM_TOTAL/1000)+'K of '+Math.round(KM_WARRANTY/1000)+'K km warranty limit)</div>')+g('','—')+g('bd-win','&#8377;0 (under warranty)')+'</tr>';
+      }
+    }
+    var lbl=st.years+'-Year '+(SELL?'Net TCO':'Total Cost');
+    rows+='<tr class="bd-total">'+g('','<strong>'+lbl+'</strong>')+g(ev8<p8?'bd-win':'','<strong>'+fmtL(p8)+'</strong>')+g(ev8<p8?'':'bd-win','<strong>'+fmtL(ev8)+'</strong>')+'</tr></tbody>';
+    bt.innerHTML=rows;
+    document.getElementById('calc-breakdown-title').textContent=lbl+' — '+city.name;
+  })();
+
+    var yrLabel=st.years+'yr';
+  document.getElementById('calc-tco-title').textContent=st.years+'-year '+(SELL?'net TCO (sold)':'total cost (battery replaced)');
+  document.getElementById('calc-ev-tco-lbl').textContent=ev.name.split('(')[0].trim()+' — '+yrLabel+' total';
+  document.getElementById('calc-p-tco-lbl').textContent=petrol.name.split('(')[0].trim()+' — '+yrLabel+' total';
+  document.getElementById('calc-ev-depr-note').textContent=SELL?('Net vehicle cost: '+fmtL(evNetVeh)+' (on-road − est. '+Math.round(evResidCurve[YRS]*100)+'% resale at '+st.years+'yr)'):(postWarranty?'Battery net cost: '+fmtL(evBattReplCost-evBattScrapVal)+' (replacement − '+Math.round(battScrapPct[YRS]*100)+'% scrap value)':'Full on-road cost. Battery within warranty at '+st.years+'yr.');
+  document.getElementById('calc-p-depr-note').textContent='Net vehicle cost: '+fmtL(pNetVeh)+' (on-road − est. '+Math.round(iceResidCurve[YRS]*100)+'% resale at '+st.years+'yr)'+(st.years>6?' + ICE maint: '+fmtI(pIceMaint):'');
   const e5el=document.getElementById('calc-r-ev5');
   e5el.textContent=fmtL(ev8); e5el.style.color=ev8w?'#0E7A5A':'#0C1F1A';
   const p5el=document.getElementById('calc-r-p5');
   p5el.textContent=fmtL(p8); p5el.style.color=!ev8w?'#0E7A5A':'#0C1F1A';
-  document.getElementById('calc-tco-note').textContent=ev8w?'EV saves '+fmtL(Math.abs(ev8-p8))+' net over 8 years -- higher upfront cost recovered through fuel savings.':'Petrol is cheaper by '+fmtL(Math.abs(ev8-p8))+' net over 8 years. Increase monthly km or choose a smaller price-gap pair to change this.';;
+  document.getElementById('calc-tco-note').textContent=ev8w?'EV saves '+fmtL(Math.abs(ev8-p8))+' over '+st.years+' years ('+(SELL?'after resale':'battery replaced, net of scrap')+').':'Petrol costs '+fmtL(Math.abs(ev8-p8))+' less over '+st.years+' years. Drive more km or choose a smaller price-gap pair.';;
 
-  // ── INDIFFERENCE POINT: cumulative cost crossover using front-loaded depreciation ──
+  // ── TRUE BREAK-EVEN: cumulative cost crossover ──
   var evInsAnnual=ev.exS*0.022, pInsAnnual=petrol.exS*0.018;
-  function evCum(y){ var resid=evResidCurve[y]; return orEV*(1-resid)+evTot*12*y+evInsAnnual*y; }
-  function pCum(y){ var resid=iceResidCurve[y]; return orP*(1-resid)+pTot*12*y+pInsAnnual*y; }
+  // Petrol: always sold (resale-value approach + ICE maintenance)
+  function pCum(y){ var yr=Math.min(y,15); var mt=y>6?iceMaintCost[yr]:0; return orP*(1-iceResidCurve[yr])+pTot*12*y+pInsAnnual*y+mt; }
+  // EV: depends on mode
+  function evCum(y){
+    var yr=Math.min(y,15);
+    var kmT=st.km*y*12, kwYrs=KM_WARRANTY/(st.km*12), thr=Math.min(YR_WARRANTY,kwYrs), pw=y>thr;
+    if(SELL){ return orEV*(1-evResidCurve[yr])+evTot*12*y+evInsAnnual*y; }
+    else { var batt=pw?(ev.battRepl*(1-battScrapPct[yr])):0; return orEV+evTot*12*y+evInsAnnual*y+batt; }
+  }
   var indiffYear=-1, prevDiff=evCum(0)-pCum(0);
-  for(var y=1;y<=BASE_YRS;y++){
+  for(var y=1;y<=Math.min(st.years,15);y++){
     var d=evCum(y)-pCum(y);
     if(prevDiff>0 && d<=0){
       // crossover between y-1 and y; linear interpolate
@@ -1007,10 +1128,10 @@ function recalc(){
     imain.textContent='~'+indiffYear.toFixed(1)+' years';
     imain.style.color='var(--text)';
     ikm.textContent='≈ '+Math.round(indiffKm/1000)+',000 km of driving';
-    ipills.innerHTML='<span style="'+pillStyle+'background:#FEF0E6;color:#C04A10;">Sell before this → Petrol wins</span>'+'<span style="'+pillStyle+'background:#E8F5EF;color:#0E7A5A;">Sell after this → EV wins</span>';
-    inote.textContent='Before '+indiffYear.toFixed(1)+' years, the petrol car’s stronger resale value outweighs the EV’s fuel savings -- petrol costs less overall. After this point, the EV’s running-cost advantage has compounded enough to overtake. Every year beyond this the EV pulls further ahead.';
+    ipills.innerHTML='<span style="'+pillStyle+'background:#FEF0E6;color:#C04A10;">Before this → Petrol costs less</span>'+'<span style="'+pillStyle+'background:#E8F5EF;color:#0E7A5A;">After this → EV costs less</span>';
+    inote.textContent='Before '+indiffYear.toFixed(1)+' years, petrol costs less in total. After this the EV’s running-cost advantage has compounded past the capital and '+(SELL?'resale':'battery')+'  difference. Every additional year the EV pulls further ahead.';
   } else {
-    imain.textContent='Beyond 8 years';
+    imain.textContent='Beyond '+st.years+' years';
     imain.style.color='#A32D2D';
     ikm.textContent='≈ '+Math.round(8*st.km*12/1000)+',000+ km needed';
     ipills.innerHTML='<span style="'+pillStyle+'background:#FEF0E6;color:#C04A10;">Petrol wins within typical ownership</span>';
@@ -1022,12 +1143,13 @@ function recalc(){
   document.getElementById('calc-infra-note').textContent=city.note;
 
   let v='';
-  if(saving<=0){v='At '+st.km.toLocaleString('en-IN')+' km/month, the EV running cost actually exceeds petrol -- mainly due to the city electricity tariff or commercial charging reliance. Try home charging or increase your monthly driving.';}
-  else if(evCum(1)-pCum(1)<=0){v='Strong case. At '+st.km.toLocaleString('en-IN')+' km/month in '+city.name+', the EV is cheaper from year one on total cost. Fuel savings outweigh the higher price and weaker resale immediately. Provided home charging is available, this is a clear yes.';}
-  else if(indiffYear>0&&indiffYear<=3){v='Strong case. Total costs equalise at '+indiffYear.toFixed(1)+' years -- well within a typical ownership cycle. After that the EV saves \u20b9'+(pCPK-evCPK).toFixed(2)+' per km and the gap keeps widening. Sort home charging and buy.';}
-  else if(indiffYear>0&&indiffYear<=6){v='Reasonable case. Total costs equalise at '+indiffYear.toFixed(1)+' years. Makes financial sense if you plan to keep the car beyond that and home charging is confirmed. Monthly running saving of \u20b9'+saving.toLocaleString('en-IN')+' compounds well over time.';}
-  else if(indiffYear>0){v='Marginal case. You need '+indiffYear.toFixed(1)+' years of ownership for the EV to match petrol on total cost. Consider a car with a smaller price gap, drive more km, or target a city with a state subsidy.';}
-  else{v='Petrol wins within 8 years at this usage. The EV\u2019s fuel savings do not overcome its higher price and weaker resale at '+st.km.toLocaleString('en-IN')+' km/month. Drive more, choose a smaller price-gap pair, or wait for EV resale values to improve.';}
+  var modeLabel=SELL?'resale discount':'battery replacement cost';
+  if(saving<=0){v='At '+st.km.toLocaleString('en-IN')+' km/month, the EV running cost exceeds petrol here -- check electricity tariff or switch to home charging.';}
+  else if(evCum(1)-pCum(1)<=0){v='Strong case. At '+st.km.toLocaleString('en-IN')+' km/month in '+city.name+', the EV is cheaper from year one on total cost. Fuel savings outweigh higher price and '+modeLabel+' immediately. Home charging confirmed? This is a clear yes.';}
+  else if(indiffYear>0&&indiffYear<=3){v='Strong case. Total costs cross at '+indiffYear.toFixed(1)+' years, well within a typical cycle. After that the EV saves ₹'+(pCPK-evCPK).toFixed(2)+'/km and the margin widens. Sort home charging and proceed.';}
+  else if(indiffYear>0&&indiffYear<=6){v='Reasonable case. Costs equalise at '+indiffYear.toFixed(1)+' years. Sound if you plan to own beyond that and home charging is available. Monthly saving of ₹'+saving.toLocaleString('en-IN')+' compounds well.';}
+  else if(indiffYear>0){v='Marginal. You need '+indiffYear.toFixed(1)+' years for the EV to match petrol at this usage. Try a smaller price-gap pair, more monthly km, or a city with state subsidy.';}
+  else{v='Petrol is cheaper across your '+st.years+'-year window. Fuel savings do not overcome the EV cost and '+modeLabel+' at '+st.km.toLocaleString('en-IN')+' km/month. Drive more, pick a smaller price-gap pair, or extend the period.'}
   document.getElementById('calc-verdict-text').textContent=v;
 
   document.getElementById('calc-results').style.display='block';
