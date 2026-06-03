@@ -901,9 +901,39 @@ evSel.onchange=()=>{st.evId=evSel.value;recalc();};
 pSel.onchange=()=>{st.petrolId=pSel.value;recalc();};
 
 const kmSlider=document.getElementById('calc-km');
-kmSlider.oninput=()=>{st.km=parseInt(kmSlider.value);document.getElementById('calc-km-display').textContent=parseInt(kmSlider.value).toLocaleString('en-IN')+' km';recalc();};
+kmSlider.oninput=()=>{st.km=parseInt(kmSlider.value);document.getElementById('calc-km-display').textContent=parseInt(kmSlider.value).toLocaleString('en-IN')+' km';updateOwnershipUI();recalc();};
 document.getElementById('calc-home').onchange=e=>{st.home=e.target.checked;recalc();};
 document.getElementById('calc-comm').onchange=e=>{st.comm=e.target.checked;recalc();};
+function updateOwnershipUI(){
+  var kmYrs=KM_WARRANTY/(st.km*12);
+  var t=Math.min(YR_WARRANTY,kmYrs);
+  var postWar=st.years>t;
+  // Years + km labels
+  var ylbl=document.getElementById('calc-years-lbl');
+  var klbl=document.getElementById('calc-km-total-lbl');
+  if(ylbl) ylbl.textContent=st.years+' year'+(st.years>1?'s':'');
+  if(klbl) klbl.textContent=(st.km*st.years*12).toLocaleString('en-IN')+' km';
+  // Threshold tick marker position
+  var tick=document.getElementById('calc-threshold-tick');
+  if(tick){
+    tick.style.left=((t-1)/14*100).toFixed(1)+'%';
+    var tickLbl=document.getElementById('calc-threshold-tick-lbl');
+    if(tickLbl) tickLbl.textContent=(t===YR_WARRANTY?'8yr limit':Math.floor(t)+'yr (km)');
+  }
+  // Threshold status text
+  var ts=document.getElementById('calc-threshold-status');
+  if(ts){
+    if(postWar){ts.textContent='Past battery warranty — replacement zone';ts.style.color='#C04A10';}
+    else{ts.textContent='Within battery warranty';ts.style.color='#0E7A5A';}
+  }
+  // EV mode auto-switch note
+  var modeNote=document.getElementById('calc-ev-mode-note');
+  if(modeNote){
+    if(st.evMode==='sell'){modeNote.textContent='Resale-value approach';modeNote.style.color='var(--soft)';}
+    else if(postWar){modeNote.textContent='Post-warranty. Net replacement cost applied.';modeNote.style.color='#C04A10';}
+    else{modeNote.textContent='Within warranty. No replacement cost.';modeNote.style.color='#0E7A5A';}
+  }
+}
 window.onYearsSlider=function(v){
   var prev=st.years; st.years=parseInt(v);
   var kmYrs=KM_WARRANTY/(st.km*12),t=Math.min(YR_WARRANTY,kmYrs);
@@ -914,6 +944,7 @@ window.onYearsSlider=function(v){
     document.getElementById('ev-replace-btn').classList.toggle('active',st.evMode==='replace');
     document.getElementById('ev-replace-btn').classList.toggle('replace-mode',st.evMode==='replace');
   }
+  updateOwnershipUI();
   recalc();
 };
 window.setEvMode=function(m){
@@ -1154,6 +1185,7 @@ function recalc(){
 
   document.getElementById('calc-results').style.display='block';
 }
+updateOwnershipUI();
 recalc();
 })();}catch(e){console.warn("Calculator init error:",e);}
 </script>
