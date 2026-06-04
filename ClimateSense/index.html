@@ -124,14 +124,14 @@ nav{background:rgba(240,243,248,0.96);border-bottom:1px solid var(--border);padd
 
 /* ── FEATURED CARD ── */
 .featured-wrap{max-width:900px;margin:0 auto;padding:0 40px;margin-bottom:56px;}
-.card-featured{background:var(--card);border-radius:20px;border:1px solid var(--border);overflow:hidden;text-decoration:none;color:inherit;display:table;width:100%;transition:transform 0.2s,box-shadow 0.2s;}
+.card-featured{background:var(--card);border-radius:20px;border:1px solid var(--border);overflow:hidden;text-decoration:none;color:inherit;display:flex;width:100%;transition:transform 0.2s,box-shadow 0.2s;}
 .card-featured:hover{transform:translateY(-3px);box-shadow:0 14px 44px rgba(40,70,140,0.10);}
-.cf-visual{display:table-cell;width:36%;background:linear-gradient(135deg,var(--blue-bg) 0%,#D0DCEF 100%);padding:32px;vertical-align:bottom;position:relative;overflow:hidden;}
+.cf-visual{width:36%;background:linear-gradient(135deg,var(--blue-bg) 0%,#D0DCEF 100%);padding:32px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;flex-shrink:0;}
 .cf-visual-bg{position:absolute;right:-10px;bottom:-16px;font-family:'Fraunces',serif;font-size:100px;font-weight:900;color:rgba(42,82,176,0.10);line-height:1;pointer-events:none;user-select:none;}
 .cf-live-badge{display:inline-flex;align-items:center;gap:6px;background:var(--blue);color:#fff;font-size:11px;font-weight:600;letter-spacing:0.8px;padding:5px 12px;border-radius:20px;position:absolute;top:28px;left:28px;}
 .cf-live-dot{width:6px;height:6px;border-radius:50%;background:#8FB4FF;flex-shrink:0;}
 .cf-visual-word{font-family:'Fraunces',serif;font-size:38px;font-weight:900;color:var(--blue);line-height:1.1;position:relative;z-index:1;padding-top:64px;letter-spacing:-1px;opacity:0.85;}
-.cf-body{display:table-cell;width:64%;padding:28px 28px 28px 32px;vertical-align:top;background:var(--card);}
+.cf-body{flex:1;padding:28px 28px 28px 32px;vertical-align:top;background:var(--card);}
 .cf-tag-row{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;}
 .cf-tag{font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:4px 12px;border-radius:20px;}
 .cf-tag.blue{background:var(--blue-bg);color:var(--blue-text);}
@@ -144,12 +144,25 @@ nav{background:rgba(240,243,248,0.96);border-bottom:1px solid var(--border);padd
 .cf-read-btn{display:inline-block;background:var(--blue);color:#fff;padding:11px 22px;border-radius:20px;font-size:13px;font-weight:600;text-decoration:none;margin-top:18px;transition:opacity 0.2s;}
 .cf-read-btn:hover{opacity:0.85;}
 @media(max-width:640px){
-  .card-featured{display:block;}
-  .cf-visual{display:block;width:100%;padding:24px;min-height:150px;}
+  .card-featured{flex-direction:column;}
+  .cf-visual{width:100%;padding:24px;min-height:150px;flex-shrink:0;}
   .cf-live-badge{top:20px;left:20px;}
   .cf-visual-word{padding-top:48px;font-size:28px;}
-  .cf-body{display:block;width:100%;padding:24px;}
+  .cf-body{width:100%;padding:24px;}
 }
+
+/* ── CAROUSEL ── */
+.carousel-wrap{overflow:hidden;width:100%;border-radius:20px;}
+.carousel-track{display:flex;width:100%;transition:transform 0.44s cubic-bezier(0.4,0,0.2,1);}
+.carousel-slide{flex:0 0 100%;width:100%;min-width:0;display:flex;flex-direction:column;}
+.carousel-slide>a{flex:1;}
+.carousel-nav{display:flex;align-items:center;gap:10px;}
+.carousel-arrow{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--border);background:var(--card);color:var(--mid);font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.18s;font-family:inherit;flex-shrink:0;}
+.carousel-arrow:hover:not(:disabled){border-color:var(--blue);color:var(--blue);background:var(--blue-bg);}
+.carousel-arrow:disabled{opacity:0.28;cursor:default;}
+.carousel-dots{display:flex;gap:6px;align-items:center;}
+.cdot{width:6px;height:6px;border-radius:50%;background:var(--border);transition:background 0.2s,transform 0.2s;}
+.cdot.active{background:var(--blue);transform:scale(1.25);}
 
 /* ── ARTICLE CARDS GRID ── */
 .cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-bottom:56px;}
@@ -172,6 +185,8 @@ nav{background:rgba(240,243,248,0.96);border-bottom:1px solid var(--border);padd
 .ca-title{font-family:'Fraunces',serif;font-size:16px;font-weight:700;color:var(--text);line-height:1.35;letter-spacing:-0.2px;}
 .ca-excerpt{font-size:13px;color:var(--soft);line-height:1.6;font-weight:300;}
 .coming-pill{position:absolute;top:16px;right:16px;font-size:10px;font-weight:600;letter-spacing:0.8px;text-transform:uppercase;background:var(--base);color:var(--soft);border:1px solid var(--border);padding:3px 10px;border-radius:20px;}
+.ca-live-pill{position:absolute;top:16px;right:16px;display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:600;letter-spacing:0.8px;text-transform:uppercase;background:var(--blue);color:#fff;padding:3px 10px;border-radius:20px;}
+.ca-live-dot{width:5px;height:5px;border-radius:50%;background:#8FB4FF;flex-shrink:0;}
 
 /* ── TOPIC CHIPS ── */
 .topic-chips{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:56px;}
@@ -324,37 +339,83 @@ footer{background:var(--text);padding:40px;color:rgba(255,255,255,0.5);font-size
 <!-- DIVIDER -->
 <div class="divider"></div>
 
-<!-- ── FEATURED ARTICLE ── -->
+<!-- ── FEATURED ARTICLES CAROUSEL ── -->
 <div class="featured-wrap" id="articles">
-  <div class="section-label-sm">Featured &middot; Live now</div>
+  <div class="section-label-sm">Live Now &middot; 2 Articles</div>
   <div class="section-hdr">
     <div class="section-title">Start here</div>
+    <div class="carousel-nav">
+      <button class="carousel-arrow" id="prev-btn" onclick="moveCarousel(-1)" disabled aria-label="Previous article">&#8592;</button>
+      <div class="carousel-dots">
+        <span class="cdot active" id="dot-0"></span>
+        <span class="cdot" id="dot-1"></span>
+      </div>
+      <button class="carousel-arrow" id="next-btn" onclick="moveCarousel(1)" aria-label="Next article">&#8594;</button>
+    </div>
   </div>
 
-  <a href="articles/climatesense-scope3-article.html" class="card-featured">
-    <div class="cf-visual">
-      <div class="cf-live-badge"><span class="cf-live-dot"></span>Live &middot; Read Now</div>
-      <div class="cf-visual-word">Scope<br>3.</div>
-      <div class="cf-visual-bg">70%</div>
-    </div>
-    <div class="cf-body">
-      <div class="cf-tag-row">
-        <span class="cf-tag blue">Climate Science</span>
-        <span class="cf-tag red">Emissions</span>
-        <span class="cf-tag teal">Disclosure</span>
+  <div class="carousel-wrap">
+    <div class="carousel-track" id="carousel-track">
+
+      <!-- Slide 1: Climate Urgency -->
+      <div class="carousel-slide">
+        <a href="articles/climate-urgency.html" class="card-featured">
+          <div class="cf-visual" style="background:linear-gradient(135deg,#F5EBE6 0%,#E8D0C6 100%);">
+            <div class="cf-live-badge"><span class="cf-live-dot"></span>Live &middot; Read Now</div>
+            <div class="cf-visual-word" style="color:var(--red-mid);">Heat.<br>Rising.</div>
+            <div class="cf-visual-bg" style="color:rgba(185,58,58,0.08);">45°</div>
+          </div>
+          <div class="cf-body">
+            <div class="cf-tag-row">
+              <span class="cf-tag blue">Climate Science</span>
+              <span class="cf-tag red">Extreme Weather</span>
+              <span class="cf-tag teal">India Focus</span>
+            </div>
+            <div class="cf-title">The summers you remember are gone</div>
+            <div class="cf-excerpt">India's seasons are shifting measurably. Spring has compressed to under three weeks. May no longer has a morning. The data is clear, the science is settled, and the window to act is narrowing. An honest account of what is happening to our climate, why it is happening, and what can still be done.</div>
+            <div class="cf-meta">
+              <span>12 min read</span>
+              <span class="cf-meta-dot"></span>
+              <span>June 2026</span>
+              <span class="cf-meta-dot"></span>
+              <span>India + Global</span>
+            </div>
+            <span class="cf-read-btn">Read the Article &rarr;</span>
+          </div>
+        </a>
       </div>
-      <div class="cf-title">Scope 3 emissions — the 70% of a company's footprint nobody reports</div>
-      <div class="cf-excerpt">Every corporate sustainability report leads with Scope 1 and 2. Clean numbers, manageable targets, good optics. But for most companies, those two scopes account for less than 30% of their actual climate impact. The rest lives in the supply chain, in product use, in financed portfolios — and almost nobody is counting it honestly.</div>
-      <div class="cf-meta">
-        <span>12 min read</span>
-        <span class="cf-meta-dot"></span>
-        <span>June 2026</span>
-        <span class="cf-meta-dot"></span>
-        <span>India + Global</span>
+
+      <!-- Slide 2: Scope 3 -->
+      <div class="carousel-slide">
+        <a href="articles/climatesense-scope3-article.html" class="card-featured">
+          <div class="cf-visual">
+            <div class="cf-live-badge"><span class="cf-live-dot"></span>Live &middot; Read Now</div>
+            <div class="cf-visual-word">Scope<br>3.</div>
+            <div class="cf-visual-bg">70%</div>
+          </div>
+          <div class="cf-body">
+            <div class="cf-tag-row">
+              <span class="cf-tag blue">Climate Science</span>
+              <span class="cf-tag red">Emissions</span>
+              <span class="cf-tag teal">Disclosure</span>
+            </div>
+            <div class="cf-title">Scope 3 emissions — the 70% of a company's footprint nobody reports</div>
+            <div class="cf-excerpt">Every corporate sustainability report leads with Scope 1 and 2. Clean numbers, manageable targets, good optics. But for most companies, those two scopes account for less than 30% of their actual climate impact. The rest lives in the supply chain, in product use, in financed portfolios — and almost nobody is counting it honestly.</div>
+            <div class="cf-meta">
+              <span>11 min read</span>
+              <span class="cf-meta-dot"></span>
+              <span>June 2026</span>
+              <span class="cf-meta-dot"></span>
+              <span>India + Global</span>
+            </div>
+            <span class="cf-read-btn">Read the Article &rarr;</span>
+          </div>
+        </a>
       </div>
-      <span class="cf-read-btn">Read the Article &rarr;</span>
+
     </div>
-  </a>
+  </div>
+
 </div>
 
 <!-- ── MORE ARTICLES ── -->
@@ -487,6 +548,7 @@ footer{background:var(--text);padding:40px;color:rgba(255,255,255,0.5);font-size
       <div>
         <div class="footer-links-title">Articles</div>
         <div class="footer-links">
+          <a href="articles/climate-urgency.html">The Summers You Remember Are Gone</a>
           <a href="articles/climatesense-scope3-article.html">Scope 3 Emissions — The 70% Nobody Reports</a>
           <a href="#articles">Net Zero by 2050 (soon)</a>
           <a href="#articles">Physical Climate Risk in India (soon)</a>
@@ -519,5 +581,36 @@ footer{background:var(--text);padding:40px;color:rgba(255,255,255,0.5);font-size
   </div>
 </footer>
 
+<script>
+(function(){
+  var idx     = 0;
+  var total   = 2;
+  var track   = document.getElementById('carousel-track');
+  var prevBtn = document.getElementById('prev-btn');
+  var nextBtn = document.getElementById('next-btn');
+
+  function update(){
+    track.style.transform = 'translateX(-' + (idx * 100) + '%)';
+    prevBtn.disabled = idx === 0;
+    nextBtn.disabled = idx === total - 1;
+    for(var i = 0; i < total; i++){
+      var dot = document.getElementById('dot-' + i);
+      if(dot) dot.className = 'cdot' + (i === idx ? ' active' : '');
+    }
+  }
+
+  window.moveCarousel = function(dir){
+    idx = Math.max(0, Math.min(total - 1, idx + dir));
+    update();
+  };
+
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'ArrowLeft')  window.moveCarousel(-1);
+    if(e.key === 'ArrowRight') window.moveCarousel(1);
+  });
+
+  update();
+})();
+</script>
 </body>
 </html>
