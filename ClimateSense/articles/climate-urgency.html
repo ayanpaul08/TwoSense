@@ -70,7 +70,7 @@ nav{background:rgba(240,243,248,0.96);border-bottom:1px solid var(--border);padd
 /* ── NARRATIVE HOOK / LEDE ── */
 .lede{font-size:17px;color:var(--mid);line-height:1.8;font-weight:300;margin-bottom:24px;}
 .lede .drop-cap::first-letter{font-family:'Fraunces',serif;font-size:58px;font-weight:900;float:left;line-height:0.82;margin:6px 12px 0 0;color:var(--blue);}
-.lede-story{font-size:16px;color:var(--mid);line-height:1.8;font-weight:300;margin-bottom:20px;}
+.lede-story{font-size:17px;color:var(--mid);line-height:1.8;font-weight:300;margin-bottom:20px;}
 .pullquote{border-left:3px solid var(--red-mid);padding:4px 0 4px 22px;margin:28px 0;font-family:'Fraunces',serif;font-size:21px;font-weight:700;font-style:italic;color:var(--text);line-height:1.4;letter-spacing:-0.3px;}
 .hook-divider{display:flex;align-items:center;gap:14px;margin:36px 0;}
 .hook-divider::before,.hook-divider::after{content:"";flex:1;height:1px;background:var(--border);}
@@ -251,6 +251,32 @@ footer{background:var(--text);padding:40px;color:rgba(255,255,255,0.5);font-size
 .subscribe-sub{font-size:14px;color:var(--mid);margin-bottom:20px;line-height:1.6;}
 @media(max-width:640px){.article-bottom{padding:0 20px;}.subscribe-block{padding:24px 20px;}.share-buttons{gap:8px;}.share-btn{padding:9px 14px;font-size:12px;}}
 
+/* ── TIME STAMP ── */
+.time-stamp{font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:600;letter-spacing:3px;color:var(--blue);text-transform:uppercase;margin-bottom:12px;margin-top:36px;display:block;}
+
+/* ── DOOM SLIDER ── */
+.doom-wrap{background:var(--text);border-radius:22px;padding:44px 40px;margin:36px 0;position:relative;overflow:hidden;}
+.doom-kicker{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#E0B574;margin-bottom:10px;}
+.doom-heading{font-family:'Fraunces',serif;font-size:26px;font-weight:900;color:#fff;line-height:1.15;letter-spacing:-0.5px;margin-bottom:8px;}
+.doom-sub{font-size:14px;color:rgba(255,255,255,0.5);line-height:1.65;font-weight:300;max-width:580px;margin-bottom:32px;}
+.doom-temp-row{display:flex;justify-content:space-between;margin-bottom:8px;}
+.doom-temp-tick{font-family:'Fraunces',serif;font-size:13px;font-weight:700;color:rgba(255,255,255,0.28);transition:color 0.25s;user-select:none;}
+.doom-temp-tick.active-tick{color:#fff;}
+.doom-range{-webkit-appearance:none;appearance:none;width:100%;height:8px;border-radius:4px;background:linear-gradient(to right,#6DB56A,#F5C842,#E87A3A,#C94040,#7A1A0E);outline:none;cursor:pointer;display:block;margin-bottom:32px;}
+.doom-range::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:24px;height:24px;border-radius:50%;background:#fff;border:3px solid #0C1520;cursor:grab;box-shadow:0 2px 12px rgba(0,0,0,0.45);transition:transform 0.15s;}
+.doom-range::-webkit-slider-thumb:active{cursor:grabbing;transform:scale(1.2);}
+.doom-range::-moz-range-thumb{width:24px;height:24px;border-radius:50%;background:#fff;border:3px solid #0C1520;cursor:grab;}
+.doom-card{border-radius:16px;padding:28px;transition:background 0.35s,border-color 0.35s;}
+.doom-card-top{display:flex;align-items:center;gap:16px;margin-bottom:12px;}
+.doom-badge{font-family:'Fraunces',serif;font-size:13px;font-weight:900;padding:5px 16px;border-radius:20px;letter-spacing:0.5px;text-transform:uppercase;transition:background 0.3s,color 0.3s;}
+.doom-temp-display{font-family:'Fraunces',serif;font-size:40px;font-weight:900;line-height:1;transition:color 0.3s;}
+.doom-tagline{font-size:15px;font-weight:600;margin-bottom:20px;line-height:1.4;transition:color 0.3s;}
+.doom-effects-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.doom-effect-item{background:rgba(255,255,255,0.06);border-radius:10px;padding:14px 15px;font-size:13px;line-height:1.6;color:rgba(255,255,255,0.8);font-weight:300;}
+.doom-effect-label{display:block;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:5px;color:rgba(255,255,255,0.5);}
+.doom-data-note{font-size:11px;color:rgba(255,255,255,0.22);margin-top:22px;line-height:1.65;font-style:italic;}
+@media(max-width:580px){.doom-effects-grid{grid-template-columns:1fr;}.doom-wrap{padding:32px 22px;}}
+
 </style>
 </head>
 <body>
@@ -279,13 +305,138 @@ footer{background:var(--text);padding:40px;color:rgba(255,255,255,0.5);font-size
   <p class="article-subtitle">Something Has Changed. You Can Feel It.</p>
 
   <!-- NARRATIVE HOOK -->
-  <p class="lede"><span class="drop-cap">The</span> fan was already running at six in the morning. Window open, warm air moving through it, the kind that reaches you before you have fully woken. May in most of India no longer has a morning. It has a version of afternoon that simply begins earlier.</p>
+  <span class="time-stamp">June 5, 1996.</span>
+  <p class="lede"><span class="drop-cap">The</span> morning came at about 26 degrees. A ceiling fan was enough. The milkman arrived before anyone was properly awake, the pressure cooker whistled somewhere inside, and the day moved forward with a momentum that did not feel like a fight. By afternoon it was hot, the honest, declared Indian summer hot, the kind that earned a nimbu pani and a mandatory stillness in the shade. But by seven in the evening there was a breeze. Chairs were dragged to the terrace. Conversations happened. The heat had shape: it arrived, peaked, and left.</p>
 
-  <p class="lede-story">There is a memory, sharp for many Indians who grew up two or three decades ago, of a March afternoon with a breeze in it. A February morning that still required a blanket. An October that arrived like a release after the monsoon, carrying something unmistakably cool for weeks. These are accurate memories. That is what the seasons used to feel like. Spring and autumn have not vanished in a single dramatic moment. They have been compressed, year by year, into narrower windows between extremes that grow longer and reach further each decade.</p>
+  <span class="time-stamp">June 5, 2026.</span>
+  <p class="lede-story">Last night at 1 AM, the phone showed 30 degrees in New Town, Kolkata. Feels like 32. The AC was running. The fan was also running. The window was sealed shut. Somewhere outside, the city was being gently steamed at a temperature it was not built for. I now have a working theory about how momos feel.</p>
 
-  <p class="lede-story">Most of us have noticed. We have said some version of it every summer. We have adjusted the AC, added another room to the system, moved outdoor hours earlier and earlier. And then carried on. <strong>That is precisely the problem.</strong></p>
+  <p class="lede-story">Spring and autumn did not vanish overnight. They compressed, year by year, into thinner slivers between extremes that keep extending in both directions. February ends into heat. October barely recovers before the cycle starts again. The seasons that gave Indian summers their edges — arrival, peak, relief, recovery — have been replaced by one long, reluctant sweat with brief interruptions.</p>
 
-  <p class="pullquote">Lowering the thermostat is not a climate solution. Every AC running at full capacity on a 45-degree afternoon burns energy that compounds the very process generating the heat outside.</p>
+  <p class="pullquote">The AC running on a 30-degree midnight is burning the energy that makes the next midnight warmer. Adapting to climate change is not the same as solving it.</p>
+
+  <!-- DOOM SLIDER -->
+  <div class="doom-wrap">
+    <div class="doom-kicker">Know Your Future</div>
+    <div class="doom-heading">The Doomsday Slider</div>
+    <div class="doom-sub">Drag the slider across global warming levels. Every outcome shown is drawn from peer-reviewed research — IPCC AR6, WMO, NASA, and Nature Climate Change. Not speculation. Published consensus.</div>
+
+    <div class="doom-temp-row" id="doom-ticks">
+      <span class="doom-temp-tick active-tick">+1.2°C</span>
+      <span class="doom-temp-tick">+1.5°C</span>
+      <span class="doom-temp-tick">+2.0°C</span>
+      <span class="doom-temp-tick">+2.5°C</span>
+      <span class="doom-temp-tick">+3.0°C</span>
+    </div>
+    <input type="range" class="doom-range" id="doom-range" min="0" max="4" step="1" value="0"/>
+
+    <div class="doom-card" id="doom-card">
+      <div class="doom-card-top">
+        <span class="doom-badge" id="doom-badge">Rare</span>
+        <span class="doom-temp-display" id="doom-temp-display">+1.2°C</span>
+      </div>
+      <div class="doom-tagline" id="doom-tagline"></div>
+      <div class="doom-effects-grid" id="doom-effects-grid"></div>
+      <div class="doom-data-note">Sources: IPCC AR6 (2021&ndash;2023) &middot; WMO State of the Global Climate 2023 &middot; NASA GISS &middot; Nature Climate Change &middot; World Bank Climate Portal. Effects shown are mid-range projections. Actual impacts depend on regional conditions, adaptation measures, and emissions trajectories.</div>
+    </div>
+  </div>
+
+  <script>
+  (function(){
+    var data = [
+      {
+        temp:"+1.2°C", badge:"Rare",
+        tagline:"The kitchen is warm. This is not the future. This is now.",
+        bg:"rgba(109,181,106,0.13)", border:"1px solid rgba(109,181,106,0.28)",
+        badgeBg:"#1A4518", badgeColor:"#8FD98C", tempColor:"#6DB56A",
+        effects:[
+          {label:"Heat Events",    text:"Extreme heat events are now twice as frequent as in 1950. 14% of the world population is exposed to dangerous heat once every five years."},
+          {label:"Indian Seasons", text:"Spring has compressed to under three weeks in most of India. Night-time temperatures in major cities no longer dip to what they did a generation ago."},
+          {label:"Arctic Ice",     text:"Summer sea ice extent is at its lowest since satellite records began. The Arctic is warming four times faster than the global average."},
+          {label:"Coral Reefs",   text:"Mass bleaching events have tripled in frequency since the 1980s. Major reef systems are struggling to recover between consecutive events."}
+        ]
+      },
+      {
+        temp:"+1.5°C", badge:"Medium Rare",
+        tagline:"The Paris Agreement's aspirational limit. We are almost here.",
+        bg:"rgba(245,200,66,0.10)", border:"1px solid rgba(245,200,66,0.22)",
+        badgeBg:"#3D2D00", badgeColor:"#F5C842", tempColor:"#F5C842",
+        effects:[
+          {label:"Heat Exposure",       text:"100M+ people face severe heat exposure annually. Heat waves become twice as frequent and roughly 1°C hotter than current levels."},
+          {label:"Himalayan Glaciers",  text:"India's glacier mass projected to decline by 36%. Seasonal river flow from the Ganga, Yamuna, and Brahmaputra faces critical stress windows."},
+          {label:"Coral Reefs",         text:"70–90% decline in warm-water coral reef coverage. These ecosystems support approximately 25% of all marine species."},
+          {label:"Sea Level",           text:"~26cm rise above 2000 levels by 2100. Annual coastal flooding affects 10M+ additional people. Mumbai and Chennai face repeated inundation."}
+        ]
+      },
+      {
+        temp:"+2.0°C", badge:"Medium",
+        tagline:"The Paris hard ceiling. This is where scientists start using the word 'catastrophic'.",
+        bg:"rgba(232,122,58,0.12)", border:"1px solid rgba(232,122,58,0.28)",
+        badgeBg:"#3D1200", badgeColor:"#E87A3A", tempColor:"#E87A3A",
+        effects:[
+          {label:"Heat Frequency",  text:"Extreme heat events become 5× more frequent. 37% of the global population faces severe heat exposure every five years — up from 14% today."},
+          {label:"Arctic",          text:"Ice-free Arctic summers occur once per decade. This accelerates permafrost thaw and releases stored methane across Siberia and Canada."},
+          {label:"India's Monsoon", text:"Monsoon becomes dangerously erratic — intensifying both floods and dry spells within the same season. Agricultural calendars are effectively broken."},
+          {label:"Economy",         text:"520M additional people pushed into severe water stress. GDP loss projections reach 13% of global output by 2100. Insurance markets begin systemic retreat."}
+        ]
+      },
+      {
+        temp:"+2.5°C", badge:"Medium Well",
+        tagline:"Damage becomes generational. No 30-year plan survives this intact.",
+        bg:"rgba(201,64,64,0.13)", border:"1px solid rgba(201,64,64,0.28)",
+        badgeBg:"#3A0808", badgeColor:"#C94040", tempColor:"#C94040",
+        effects:[
+          {label:"Displacement",        text:"1 billion people face climate-driven displacement by 2100, driven by the combined pressure of heat, drought, and sea-level rise."},
+          {label:"Amazon Tipping Point",text:"The Amazon rainforest approaches its transition to savanna — a shift that would release decades of stored carbon and lock in further warming."},
+          {label:"India's Agriculture", text:"India could lose up to 30% of current agricultural productivity. The wheat belt faces heat stress during grain-fill that exceeds viable cultivation thresholds."},
+          {label:"India's Coasts",      text:"Mumbai, Chennai, and Kolkata face chronic annual inundation. Infrastructure built for 1-in-100-year flood events begins failing every 5 years."}
+        ]
+      },
+      {
+        temp:"+3.0°C", badge:"You're Cooked",
+        tagline:"In some current models, this is already our trajectory. No, seriously. Please stop.",
+        bg:"rgba(122,26,14,0.28)", border:"1px solid rgba(122,26,14,0.55)",
+        badgeBg:"#520808", badgeColor:"#FF9999", tempColor:"#FF6B6B",
+        effects:[
+          {label:"Deadly Heat",     text:"3.5 billion people exposed to dangerous heat at least 20 days per year. Parts of South Asia and the Middle East breach the wet-bulb survivability threshold for humans outdoors."},
+          {label:"Coastal Cities",  text:"Most low-lying coastal cities require managed retreat or face permanent inundation. No combination of engineering solutions exists at the required scale."},
+          {label:"Food Systems",    text:"Global food supply disrupted for 800M+ people. Marine food chains destabilised. Most coral ecosystems are functionally extinct. Agricultural zones shift poleward."},
+          {label:"Feedback Loops",  text:"Permafrost methane release becomes self-sustaining. The planet's major carbon sinks — forests and oceans — turn into net carbon sources. This cannot be reversed."}
+        ]
+      }
+    ];
+
+    var range    = document.getElementById('doom-range');
+    var card     = document.getElementById('doom-card');
+    var badge    = document.getElementById('doom-badge');
+    var tempDisp = document.getElementById('doom-temp-display');
+    var tagline  = document.getElementById('doom-tagline');
+    var grid     = document.getElementById('doom-effects-grid');
+    var ticks    = document.getElementById('doom-ticks').children;
+
+    function render(i){
+      var d = data[i];
+      card.style.background   = d.bg;
+      card.style.border       = d.border;
+      badge.textContent       = d.badge;
+      badge.style.background  = d.badgeBg;
+      badge.style.color       = d.badgeColor;
+      tempDisp.textContent    = d.temp;
+      tempDisp.style.color    = d.tempColor;
+      tagline.textContent     = d.tagline;
+      tagline.style.color     = d.tempColor;
+      grid.innerHTML = d.effects.map(function(e){
+        return '<div class="doom-effect-item"><span class="doom-effect-label">'+e.label+'</span>'+e.text+'</div>';
+      }).join('');
+      for(var k=0;k<ticks.length;k++){
+        ticks[k].className = 'doom-temp-tick'+(k===i?' active-tick':'');
+      }
+    }
+
+    range.addEventListener('input', function(){ render(parseInt(this.value)); });
+    render(0);
+  })();
+  </script>
 
   <div class="hook-divider"><span>The Record</span></div>
 
@@ -457,9 +608,23 @@ footer{background:var(--text);padding:40px;color:rgba(255,255,255,0.5);font-size
   <!-- SECTION 02 -->
   <div class="section-label">Section 02</div>
   <h2 class="section-heading">The physics behind the heat</h2>
-  <p class="section-sub">The science is not complicated. It is uncomfortable, which is different. Sunlight warms Earth's surface. That warmth radiates back upward as infrared energy. Certain gases in the atmosphere absorb that outgoing energy and re-emit it in all directions, including back toward Earth. More of these gases means more energy retained. The planet warms.</p>
+  <div class="infographic-block">
+    <div class="ig-header">
+      <span class="ig-num">How It Works</span>
+      <div>
+        <div class="ig-title">The Greenhouse Effect: A Step-by-Step Mechanism</div>
+        <div class="ig-sub">Not a theory. Basic physics, confirmed in every measurable detail since the 1850s. The same mechanism that bakes a car in a summer parking lot &mdash; operating at planetary scale.</div>
+      </div>
+    </div>
+    <div class="ig-body" style="padding:0;">
+      <img src="../assets/greenhouse-effect.png"
+           alt="The Greenhouse Effect — 6-step diagram showing how solar radiation enters the atmosphere, is partially reflected, absorbed by the Earth, re-emitted as infrared heat, and then trapped by greenhouse gases."
+           style="display:block;width:100%;height:auto;border-radius:0 0 4px 4px;"/>
+    </div>
+    <div class="ig-source">Mechanism based on established atmospheric physics, first calculated correctly by Eunice Newton Foote (1856). Sources: IPCC AR6 WG1 Chapter 7; NOAA Earth System Research Laboratory.</div>
+  </div>
 
-  <p class="body-text">This is not a model or a projection. It is basic physics, worked out correctly in the 1850s and confirmed in every measurable detail since. The greenhouse effect is the same mechanism that bakes a car in a summer parking lot. The atmosphere is the glass. Three gases drive the majority of the warming.</p>
+  <p class="body-text">Three gases drive the majority of this warming.</p>
 
   <div class="scope-row">
     <div class="scope-card s1">
