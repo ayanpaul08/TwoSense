@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="India's summers are longer, springs are vanishing, and monsoons are erratic. The data is clear, the science is settled. An honest account of what is happening to our climate, why, and what can still be done."/>
+<title>The Summers You Remember Are Gone | ClimateSense</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;0,900;1,700;1,900&family=Epilogue:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+
+:root{
+  --base:#F0F3F8;
+  --card:#ffffff;
+  --border:rgba(40,70,140,0.12);
+  --blue:#2A52B0;
+  --blue-mid:#3B6FD4;
+  --blue-bg:#E8EEF8;
+  --blue-text:#0E2260;
+  --red:#B83A3A;
+  --red-mid:#C94040;
+  --red-bg:#F5E6E6;
+  --red-text:#6B1414;
+  --amber:#9E6A10;
+  --amber-bg:#F5EDD8;
+  --amber-text:#5A3A06;
+  --teal:#1A6B64;
+  --teal-bg:#DFF0EC;
+  --teal-text:#0C3D38;
+  --slate:#3B4D6B;
+  --slate-bg:#E8ECF2;
+  --slate-text:#1C2A42;
+  --text:#0C1520;
+  --mid:#2B3A52;
+  --soft:#7A8BA8;
+  --r:14px;
+  --rs:8px;
+}
+
+body{background:var(--base);font-family:'Epilogue',sans-serif;color:var(--text);line-height:1.6;}
+
+/* ── NAV ── */
+nav{background:rgba(240,243,248,0.96);border-bottom:1px solid var(--border);padding:16px 40px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;backdrop-filter:blur(8px);}
+.logo{font-family:'Epilogue',sans-serif;font-size:20px;font-weight:800;color:var(--text);text-decoration:none;display:flex;align-items:baseline;gap:0;letter-spacing:-0.5px;}
+.logo-deg-c{display:inline-flex;align-items:baseline;gap:0;margin-right:5px;}
+.logo-deg{font-size:16px;font-weight:800;color:var(--blue);line-height:1;}
+.logo-c{font-size:16px;font-weight:800;color:var(--red-mid);line-height:1;}
+.logo-name{font-size:19px;font-weight:700;color:var(--text);letter-spacing:-0.3px;}
+.nav-back{font-size:13px;color:var(--soft);text-decoration:none;display:flex;align-items:center;gap:6px;transition:color 0.15s;}
+.nav-back:hover{color:var(--blue);}
+
+/* ── PAGE ── */
+.page{max-width:820px;margin:0 auto;padding:48px 24px 80px;}
+
+/* ── ARTICLE HEADER ── */
+.article-meta{display:flex;align-items:center;gap:10px;margin-bottom:20px;flex-wrap:wrap;}
+.meta-tag{font-size:11px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;padding:4px 12px;border-radius:20px;}
+.meta-tag.blue{background:var(--blue-bg);color:var(--blue);border:1px solid rgba(40,70,140,0.18);}
+.meta-tag.red{background:var(--red-bg);color:var(--red);border:1px solid rgba(185,58,58,0.18);}
+.meta-tag.teal{background:var(--teal-bg);color:var(--teal);border:1px solid rgba(26,107,100,0.18);}
+.meta-date{font-size:12px;color:var(--soft);}
+.meta-dot{width:3px;height:3px;border-radius:50%;background:var(--soft);display:inline-block;}
+
+.article-title{font-family:'Fraunces',serif;font-size:clamp(28px,5vw,46px);font-weight:900;color:var(--text);line-height:1.12;letter-spacing:-1px;margin-bottom:14px;}
+.article-title em{font-style:italic;color:var(--blue);}
+.title-red{color:var(--red-mid) !important;}
+.article-subtitle{font-family:'Fraunces',serif;font-size:clamp(16px,2.5vw,20px);font-weight:700;font-style:italic;color:var(--soft);margin-bottom:28px;letter-spacing:-0.2px;}
+
+/* ── NARRATIVE HOOK / LEDE ── */
+.lede{font-size:17px;color:var(--mid);line-height:1.8;font-weight:300;margin-bottom:24px;}
+.lede .drop-cap::first-letter{font-family:'Fraunces',serif;font-size:58px;font-weight:900;float:left;line-height:0.82;margin:6px 12px 0 0;color:var(--blue);}
+.lede-story{font-size:16px;color:var(--mid);line-height:1.8;font-weight:300;margin-bottom:20px;}
+.pullquote{border-left:3px solid var(--red-mid);padding:4px 0 4px 22px;margin:28px 0;font-family:'Fraunces',serif;font-size:21px;font-weight:700;font-style:italic;color:var(--text);line-height:1.4;letter-spacing:-0.3px;}
+.hook-divider{display:flex;align-items:center;gap:14px;margin:36px 0;}
+.hook-divider::before,.hook-divider::after{content:"";flex:1;height:1px;background:var(--border);}
+.hook-divider span{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--soft);text-transform:uppercase;}
+
+/* ── SECTIONS ── */
+.section-label{font-size:11px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:var(--soft);margin-bottom:8px;font-family:'JetBrains Mono',monospace;}
+.section-heading{font-family:'Fraunces',serif;font-size:24px;font-weight:700;color:var(--text);margin-bottom:8px;letter-spacing:-0.3px;}
+.section-sub{font-size:15px;color:var(--mid);line-height:1.7;margin-bottom:20px;font-weight:300;}
+.body-text{font-size:15px;color:var(--mid);line-height:1.75;font-weight:300;margin-bottom:20px;}
+.body-text strong{color:var(--text);font-weight:600;}
+.divider{height:1px;background:var(--border);margin:40px 0;}
+
+/* ── INLINE STAT CALLOUT ── */
+.stat-callout{display:flex;align-items:center;gap:20px;background:var(--card);border:1px solid var(--border);border-left:4px solid var(--red-mid);border-radius:var(--r);padding:18px 24px;margin:24px 0;}
+.stat-callout-num{font-family:'Fraunces',serif;font-size:42px;font-weight:900;color:var(--red-mid);line-height:1;flex-shrink:0;}
+.stat-callout-num.blue{color:var(--blue);}
+.stat-callout-num.teal{color:var(--teal);}
+.stat-callout-num.amber{color:var(--amber);}
+.stat-callout-text{font-size:14px;color:var(--mid);line-height:1.6;font-weight:300;}
+.stat-callout.blue{border-left-color:var(--blue);}
+.stat-callout.teal{border-left-color:var(--teal);}
+.stat-callout.amber{border-left-color:var(--amber);}
+
+/* ── ALERT BOX ── */
+.alert-box{border-radius:var(--r);padding:18px 22px;margin-bottom:24px;}
+.alert-box.amber{background:var(--amber-bg);border:1.5px solid rgba(158,106,16,0.35);}
+.alert-box.blue{background:var(--blue-bg);border:1.5px solid rgba(40,70,140,0.2);}
+.alert-box.red{background:var(--red-bg);border:1.5px solid rgba(185,58,58,0.2);}
+.alert-title{font-size:15px;font-weight:700;margin-bottom:8px;}
+.alert-title.amber{color:var(--amber-text);}
+.alert-title.blue{color:var(--blue-text);}
+.alert-title.red{color:var(--red-text);}
+.alert-body{font-size:14px;line-height:1.7;font-weight:300;}
+.alert-body.amber{color:var(--amber-text);}
+.alert-body.blue{color:var(--blue-text);}
+.alert-body.red{color:var(--red-text);}
+.alert-body ul{padding-left:18px;margin-top:6px;}
+.alert-body ul li{margin-bottom:6px;}
+
+/* ── KEY NUMBER STRIP ── */
+.kn-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:32px;}
+.kn-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:20px 16px;text-align:center;}
+.kn-num{font-family:'Fraunces',serif;font-size:32px;font-weight:900;line-height:1;margin-bottom:4px;}
+.kn-num.blue{color:var(--blue);}
+.kn-num.red{color:var(--red-mid);}
+.kn-num.amber{color:var(--amber);}
+.kn-num.teal{color:var(--teal);}
+.kn-label{font-size:12px;color:var(--soft);line-height:1.4;}
+
+/* ── GHG CARDS (reusing scope-row pattern) ── */
+.scope-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px;}
+.scope-card{background:var(--card);border:0.5px solid var(--border);border-radius:var(--r);padding:20px;}
+.scope-card.s1{border-top:3px solid var(--teal);}
+.scope-card.s2{border-top:3px solid var(--blue);}
+.scope-card.s3{border-top:3px solid var(--red-mid);}
+.scope-badge{display:inline-block;font-size:11px;font-weight:700;padding:3px 11px;border-radius:20px;margin-bottom:10px;font-family:'JetBrains Mono',monospace;letter-spacing:0.5px;}
+.scope-badge.s1{background:var(--teal-bg);color:var(--teal-text);}
+.scope-badge.s2{background:var(--blue-bg);color:var(--blue-text);}
+.scope-badge.s3{background:var(--red-bg);color:var(--red-text);}
+.scope-name{font-size:15px;font-weight:700;color:var(--text);margin-bottom:6px;}
+.scope-desc{font-size:13px;color:var(--soft);line-height:1.6;font-weight:300;margin-bottom:10px;}
+.scope-example{font-size:12px;color:var(--mid);line-height:1.55;font-style:italic;}
+.scope-pct{font-family:'Fraunces',serif;font-size:26px;font-weight:900;margin-top:12px;}
+.scope-pct.teal{color:var(--teal);}
+.scope-pct.blue{color:var(--blue);}
+.scope-pct.red{color:var(--red-mid);}
+.scope-pct-label{font-size:11px;color:var(--soft);}
+@media(max-width:580px){.scope-row{grid-template-columns:1fr;}}
+
+/* ── COMPACT SECTOR BARS ── */
+.sector-bars{display:flex;flex-direction:column;gap:14px;margin-bottom:24px;}
+.sector-bar-row{display:grid;grid-template-columns:160px 1fr 72px;align-items:center;gap:14px;}
+.sbr-label{font-size:14px;font-weight:600;color:var(--text);text-align:right;}
+.sbr-track{height:26px;background:var(--slate-bg);border-radius:6px;overflow:hidden;position:relative;display:flex;}
+.sbr-fill-blue{height:100%;background:var(--blue-mid);}
+.sbr-fill-red{height:100%;background:var(--red-mid);}
+.sbr-fill-teal{height:100%;background:var(--teal);}
+.sbr-fill-amber{height:100%;background:var(--amber);}
+.sbr-pct{font-family:'Fraunces',serif;font-size:18px;font-weight:900;color:var(--mid);text-align:left;}
+.sbr-legend{display:flex;gap:18px;margin-bottom:20px;font-size:12px;color:var(--soft);align-items:center;flex-wrap:wrap;}
+.sbr-legend-item{display:flex;align-items:center;gap:6px;}
+.sbr-swatch{width:14px;height:14px;border-radius:3px;}
+@media(max-width:560px){.sector-bar-row{grid-template-columns:100px 1fr 52px;gap:8px;}.sbr-label{font-size:12px;}}
+
+/* ── INDIA BAND ── */
+.india-band{background:linear-gradient(135deg,#0E1E38 0%,#1A2C4E 100%);border-radius:20px;padding:40px;margin-bottom:40px;position:relative;overflow:hidden;}
+.india-band::after{content:"IND";position:absolute;right:32px;bottom:16px;font-family:'Fraunces',serif;font-size:80px;font-weight:900;color:rgba(255,255,255,0.04);pointer-events:none;letter-spacing:-2px;}
+.india-label{font-size:11px;font-weight:600;letter-spacing:1.4px;text-transform:uppercase;color:#8FAFF8;margin-bottom:12px;font-family:'JetBrains Mono',monospace;}
+.india-heading{font-family:'Fraunces',serif;font-size:26px;font-weight:900;color:#fff;line-height:1.2;margin-bottom:12px;letter-spacing:-0.4px;max-width:520px;}
+.india-text{font-size:15px;color:rgba(255,255,255,0.6);line-height:1.7;font-weight:300;max-width:560px;margin-bottom:24px;}
+.india-stats{display:flex;gap:36px;flex-wrap:wrap;}
+.india-stat-num{font-family:'Fraunces',serif;font-size:30px;font-weight:900;color:#8FAFF8;display:block;line-height:1;margin-bottom:4px;}
+.india-stat-label{font-size:12px;color:rgba(255,255,255,0.4);max-width:150px;}
+
+/* ── GUIDE WRAP ── */
+.guide-wrap{background:var(--text);border-radius:22px;padding:44px 40px;margin:8px 0 36px;position:relative;overflow:hidden;}
+.guide-kicker{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#8FAFF8;margin-bottom:10px;}
+.guide-heading{font-family:'Fraunces',serif;font-size:30px;font-weight:900;color:#fff;line-height:1.15;letter-spacing:-0.6px;margin-bottom:12px;}
+.guide-intro{font-size:15px;color:rgba(255,255,255,0.6);line-height:1.7;font-weight:300;max-width:600px;margin-bottom:36px;}
+.guide-steps{display:flex;flex-direction:column;gap:14px;}
+.guide-step{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:var(--r);padding:24px 26px;display:flex;gap:22px;align-items:flex-start;transition:background 0.2s,border-color 0.2s;}
+.guide-step:hover{background:rgba(255,255,255,0.07);border-color:rgba(143,175,248,0.3);}
+.gs-num{font-family:'Fraunces',serif;font-size:34px;font-weight:900;line-height:0.9;flex-shrink:0;width:54px;}
+.gs-num.c1{color:#8FAFF8;}
+.gs-num.c2{color:#E08A8A;}
+.gs-num.c3{color:#6FC9BE;}
+.gs-num.c4{color:#E0B574;}
+.gs-body{flex:1;}
+.gs-domain{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:7px;}
+.gs-domain.c1{color:#8FAFF8;}
+.gs-domain.c2{color:#E08A8A;}
+.gs-domain.c3{color:#6FC9BE;}
+.gs-domain.c4{color:#E0B574;}
+.gs-title{font-family:'Fraunces',serif;font-size:18px;font-weight:700;color:#fff;margin-bottom:10px;letter-spacing:-0.2px;}
+.gs-text{font-size:14px;color:rgba(255,255,255,0.62);line-height:1.7;font-weight:300;margin-bottom:14px;}
+.gs-action{display:flex;gap:10px;align-items:flex-start;background:rgba(143,175,248,0.08);border-radius:var(--rs);padding:12px 14px;}
+.gs-action-label{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500;letter-spacing:0.8px;color:#8FAFF8;text-transform:uppercase;flex-shrink:0;padding-top:2px;}
+.gs-action-text{font-size:13px;color:rgba(255,255,255,0.8);line-height:1.6;}
+@media(max-width:560px){.guide-wrap{padding:32px 22px;}.guide-step{flex-direction:column;gap:10px;}.gs-num{font-size:28px;width:auto;}}
+
+/* ── INFOGRAPHIC BLOCK ── */
+.infographic-block{background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin:28px 0;}
+.infographic-block.wide{margin-left:-20px;margin-right:-20px;}
+.ig-header{padding:18px 24px 14px;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;gap:16px;}
+.ig-num{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);background:var(--blue-bg);padding:3px 9px;border-radius:20px;flex-shrink:0;margin-top:2px;}
+.ig-title{font-size:14px;font-weight:700;color:var(--text);line-height:1.3;margin-bottom:3px;}
+.ig-sub{font-size:12px;color:var(--soft);line-height:1.45;font-weight:300;}
+.ig-body{padding:6px 0 0;}
+.ig-body svg{display:block;width:100%;height:auto;}
+.ig-source{font-size:11px;color:var(--soft);padding:8px 24px 14px;border-top:1px solid var(--border);font-weight:300;line-height:1.5;}
+
+/* ── SOURCES ── */
+.sources-box{background:var(--base);border:1px solid var(--border);border-radius:var(--r);padding:20px 24px;margin-bottom:32px;}
+.sources-title{font-size:11px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:var(--soft);margin-bottom:12px;font-family:'JetBrains Mono',monospace;}
+.sources-list{display:flex;flex-direction:column;gap:8px;}
+.source-item{font-size:13px;color:var(--soft);line-height:1.55;}
+.source-item a{color:var(--blue);text-decoration:none;}
+.source-item a:hover{text-decoration:underline;}
+
+/* ── FOOTER ── */
+footer{background:var(--text);padding:40px;color:rgba(255,255,255,0.5);font-size:13px;}
+.footer-inner{max-width:820px;margin:0 auto;}
+.footer-top{display:flex;align-items:flex-start;justify-content:space-between;gap:32px;margin-bottom:32px;flex-wrap:wrap;}
+.footer-logo{display:flex;align-items:baseline;gap:0;margin-bottom:8px;}
+.fl-deg{font-size:15px;font-weight:800;color:var(--blue-mid);}
+.fl-c{font-size:15px;font-weight:800;color:var(--red-mid);}
+.fl-name{font-size:18px;font-weight:700;color:#fff;margin-left:5px;letter-spacing:-0.3px;}
+.footer-tagline{font-size:13px;color:rgba(255,255,255,0.35);line-height:1.6;max-width:220px;}
+.footer-links-title{font-size:11px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:rgba(255,255,255,0.28);margin-bottom:12px;}
+.footer-links{display:flex;flex-direction:column;gap:8px;}
+.footer-links a{font-size:13px;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.15s;}
+.footer-links a:hover{color:#8FAFF8;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.footer-copy{font-size:12px;color:rgba(255,255,255,0.26);}
+.footer-disclaimer{font-size:11px;color:rgba(255,255,255,0.2);max-width:440px;line-height:1.55;}
+@media(max-width:640px){footer{padding:32px 20px;}.footer-top{gap:24px;}.footer-bottom{flex-direction:column;align-items:flex-start;}}
+
+/* ── SHARE + SUBSCRIBE BLOCK ── */
+.article-bottom{max-width:780px;margin:0 auto;padding:0 40px;}
+.share-block{border-top:1px solid var(--border);padding:36px 0 0;margin-bottom:0;}
+.share-label{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--soft);margin-bottom:16px;}
+.share-buttons{display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+.share-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:20px;font-size:13px;font-weight:600;text-decoration:none;border:1.5px solid;cursor:pointer;transition:all 0.18s;background:transparent;font-family:inherit;}
+.share-btn svg{width:15px;height:15px;flex-shrink:0;}
+.share-btn.x-btn{border-color:rgba(0,0,0,0.18);color:var(--text);}
+.share-btn.x-btn:hover{background:#000;color:#fff;border-color:#000;}
+.share-btn.linkedin-btn{border-color:rgba(0,119,181,0.25);color:#0077B5;}
+.share-btn.linkedin-btn:hover{background:#0077B5;color:#fff;border-color:#0077B5;}
+.share-btn.whatsapp-btn{border-color:rgba(37,211,102,0.3);color:#128C7E;}
+.share-btn.whatsapp-btn:hover{background:#25D366;color:#fff;border-color:#25D366;}
+.share-btn.copy-btn{border-color:var(--border);color:var(--mid);}
+.share-btn.copy-btn:hover{background:var(--blue);color:#fff;border-color:var(--blue);}
+.share-btn.copy-btn.copied{background:#10b981;color:#fff;border-color:#10b981;}
+.subscribe-block{background:var(--card);border:1px solid var(--border);border-top:3px solid var(--blue);border-radius:16px;padding:36px 40px;margin:36px 0 60px;}
+.subscribe-label{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--soft);margin-bottom:10px;}
+.subscribe-heading{font-family:"Fraunces",serif;font-size:22px;font-weight:700;color:var(--text);letter-spacing:-0.3px;margin-bottom:6px;line-height:1.2;}
+.subscribe-sub{font-size:14px;color:var(--mid);margin-bottom:20px;line-height:1.6;}
+@media(max-width:640px){.article-bottom{padding:0 20px;}.subscribe-block{padding:24px 20px;}.share-buttons{gap:8px;}.share-btn{padding:9px 14px;font-size:12px;}}
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="../index.html" class="logo">
+    <span class="logo-deg-c"><span class="logo-deg">&deg;</span><span class="logo-c">C</span></span>
+    <span class="logo-name">ClimateSense</span>
+  </a>
+  <a href="../index.html" class="nav-back">&larr; Back to all articles</a>
+</nav>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="article-meta">
+    <span class="meta-tag blue">Climate Science</span>
+    <span class="meta-tag red">Extreme Weather</span>
+    <span class="meta-tag teal">India Focus</span>
+    <span class="meta-dot"></span>
+    <span class="meta-date">June 2026 &middot; 12 min read</span>
+  </div>
+
+  <h1 class="article-title">The <em>Summers</em> You Remember Are Gone</h1>
+  <p class="article-subtitle">Something Has Changed. You Can Feel It.</p>
+
+  <!-- NARRATIVE HOOK -->
+  <p class="lede"><span class="drop-cap">The</span> fan was already running at six in the morning. Window open, warm air moving through it, the kind that reaches you before you have fully woken. May in most of India no longer has a morning. It has a version of afternoon that simply begins earlier.</p>
+
+  <p class="lede-story">There is a memory, sharp for many Indians who grew up two or three decades ago, of a March afternoon with a breeze in it. A February morning that still required a blanket. An October that arrived like a release after the monsoon, carrying something unmistakably cool for weeks. These are accurate memories. That is what the seasons used to feel like. Spring and autumn have not vanished in a single dramatic moment. They have been compressed, year by year, into narrower windows between extremes that grow longer and reach further each decade.</p>
+
+  <p class="lede-story">Most of us have noticed. We have said some version of it every summer. We have adjusted the AC, added another room to the system, moved outdoor hours earlier and earlier. And then carried on. <strong>That is precisely the problem.</strong></p>
+
+  <p class="pullquote">Lowering the thermostat is not a climate solution. Every AC running at full capacity on a 45-degree afternoon burns energy that compounds the very process generating the heat outside.</p>
+
+  <div class="hook-divider"><span>The Record</span></div>
+
+
+  <!-- SECTION 01 -->
+  <div class="section-label">Section 01</div>
+  <h2 class="section-heading">What the data shows</h2>
+  <p class="section-sub">India's mean surface temperature has risen by approximately 0.6 degrees Celsius over the past century. That number does not carry its own weight until you consider that the difference in average temperature between an ice age and today is roughly 4 to 7 degrees Celsius. Sustained fractions of a degree, held over decades, reorganise ecosystems and shift monsoon belts.</p>
+
+  <div class="kn-strip">
+    <div class="kn-card">
+      <div class="kn-num red">+0.6&deg;C</div>
+      <div class="kn-label">India's mean temperature rise over the past century</div>
+    </div>
+    <div class="kn-card">
+      <div class="kn-num red">10 of 10</div>
+      <div class="kn-label">The last 10 years are the 10 warmest in recorded global history</div>
+    </div>
+    <div class="kn-card">
+      <div class="kn-num red">+1.45&deg;C</div>
+      <div class="kn-label">2023 global temperature above pre-industrial average, a record at the time</div>
+    </div>
+    <div class="kn-card">
+      <div class="kn-num amber">422 ppm</div>
+      <div class="kn-label">Atmospheric CO&#8322; today, up from 280 ppm before industrialisation</div>
+    </div>
+  </div>
+
+  <p class="body-text">The warming is not evenly distributed across the calendar. <strong>Night-time temperatures have risen faster than daytime temperatures.</strong> Winter and post-monsoon warming has been sharper than summer. This means the cold relief that once followed the heat, the October cool, the December chill, the January mornings that required a jacket, is exactly where the change is most legible. The heat is not just hotter. The recovery from heat is shorter.</p>
+
+  <!-- INFOGRAPHIC 01: India Temperature Anomaly -->
+  <div class="infographic-block">
+    <div class="ig-header">
+      <span class="ig-num">Chart 01</span>
+      <div>
+        <div class="ig-title">India's Rising Temperature: Departure from the 1951&ndash;1980 Average (&deg;C)</div>
+        <div class="ig-sub">Values above zero are warmer than the historical baseline. The persistent shift from cool to warm is visible from the late 1970s onward and has accelerated sharply since 2000.</div>
+      </div>
+    </div>
+    <div class="ig-body">
+      <svg viewBox="0 0 820 270" xmlns="http://www.w3.org/2000/svg" font-family="Epilogue, sans-serif">
+        <!-- grid -->
+        <line x1="80" y1="68" x2="760" y2="68" stroke="#E8EEF8" stroke-width="1"/>
+        <line x1="80" y1="108" x2="760" y2="108" stroke="#E8EEF8" stroke-width="1"/>
+        <line x1="80" y1="148" x2="760" y2="148" stroke="rgba(40,70,140,0.25)" stroke-width="1" stroke-dasharray="5,4"/>
+        <line x1="80" y1="188" x2="760" y2="188" stroke="#E8EEF8" stroke-width="1"/>
+        <!-- cool area fill -->
+        <polygon points="80,148 80,182 128,174 176,165 224,173 272,161 310,148" fill="#3B6FD4" fill-opacity="0.12"/>
+        <!-- warm area fill -->
+        <polygon points="310,148 344,140 392,133 440,122 488,111 536,101 584,89 632,77 680,64 720,55 760,46 760,148" fill="#C94040" fill-opacity="0.15"/>
+        <!-- line -->
+        <polyline points="80,182 128,174 176,165 224,173 272,161 310,148 344,140 392,133 440,122 488,111 536,101 584,89 632,77 680,64 720,55 760,46"
+          fill="none" stroke="#2A52B0" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+        <!-- endpoint -->
+        <circle cx="760" cy="46" r="5" fill="#C94040"/>
+        <text x="766" y="43" font-size="12" fill="#C94040" font-weight="700">+0.68&deg;C</text>
+        <text x="766" y="56" font-size="10" fill="#7A8BA8">(2023)</text>
+        <!-- zero crossing marker -->
+        <circle cx="310" cy="148" r="3.5" fill="#7A8BA8"/>
+        <text x="314" y="140" font-size="10" fill="#7A8BA8">~1978</text>
+        <!-- axes -->
+        <line x1="80" y1="30" x2="80" y2="218" stroke="#E8ECF2" stroke-width="1"/>
+        <line x1="80" y1="218" x2="760" y2="218" stroke="#E8ECF2" stroke-width="1"/>
+        <!-- y labels -->
+        <text x="72" y="72" font-size="11" fill="#7A8BA8" text-anchor="end">+0.6</text>
+        <text x="72" y="112" font-size="11" fill="#7A8BA8" text-anchor="end">+0.3</text>
+        <text x="72" y="152" font-size="11" fill="#7A8BA8" text-anchor="end">0</text>
+        <text x="72" y="192" font-size="11" fill="#7A8BA8" text-anchor="end">&minus;0.3</text>
+        <!-- x labels -->
+        <text x="176" y="232" font-size="11" fill="#7A8BA8" text-anchor="middle">1960</text>
+        <text x="272" y="232" font-size="11" fill="#7A8BA8" text-anchor="middle">1970</text>
+        <text x="368" y="232" font-size="11" fill="#7A8BA8" text-anchor="middle">1980</text>
+        <text x="464" y="232" font-size="11" fill="#7A8BA8" text-anchor="middle">1990</text>
+        <text x="560" y="232" font-size="11" fill="#7A8BA8" text-anchor="middle">2000</text>
+        <text x="656" y="232" font-size="11" fill="#7A8BA8" text-anchor="middle">2010</text>
+        <text x="740" y="232" font-size="11" fill="#7A8BA8" text-anchor="middle">2020</text>
+        <!-- legend -->
+        <rect x="82" y="248" width="12" height="10" fill="#3B6FD4" fill-opacity="0.5" rx="2"/>
+        <text x="98" y="257" font-size="11" fill="#7A8BA8">Cooler than 1951&ndash;80 baseline</text>
+        <rect x="290" y="248" width="12" height="10" fill="#C94040" fill-opacity="0.5" rx="2"/>
+        <text x="306" y="257" font-size="11" fill="#7A8BA8">Warmer than baseline</text>
+        <line x1="500" y1="253" x2="520" y2="253" stroke="rgba(40,70,140,0.4)" stroke-width="1.5" stroke-dasharray="5,4"/>
+        <text x="524" y="257" font-size="11" fill="#7A8BA8">Zero baseline (1951&ndash;1980 mean)</text>
+      </svg>
+    </div>
+    <div class="ig-source">Source: India Meteorological Department (IMD); NASA GISS Surface Temperature Analysis. Anomaly relative to 1951&ndash;1980 mean. Decadal resolution; data are approximate and illustrative of published trend.</div>
+  </div>
+
+  <p class="body-text">The monsoon has become erratic in ways that directly affect the 700 million Indians whose livelihoods depend on it. <strong>Total annual rainfall has not changed dramatically, but its pattern has</strong>: more rain in fewer, more intense events, punctuated by longer dry spells within the monsoon window itself. In the Bay of Bengal, the post-monsoon cyclone season now sees a marked increase in rapid intensification events, storms that jump from moderate to catastrophic strength in 24 to 48 hours. Cyclone Fani (2019), Amphan (2020), and Biparjoy (2023) are not isolated events. They are a progression.</p>
+
+  <div class="stat-callout">
+    <div class="stat-callout-num">2,500+</div>
+    <div class="stat-callout-text">People killed in the 2015 heat wave across Andhra Pradesh and Telangana, in a matter of weeks. This figure likely understates reality: heat accelerates existing conditions such as heart failure and kidney disease, which appear as the primary cause of death rather than heat itself. The reported toll of extreme heat in India is a systematic undercount.</div>
+  </div>
+
+  <!-- INFOGRAPHIC 02: Vanishing Seasons -->
+  <div class="infographic-block">
+    <div class="ig-header">
+      <span class="ig-num">Chart 02</span>
+      <div>
+        <div class="ig-title">India's Climate Calendar: The Shrinking Seasons</div>
+        <div class="ig-sub">Approximate seasonal duration, 1970s versus 2020s. Spring once occupied 6 to 8 weeks of March and April. It has compressed to under three weeks in most of India. Summer has expanded into its space.</div>
+      </div>
+    </div>
+    <div class="ig-body">
+      <svg viewBox="0 0 820 230" xmlns="http://www.w3.org/2000/svg" font-family="Epilogue, sans-serif">
+        <!-- row labels -->
+        <text x="62" y="76" font-size="12" fill="#0C1520" font-weight="700" text-anchor="end">1970s</text>
+        <text x="62" y="171" font-size="12" fill="#0C1520" font-weight="700" text-anchor="end">2020s</text>
+
+        <!-- 1970s: Winter Jan-Feb (2×55=110), Spring Mar-Apr (110), Summer May-Jun (110), Monsoon Jul-Sep (165), Autumn Oct-Nov (110), Winter Dec (55) -->
+        <rect x="70" y="50" width="110" height="52" fill="#3B6FD4" fill-opacity="0.55" rx="0"/>
+        <rect x="180" y="50" width="110" height="52" fill="#1A6B64" fill-opacity="0.7" rx="0"/>
+        <rect x="290" y="50" width="110" height="52" fill="#C94040" fill-opacity="0.75" rx="0"/>
+        <rect x="400" y="50" width="165" height="52" fill="#2A52B0" fill-opacity="0.65" rx="0"/>
+        <rect x="565" y="50" width="110" height="52" fill="#9E6A10" fill-opacity="0.75" rx="0"/>
+        <rect x="675" y="50" width="55" height="52" fill="#3B6FD4" fill-opacity="0.55" rx="0"/>
+        <!-- 1970s text labels -->
+        <text x="125" y="81" font-size="10" fill="white" font-weight="700" text-anchor="middle">WINTER</text>
+        <text x="235" y="81" font-size="10" fill="white" font-weight="700" text-anchor="middle">SPRING</text>
+        <text x="345" y="81" font-size="10" fill="white" font-weight="700" text-anchor="middle">SUMMER</text>
+        <text x="482" y="81" font-size="10" fill="white" font-weight="700" text-anchor="middle">MONSOON</text>
+        <text x="620" y="81" font-size="10" fill="white" font-weight="700" text-anchor="middle">AUTUMN</text>
+        <!-- spring bracket 1970s -->
+        <line x1="180" y1="44" x2="290" y2="44" stroke="#1A6B64" stroke-width="1.5"/>
+        <line x1="180" y1="40" x2="180" y2="48" stroke="#1A6B64" stroke-width="1.5"/>
+        <line x1="290" y1="40" x2="290" y2="48" stroke="#1A6B64" stroke-width="1.5"/>
+        <text x="235" y="38" font-size="10" fill="#0C3D38" text-anchor="middle" font-weight="600">~8 weeks</text>
+
+        <!-- 2020s: Winter Jan (55), Spring sliver ~25px, Summer (expanded ~245), Monsoon (179), Autumn ~55px, Winter Dec 55 -->
+        <rect x="70" y="145" width="55" height="52" fill="#3B6FD4" fill-opacity="0.55" rx="0"/>
+        <rect x="125" y="145" width="24" height="52" fill="#1A6B64" fill-opacity="0.5" rx="0"/>
+        <rect x="149" y="145" width="246" height="52" fill="#B83A3A" fill-opacity="0.85" rx="0"/>
+        <rect x="395" y="145" width="178" height="52" fill="#2A52B0" fill-opacity="0.65" rx="0"/>
+        <rect x="573" y="145" width="57" height="52" fill="#9E6A10" fill-opacity="0.65" rx="0"/>
+        <rect x="630" y="145" width="100" height="52" fill="#3B6FD4" fill-opacity="0.55" rx="0"/>
+        <!-- 2020s text labels -->
+        <text x="272" y="176" font-size="10" fill="white" font-weight="700" text-anchor="middle">EXTENDED SUMMER</text>
+        <text x="484" y="176" font-size="10" fill="white" font-weight="700" text-anchor="middle">MONSOON</text>
+        <text x="601" y="176" font-size="9" fill="white" font-weight="700" text-anchor="middle">AUT.</text>
+        <!-- spring sliver bracket 2020s -->
+        <line x1="125" y1="138" x2="149" y2="138" stroke="#1A6B64" stroke-width="1.5"/>
+        <line x1="125" y1="134" x2="125" y2="142" stroke="#1A6B64" stroke-width="1.5"/>
+        <line x1="149" y1="134" x2="149" y2="142" stroke="#1A6B64" stroke-width="1.5"/>
+        <text x="137" y="132" font-size="9" fill="#0C3D38" text-anchor="middle" font-weight="600">~3 wks</text>
+
+        <!-- month reference -->
+        <line x1="70" y1="205" x2="730" y2="205" stroke="#E8ECF2" stroke-width="1"/>
+        <text x="97"  y="218" font-size="10" fill="#7A8BA8" text-anchor="middle">Jan</text>
+        <text x="152" y="218" font-size="10" fill="#7A8BA8" text-anchor="middle">Feb</text>
+        <text x="207" y="218" font-size="10" fill="#7A8BA8" text-anchor="middle">Mar</text>
+        <text x="262" y="218" font-size="10" fill="#7A8BA8" text-anchor="middle">Apr</text>
+        <text x="317" y="218" font-size="10" fill="#7A8BA8" text-anchor="middle">May</text>
+        <text x="372" y="218" font-size="10" fill="#7A8BA8" text-anchor="middle">Jun</text>
+        <text x="427" y="218" font-size="10" fill="#7A8BA8" text-anchor="middle">Jul</text>
+        <text x="482" y="218" font-size="10" fill="#7A8BA8" text-anchor="middle">Aug</text>
+        <text x="537" y="218" font-size="10" fill="#7A8BA8" text-anchor="middle">Sep</text>
+        <text x="592" y="218" font-size="10" fill="#7A8BA8" text-anchor="middle">Oct</text>
+        <text x="647" y="218" font-size="10" fill="#7A8BA8" text-anchor="middle">Nov</text>
+        <text x="702" y="218" font-size="10" fill="#7A8BA8" text-anchor="middle">Dec</text>
+      </svg>
+    </div>
+    <div class="ig-source">Schematic representation based on observed temperature and phenological data. Proportions are approximate. Sources: India Meteorological Department; published seasonal shift studies.</div>
+  </div>
+
+  <div class="divider"></div>
+
+
+  <!-- SECTION 02 -->
+  <div class="section-label">Section 02</div>
+  <h2 class="section-heading">The physics behind the heat</h2>
+  <p class="section-sub">The science is not complicated. It is uncomfortable, which is different. Sunlight warms Earth's surface. That warmth radiates back upward as infrared energy. Certain gases in the atmosphere absorb that outgoing energy and re-emit it in all directions, including back toward Earth. More of these gases means more energy retained. The planet warms.</p>
+
+  <p class="body-text">This is not a model or a projection. It is basic physics, worked out correctly in the 1850s and confirmed in every measurable detail since. The greenhouse effect is the same mechanism that bakes a car in a summer parking lot. The atmosphere is the glass. Three gases drive the majority of the warming.</p>
+
+  <div class="scope-row">
+    <div class="scope-card s1">
+      <span class="scope-badge s1">CO&#8322;</span>
+      <div class="scope-name">Carbon Dioxide</div>
+      <div class="scope-desc">The primary and longest-lived warming agent. Persists in the atmosphere for hundreds to thousands of years.</div>
+      <div class="scope-example">From burning coal, oil and gas; deforestation; cement production.</div>
+      <div class="scope-pct teal">422 ppm</div>
+      <div class="scope-pct-label">Today, vs 280 ppm pre-industrial. A 51% increase.</div>
+    </div>
+    <div class="scope-card s2">
+      <span class="scope-badge s2">CH&#8324;</span>
+      <div class="scope-name">Methane</div>
+      <div class="scope-desc">Shorter-lived than CO&#8322; but acts much faster. Has more than doubled since pre-industrial times.</div>
+      <div class="scope-example">From livestock, rice paddies, landfills, and oil and gas leaks.</div>
+      <div class="scope-pct blue">80&times;</div>
+      <div class="scope-pct-label">More potent than CO&#8322; over 20 years (GWP20).</div>
+    </div>
+    <div class="scope-card s3">
+      <span class="scope-badge s3">N&#8322;O</span>
+      <div class="scope-name">Nitrous Oxide</div>
+      <div class="scope-desc">Far smaller in volume than CO&#8322; but highly potent. A significant factor in agricultural systems.</div>
+      <div class="scope-example">From synthetic fertilisers, manure management, and certain industrial processes.</div>
+      <div class="scope-pct red">265&times;</div>
+      <div class="scope-pct-label">More potent than CO&#8322; over 100 years (GWP100).</div>
+    </div>
+  </div>
+
+  <div class="alert-box amber">
+    <div class="alert-title amber">The Carbon Lag: Why Urgency Is Not Exaggerated</div>
+    <div class="alert-body amber">There is a delay of roughly <strong>20 to 40 years</strong> between when emissions enter the atmosphere and when their full warming effect is realised. The heat of May 2024 is partly the consequence of emissions from the 1990s and 2000s. The warming caused by today's emissions will be felt most severely by people who are currently children. This lag is not a reason for comfort. It means we are already committed to further warming regardless of what we do next. Acting now determines how much further beyond that committed warming we go.</div>
+  </div>
+
+  <p class="pullquote">Carbon dioxide concentration stood at 280 parts per million before industrial activity began. It stands today at over 422 parts per million. A 51 percent increase in the atmospheric thermostat, driven almost entirely by human choices.</p>
+
+  <!-- INFOGRAPHIC 03: CO2 and Temperature -->
+  <div class="infographic-block">
+    <div class="ig-header">
+      <span class="ig-num">Chart 03</span>
+      <div>
+        <div class="ig-title">Atmospheric CO&#8322; and Global Temperature Anomaly, 1960&ndash;2024</div>
+        <div class="ig-sub">As atmospheric carbon dioxide has risen continuously, global mean temperatures have followed. The correlation reflects basic atmospheric physics operating at planetary scale. The gap between the two lines is closing as feedback mechanisms amplify the effect.</div>
+      </div>
+    </div>
+    <div class="ig-body">
+      <svg viewBox="0 0 820 270" xmlns="http://www.w3.org/2000/svg" font-family="Epilogue, sans-serif">
+        <!-- grid -->
+        <line x1="80" y1="50" x2="760" y2="50" stroke="#E8EEF8" stroke-width="1"/>
+        <line x1="80" y1="90" x2="760" y2="90" stroke="#E8EEF8" stroke-width="1"/>
+        <line x1="80" y1="130" x2="760" y2="130" stroke="#E8EEF8" stroke-width="1"/>
+        <line x1="80" y1="170" x2="760" y2="170" stroke="#E8EEF8" stroke-width="1"/>
+        <line x1="80" y1="210" x2="760" y2="210" stroke="#E8ECF2" stroke-width="1"/>
+        <!-- CO2 area fill -->
+        <polygon points="80,207 136,202 192,193 248,185 304,172 360,161 416,148 472,137 528,122 584,107 628,93 676,76 724,55 760,43 760,220 80,220"
+          fill="#9E6A10" fill-opacity="0.10"/>
+        <!-- Temp area fill -->
+        <polygon points="80,202 136,200 192,203 248,199 304,172 360,190 416,150 472,157 528,152 584,119 628,114 676,91 724,76 760,47 760,220 80,220"
+          fill="#C94040" fill-opacity="0.12"/>
+        <!-- CO2 line (amber) -->
+        <polyline points="80,207 136,202 192,193 248,185 304,172 360,161 416,148 472,137 528,122 584,107 628,93 676,76 724,55 760,43"
+          fill="none" stroke="#9E6A10" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+        <!-- Temperature line (red) -->
+        <polyline points="80,202 136,200 192,203 248,199 304,172 360,190 416,150 472,157 528,152 584,119 628,114 676,91 724,76 760,47"
+          fill="none" stroke="#C94040" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+        <!-- endpoint dots -->
+        <circle cx="760" cy="43" r="5" fill="#9E6A10"/>
+        <circle cx="760" cy="47" r="5" fill="#C94040"/>
+        <!-- end labels -->
+        <text x="767" y="44" font-size="11" fill="#9E6A10" font-weight="700">422 ppm</text>
+        <text x="767" y="54" font-size="10" fill="#7A8BA8">CO&#8322;</text>
+        <text x="767" y="68" font-size="11" fill="#C94040" font-weight="700">+1.25&deg;C</text>
+        <text x="767" y="78" font-size="10" fill="#7A8BA8">Temp.</text>
+        <!-- pre-industrial annotation -->
+        <text x="84" y="204" font-size="10" fill="#7A8BA8">280 ppm</text>
+        <text x="84" y="215" font-size="9" fill="#7A8BA8" font-style="italic">pre-industrial</text>
+        <!-- axes -->
+        <line x1="80" y1="30" x2="80" y2="220" stroke="#E8ECF2" stroke-width="1"/>
+        <line x1="80" y1="220" x2="760" y2="220" stroke="#E8ECF2" stroke-width="1"/>
+        <!-- y-axis left (CO2) -->
+        <text x="73" y="211" font-size="11" fill="#9E6A10" text-anchor="end">310</text>
+        <text x="73" y="172" font-size="11" fill="#9E6A10" text-anchor="end">350</text>
+        <text x="73" y="93" font-size="11" fill="#9E6A10" text-anchor="end">390</text>
+        <text x="73" y="47" font-size="11" fill="#9E6A10" text-anchor="end">420</text>
+        <!-- x labels -->
+        <text x="80"  y="234" font-size="11" fill="#7A8BA8" text-anchor="middle">1960</text>
+        <text x="192" y="234" font-size="11" fill="#7A8BA8" text-anchor="middle">1970</text>
+        <text x="304" y="234" font-size="11" fill="#7A8BA8" text-anchor="middle">1980</text>
+        <text x="416" y="234" font-size="11" fill="#7A8BA8" text-anchor="middle">1990</text>
+        <text x="528" y="234" font-size="11" fill="#7A8BA8" text-anchor="middle">2000</text>
+        <text x="640" y="234" font-size="11" fill="#7A8BA8" text-anchor="middle">2010</text>
+        <text x="740" y="234" font-size="11" fill="#7A8BA8" text-anchor="middle">2020</text>
+        <!-- legend -->
+        <line x1="82" y1="252" x2="102" y2="252" stroke="#9E6A10" stroke-width="2.5"/>
+        <text x="106" y="256" font-size="11" fill="#7A8BA8">Atmospheric CO&#8322; (Keeling Curve, NOAA)</text>
+        <line x1="400" y1="252" x2="420" y2="252" stroke="#C94040" stroke-width="2.5"/>
+        <text x="424" y="256" font-size="11" fill="#7A8BA8">Global Temperature Anomaly vs 1951&ndash;1980 (NASA GISS)</text>
+      </svg>
+    </div>
+    <div class="ig-source">Sources: NOAA Global Monitoring Laboratory (Mauna Loa CO&#8322; Record, Keeling Curve); NASA GISS Surface Temperature Analysis (GISTEMP v4). Data to 2024. Temperature is global mean surface temperature anomaly relative to 1951&ndash;1980 baseline.</div>
+  </div>
+
+  <div class="alert-box blue">
+    <div class="alert-title blue">Three Feedback Loops That Amplify Warming</div>
+    <div class="alert-body blue">
+      <ul>
+        <li><strong>Arctic ice melt</strong> replaces white reflective surfaces that bounce sunlight back into space with dark ocean water that absorbs it. Every square kilometre of lost ice makes further warming more likely.</li>
+        <li><strong>Permafrost thaw</strong> in Siberia and Canada releases methane and CO&#8322; stored in frozen soil for thousands of years. Warming triggers release, which triggers more warming.</li>
+        <li><strong>Warmer oceans</strong> absorb less CO&#8322;, progressively weakening the planet's single largest natural carbon buffer at precisely the moment it is needed most.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+
+  <!-- SECTION 03 -->
+  <div class="section-label">Section 03</div>
+  <h2 class="section-heading">What we stand to lose</h2>
+  <p class="section-sub">The impacts are not projections for 2100. Several are already in early stages. Agriculture, water security, and financial risk are all registering measurable change. India sits near the top of every global climate vulnerability index.</p>
+
+  <div class="kn-strip">
+    <div class="kn-card">
+      <div class="kn-num red">6&ndash;23%</div>
+      <div class="kn-label">Projected decline in India's wheat yields by end of century under moderate warming</div>
+    </div>
+    <div class="kn-card">
+      <div class="kn-num blue">500M</div>
+      <div class="kn-label">People dependent on Himalayan glacier-fed rivers; those glaciers are retreating</div>
+    </div>
+    <div class="kn-card">
+      <div class="kn-num amber">$1.3T</div>
+      <div class="kn-label">Global climate finance mobilised in 2023, vs $4T+ needed annually through 2050</div>
+    </div>
+    <div class="kn-card">
+      <div class="kn-num teal">90%</div>
+      <div class="kn-label">Fall in solar energy costs since 2010; the energy transition is real and accelerating</div>
+    </div>
+  </div>
+
+  <p class="body-text">The rabi wheat crop is sensitive to heat stress during its grain-filling stage in February. Multiple years in the past decade have seen premature heat spikes in this window, reducing yields across Punjab and Haryana. The insurance sector has already begun to price what governments are still reluctant to name plainly: property insurers in flood-prone coastal zones are repricing or withdrawing cover, and reinsurers have incorporated explicit climate risk into catastrophe models for over a decade. The financial system's risk radar is detecting signals that have not yet fully entered public-policy language.</p>
+
+  <!-- INFOGRAPHIC 04: Extreme Events -->
+  <div class="infographic-block">
+    <div class="ig-header">
+      <span class="ig-num">Chart 04</span>
+      <div>
+        <div class="ig-title">India's Rising Toll: Severe Cyclones and Heat Wave Deaths by Decade</div>
+        <div class="ig-sub">Severe cyclone frequency in the Bay of Bengal has increased. Estimated heat wave mortality has grown alongside it. Better early-warning systems have reduced deaths in recent years, but the underlying physical intensity of these events continues to rise.</div>
+      </div>
+    </div>
+    <div class="ig-body">
+      <svg viewBox="0 0 820 285" xmlns="http://www.w3.org/2000/svg" font-family="Epilogue, sans-serif">
+        <!-- panel labels -->
+        <text x="248" y="18" font-size="12" fill="#0C1520" font-weight="700" text-anchor="middle">Severe Cyclones &mdash; Bay of Bengal</text>
+        <text x="248" y="31" font-size="10" fill="#7A8BA8" text-anchor="middle">Count of Very Severe Cyclonic Storms and above, per decade</text>
+        <text x="598" y="18" font-size="12" fill="#0C1520" font-weight="700" text-anchor="middle">Heat Wave Deaths &mdash; India</text>
+        <text x="598" y="31" font-size="10" fill="#7A8BA8" text-anchor="middle">Approximate cumulative total per decade (thousands)</text>
+        <!-- divider -->
+        <line x1="420" y1="22" x2="420" y2="245" stroke="#E8EEF8" stroke-width="1.5" stroke-dasharray="5,4"/>
+        <!-- grid left -->
+        <line x1="50" y1="155" x2="410" y2="155" stroke="#E8EEF8" stroke-width="1"/>
+        <line x1="50" y1="195" x2="410" y2="195" stroke="#E8EEF8" stroke-width="1"/>
+        <line x1="50" y1="235" x2="410" y2="235" stroke="#E8ECF2" stroke-width="1"/>
+        <!-- grid right -->
+        <line x1="430" y1="155" x2="790" y2="155" stroke="#E8EEF8" stroke-width="1"/>
+        <line x1="430" y1="195" x2="790" y2="195" stroke="#E8EEF8" stroke-width="1"/>
+        <line x1="430" y1="235" x2="790" y2="235" stroke="#E8ECF2" stroke-width="1"/>
+
+        <!-- LEFT bars: chart area y=70 to y=235 (height 165px, max=20) -->
+        <rect x="70" y="136" width="45" height="99"  fill="#2A52B0" fill-opacity="0.6"  rx="3"/>
+        <text x="92"  y="133" font-size="11" fill="#2A52B0" font-weight="700" text-anchor="middle">12</text>
+
+        <rect x="128" y="111" width="45" height="124" fill="#2A52B0" fill-opacity="0.7"  rx="3"/>
+        <text x="150" y="108" font-size="11" fill="#2A52B0" font-weight="700" text-anchor="middle">15</text>
+
+        <rect x="186" y="128" width="45" height="107" fill="#2A52B0" fill-opacity="0.65" rx="3"/>
+        <text x="208" y="125" font-size="11" fill="#2A52B0" font-weight="700" text-anchor="middle">13</text>
+
+        <rect x="244" y="70"  width="45" height="165" fill="#0E2260" rx="3"/>
+        <text x="266" y="67"  font-size="11" fill="#0E2260" font-weight="800" text-anchor="middle">20</text>
+
+        <rect x="302" y="153" width="45" height="82"  fill="#3B6FD4" fill-opacity="0.45" rx="3"/>
+        <text x="324" y="150" font-size="11" fill="#7A8BA8" font-weight="600" text-anchor="middle">10*</text>
+
+        <!-- x labels left -->
+        <text x="92"  y="248" font-size="10" fill="#7A8BA8" text-anchor="middle">1980s</text>
+        <text x="150" y="248" font-size="10" fill="#7A8BA8" text-anchor="middle">1990s</text>
+        <text x="208" y="248" font-size="10" fill="#7A8BA8" text-anchor="middle">2000s</text>
+        <text x="266" y="248" font-size="10" fill="#7A8BA8" text-anchor="middle">2010s</text>
+        <text x="324" y="248" font-size="10" fill="#7A8BA8" text-anchor="middle">2020s*</text>
+        <!-- y labels left -->
+        <text x="62" y="239" font-size="10" fill="#7A8BA8" text-anchor="end">0</text>
+        <text x="62" y="199" font-size="10" fill="#7A8BA8" text-anchor="end">5</text>
+        <text x="62" y="159" font-size="10" fill="#7A8BA8" text-anchor="end">10</text>
+        <text x="62" y="74"  font-size="10" fill="#7A8BA8" text-anchor="end">20</text>
+
+        <!-- RIGHT bars: chart area y=70 to y=235 (height 165px, max=12000) -->
+        <rect x="448" y="166" width="45" height="69"  fill="#C94040" fill-opacity="0.55" rx="3"/>
+        <text x="470" y="163" font-size="11" fill="#C94040" font-weight="700" text-anchor="middle">~5k</text>
+
+        <rect x="506" y="153" width="45" height="82"  fill="#C94040" fill-opacity="0.65" rx="3"/>
+        <text x="528" y="150" font-size="11" fill="#C94040" font-weight="700" text-anchor="middle">~6k</text>
+
+        <rect x="564" y="125" width="45" height="110" fill="#C94040" fill-opacity="0.75" rx="3"/>
+        <text x="586" y="122" font-size="11" fill="#C94040" font-weight="700" text-anchor="middle">~8k</text>
+
+        <rect x="622" y="70"  width="45" height="165" fill="#B83A3A" rx="3"/>
+        <text x="644" y="67"  font-size="11" fill="#B83A3A" font-weight="800" text-anchor="middle">~12k</text>
+        <text x="644" y="135" font-size="8.5" fill="white" text-anchor="middle">incl. 2015</text>
+        <text x="644" y="146" font-size="8.5" fill="white" text-anchor="middle">event</text>
+
+        <rect x="680" y="187" width="45" height="48"  fill="#C94040" fill-opacity="0.35" rx="3"/>
+        <text x="702" y="184" font-size="11" fill="#7A8BA8" font-weight="600" text-anchor="middle">~3.5k</text>
+
+        <!-- x labels right -->
+        <text x="470" y="248" font-size="10" fill="#7A8BA8" text-anchor="middle">1980s</text>
+        <text x="528" y="248" font-size="10" fill="#7A8BA8" text-anchor="middle">1990s</text>
+        <text x="586" y="248" font-size="10" fill="#7A8BA8" text-anchor="middle">2000s</text>
+        <text x="644" y="248" font-size="10" fill="#7A8BA8" text-anchor="middle">2010s</text>
+        <text x="702" y="248" font-size="10" fill="#7A8BA8" text-anchor="middle">2020s*</text>
+        <!-- y labels right -->
+        <text x="440" y="239" font-size="10" fill="#7A8BA8" text-anchor="end">0</text>
+        <text x="440" y="199" font-size="10" fill="#7A8BA8" text-anchor="end">5k</text>
+        <text x="440" y="159" font-size="10" fill="#7A8BA8" text-anchor="end">10k</text>
+        <text x="440" y="74"  font-size="10" fill="#7A8BA8" text-anchor="end">12k</text>
+        <!-- footnote -->
+        <text x="82" y="268" font-size="10" fill="#7A8BA8">* 2020&ndash;2024 only (partial decade). Lower mortality reflects improved early-warning systems, not reduced physical intensity.</text>
+      </svg>
+    </div>
+    <div class="ig-source">Sources: India Meteorological Department; National Disaster Management Authority (NDMA); published epidemiological literature. Cyclone counts: VSCS, ESCS, and Super Cyclone categories in Bay of Bengal. Heat wave deaths are approximate cumulative aggregates from multiple sources and are likely undercounted.</div>
+  </div>
+
+  <!-- India band -->
+  <div class="india-band">
+    <div class="india-label">India's Climate Paradox</div>
+    <div class="india-heading">Among the most vulnerable nations on Earth. Among the top four emitters by volume.</div>
+    <div class="india-text">This is not a contradiction. It is the defining tension of India's relationship with climate change. Historically low per-capita emissions. Rapidly growing absolute output. A population exposed to the full physical force of consequences it largely did not cause. Understanding this simultaneously is the only honest starting point for what comes next. India cannot afford either complacency or victimhood. It requires both domestic ambition in the energy transition and a rightful demand that historically high-emitting countries deliver the climate finance they have committed to and consistently underdelivered.</div>
+    <div class="india-stats">
+      <div>
+        <span class="india-stat-num">Top 4</span>
+        <span class="india-stat-label">GHG emitter globally by absolute volume</span>
+      </div>
+      <div>
+        <span class="india-stat-num">~1.9t</span>
+        <span class="india-stat-label">CO&#8322; per capita annually, vs 14.9t in the US</span>
+      </div>
+      <div>
+        <span class="india-stat-num">500M</span>
+        <span class="india-stat-label">People reliant on glacier-fed rivers now retreating</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+
+  <!-- SECTION 04 -->
+  <div class="section-label">Section 04</div>
+  <h2 class="section-heading">Late. But not too late.</h2>
+  <p class="section-sub">The physics is settled. The warming is measurable. The causes are understood. What remains genuinely open is the question of scale: how much warming, over how long, with what consequences for which communities. Every fraction of a degree prevented is millions of people whose futures are measurably safer.</p>
+
+  <div class="guide-wrap">
+    <div class="guide-kicker">What Still Matters</div>
+    <div class="guide-heading">Four things the evidence actually supports.</div>
+    <div class="guide-intro">We are late. We are not too late. The difference between 1.5&deg;C and 2.5&deg;C of warming describes profoundly different futures for hundreds of millions of people. That difference is still being determined by choices being made right now.</div>
+    <div class="guide-steps">
+
+      <div class="guide-step">
+        <div class="gs-num c1">01</div>
+        <div class="gs-body">
+          <div class="gs-domain c1">The Energy Transition</div>
+          <div class="gs-title">Renewables are winning on cost. The question is pace.</div>
+          <div class="gs-text">Solar costs fell more than 90 percent since 2010. India added more than 13 gigawatts of new solar capacity in a single financial year. Global renewable capacity is growing faster than any model from a decade ago predicted. The direction is right. The speed is not yet sufficient.</div>
+          <div class="gs-action"><span class="gs-action-label">Signal</span><span class="gs-action-text">Every year of faster deployment buys measurable safety margin. The energy transition is not a future aspiration. It is happening now, and in India faster than most acknowledge.</span></div>
+        </div>
+      </div>
+
+      <div class="guide-step">
+        <div class="gs-num c2">02</div>
+        <div class="gs-body">
+          <div class="gs-domain c2">Climate Finance</div>
+          <div class="gs-title">Capital is moving. The gap is still vast.</div>
+          <div class="gs-text">Climate finance reached $1.3 trillion globally in 2023. Estimates of what is needed run to $4 trillion or more annually through 2050. The direction of capital is correct. The volume is not yet close to what the science requires, and the shortfall falls disproportionately on developing economies.</div>
+          <div class="gs-action"><span class="gs-action-label">Signal</span><span class="gs-action-text">Developed countries' unfulfilled commitment to climate finance for developing nations is not a technicality. It is one of the central leverage points remaining in global climate negotiations.</span></div>
+        </div>
+      </div>
+
+      <div class="guide-step">
+        <div class="gs-num c3">03</div>
+        <div class="gs-body">
+          <div class="gs-domain c3">Individual and Collective</div>
+          <div class="gs-title">Personal choices are not the solution. They are the soil.</div>
+          <div class="gs-text">The concept of the personal carbon footprint was promoted by the fossil fuel industry to shift moral burden onto consumers rather than producers. Acknowledging that does not make individual action irrelevant. Societies reducing fast fashion, examining single-use plastics, choosing repair over replacement, and questioning high-carbon consumption also tend to generate the political will for structural change.</div>
+          <div class="gs-action"><span class="gs-action-label">Signal</span><span class="gs-action-text">Buy less. Repair more. Reduce single-use plastics. Ask where things come from. These are not the solution. They are part of the political conditions in which a solution becomes possible.</span></div>
+        </div>
+      </div>
+
+      <div class="guide-step">
+        <div class="gs-num c4">04</div>
+        <div class="gs-body">
+          <div class="gs-domain c4">The Honest Maths</div>
+          <div class="gs-title">Every fraction of a degree prevented matters.</div>
+          <div class="gs-text">The choice is not between a perfect outcome and catastrophe. It is between degrees of safety and degrees of harm. Limiting warming to 1.5&deg;C and allowing 2.5&deg;C describe fundamentally different futures for coastal cities, agricultural systems, and water security across the Global South.</div>
+          <div class="gs-action"><span class="gs-action-label">Signal</span><span class="gs-action-text">Urgency without despair is the only stance that drives action. We are late. We are not too late. That language matters as much as the policy.</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="stat-callout blue">
+    <div class="stat-callout-num blue">1.5</div>
+    <div class="stat-callout-text">The difference between 1.5&deg;C and 2.5&deg;C of warming is not a number on a graph. It is the difference between manageable disruption and cascading crisis for hundreds of millions of people. Every year of faster action narrows the gap between those two futures. Every year of delay locks more of the worse one in.</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- SOURCES -->
+  <div class="sources-box">
+    <div class="sources-title">Sources &amp; Further Reading</div>
+    <div class="sources-list">
+      <div class="source-item">India Meteorological Department (IMD): Annual Climate Summary reports; observed temperature anomaly data series</div>
+      <div class="source-item">NASA GISS Surface Temperature Analysis (GISTEMP v4): global mean surface temperature anomaly, 2024 update</div>
+      <div class="source-item">NOAA Global Monitoring Laboratory: Mauna Loa CO&#8322; Record (Keeling Curve), 1958&ndash;2024</div>
+      <div class="source-item">World Meteorological Organization (WMO): State of the Global Climate 2023; 1.45&deg;C above pre-industrial average confirmed</div>
+      <div class="source-item">IPCC Sixth Assessment Report (AR6, 2021&ndash;2023): physical science basis, regional impacts, mitigation pathways</div>
+      <div class="source-item">National Disaster Management Authority (NDMA): cyclone and heat wave data; India DRR reports 2015&ndash;2023</div>
+      <div class="source-item">BloombergNEF: Energy Transition Investment Trends 2024; $1.3 trillion climate finance in 2023</div>
+      <div class="source-item">Ministry of New and Renewable Energy (MNRE): India solar capacity addition data, FY 2023&ndash;24</div>
+      <div class="source-item">Diffenbaugh &amp; Burke (2019): "Global warming has increased global economic inequality", PNAS &mdash; on temperature-yield relationships</div>
+    </div>
+  </div>
+
+</div><!-- end .page -->
+
+
+<!-- SHARE + SUBSCRIBE -->
+<div class="article-bottom">
+  <div class="share-block">
+    <div class="share-label">Share this article</div>
+    <div class="share-buttons">
+      <a class="share-btn x-btn" id="share-x" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        Share on X
+      </a>
+      <a class="share-btn linkedin-btn" id="share-li" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        Share on LinkedIn
+      </a>
+      <a class="share-btn whatsapp-btn" id="share-wa" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Share on WhatsApp
+      </a>
+      <button class="share-btn copy-btn" id="share-copy" onclick="copyLink(this)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+        <span id="copy-label">Copy Link</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="subscribe-block">
+    <div class="subscribe-label">Stay in the loop</div>
+    <div class="subscribe-heading">New articles, straight to your inbox.</div>
+    <div class="subscribe-sub">No spam. No noise. Just clear writing on climate and finance when there is something worth saying.</div>
+    <div class="kit-wrap">
+      <form action="https://app.kit.com/forms/9509513/subscriptions" method="post" target="_blank" style="width:100%;">
+        <input name="email_address" type="email" placeholder="Your email address" required
+          style="color:#4d4d4d;border:1.5px solid #e3e3e3;border-radius:8px;font-weight:400;width:100%;padding:12px 16px;font-size:15px;margin-bottom:10px;font-family:inherit;box-sizing:border-box;outline:none;"/>
+        <button type="submit"
+          style="color:#fff;background:#2A52B0;border-radius:8px;font-weight:600;width:100%;padding:13px;font-size:14px;border:none;cursor:pointer;font-family:inherit;letter-spacing:0.3px;">
+          Subscribe to ClimateSense
+        </button>
+        <div style="margin-top:10px;font-size:11px;color:#999;text-align:center;">Powered by Kit. Unsubscribe anytime.</div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var title = encodeURIComponent(document.title);
+  var url   = encodeURIComponent(window.location.href);
+  document.getElementById('share-x').href  = 'https://twitter.com/intent/tweet?text=' + title + '&url=' + url;
+  document.getElementById('share-li').href = 'https://www.linkedin.com/sharing/share-offsite/?url=' + url;
+  document.getElementById('share-wa').href = 'https://api.whatsapp.com/send?text=' + title + '%20' + url;
+})();
+function copyLink(btn){
+  navigator.clipboard.writeText(window.location.href).then(function(){
+    btn.classList.add('copied');
+    document.getElementById('copy-label').textContent = 'Copied!';
+    setTimeout(function(){ btn.classList.remove('copied'); document.getElementById('copy-label').textContent = 'Copy Link'; }, 2200);
+  });
+}
+</script>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">
+          <span class="fl-deg">&deg;</span><span class="fl-c">C</span>
+          <span class="fl-name">ClimateSense</span>
+        </div>
+        <div class="footer-tagline">Science. Solutions. Finance. Serious writing on the defining challenge of our time.</div>
+      </div>
+      <div>
+        <div class="footer-links-title">Articles</div>
+        <div class="footer-links">
+          <a href="climate-urgency.html">The Summers You Remember Are Gone</a>
+          <a href="climatesense-scope3-article.html">Scope 3 Emissions: The 70% Nobody Reports</a>
+          <a href="#">Net Zero by 2050 (soon)</a>
+          <a href="#">Physical Climate Risk in India (soon)</a>
+          <a href="#">ESG Ratings Are Broken (soon)</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-links-title">Topics</div>
+        <div class="footer-links">
+          <a href="../index.html#topics">Climate Science</a>
+          <a href="../index.html#topics">ESG Investing</a>
+          <a href="../index.html#topics">Impact Finance</a>
+          <a href="../index.html#topics">Emissions &amp; Net Zero</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">&copy; 2026 ClimateSense</div>
+      <div class="footer-disclaimer">For informational and educational purposes only. Not financial or investment advice. Climate data and figures drawn from cited public sources; values are indicative. Always verify with primary sources before making decisions.</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
