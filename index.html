@@ -5,111 +5,91 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="description" content="TwoSense -- where finance and climate meet the everyday. Clear writing on the two forces quietly shaping every decision you make."/>
 <title>TwoSense -- Finance and Climate, Clearly</title>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Epilogue:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+
+<!-- Open Graph -->
+<meta property="og:title" content="TwoSense -- Finance and Climate, Clearly"/>
+<meta property="og:description" content="Clear writing on the two forces quietly shaping every decision you make."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://twosense.in/"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="TwoSense -- Finance and Climate, Clearly"/>
+<meta name="twitter:description" content="Clear writing on the two forces quietly shaping every decision you make."/>
+
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,700;1,9..144,900&family=Epilogue:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+
 <style>
+/* ── RESET ── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+img{max-width:100%;display:block;}
+a{color:inherit;}
 
+/* ── TOKENS ── */
 :root{
-  /* Sage green family */
-  --sage:#6B8F71;
-  --sage-mid:#5A7A60;
-  --sage-bg:#EDF3EE;
-  --sage-bg-deep:#D6E5D8;
-  --sage-text:#1E3522;
-
-  /* Dusty rose family */
-  --rose:#B07A7A;
-  --rose-mid:#9A6464;
-  --rose-bg:#F3ECEC;
-  --rose-bg-deep:#E5D2D2;
-  --rose-text:#3A1818;
-
-  /* Warm neutrals */
-  --base:#F7F5F2;
-  --card:#FFFFFF;
-  --text:#1A1714;
-  --mid:#4A4440;
-  --soft:#9A918A;
-  --border:rgba(80,60,50,0.10);
-  --border-mid:rgba(80,60,50,0.18);
-
-  --r:14px;
-  --rs:8px;
+  --cream:     #F5EBD8;
+  --cream-mid: #EAD9C0;
+  --cream-deep:#D9C5A8;
+  --ink:       #1C1008;
+  --sienna:    #C4621A;
+  --forest:    #3A5C2E;
+  --forest-light: #5A9E7A;
+  --ink-55:    rgba(28,16,8,0.55);
+  --ink-30:    rgba(28,16,8,0.30);
+  --ink-12:    rgba(28,16,8,0.12);
+  --cream-55:  rgba(245,235,216,0.55);
+  --cream-30:  rgba(245,235,216,0.30);
+  --cream-12:  rgba(245,235,216,0.12);
 }
 
+html{scroll-behavior:smooth;}
+
 body{
-  background:var(--base);
+  background:var(--cream);
   font-family:'Epilogue',sans-serif;
-  color:var(--text);
+  color:var(--ink);
   line-height:1.6;
+  -webkit-font-smoothing:antialiased;
 }
 
 /* ── NAV ── */
 nav{
-  background:rgba(247,245,242,0.96);
-  border-bottom:1px solid var(--border);
-  padding:18px 48px;
+  background:var(--ink);
+  padding:0 52px;
+  height:62px;
   display:flex;
   align-items:center;
   justify-content:space-between;
   position:sticky;
   top:0;
   z-index:100;
-  backdrop-filter:blur(10px);
 }
 
-/* ── LOGO MARK ── */
 .logo{
   display:flex;
   align-items:center;
-  gap:14px;
-  text-decoration:none;
-  color:inherit;
-}
-
-.logo-monogram{
-  position:relative;
-  width:44px;
-  height:44px;
-  flex-shrink:0;
-}
-
-.logo-monogram svg{
-  width:44px;
-  height:44px;
-}
-
-.logo-wordmark{
-  display:flex;
-  flex-direction:column;
   gap:0;
+  text-decoration:none;
   line-height:1;
 }
 
-.logo-two{
+.logo-word{
   font-family:'Fraunces',serif;
-  font-size:20px;
-  font-weight:700;
-  color:var(--sage-mid);
+  font-size:22px;
+  font-weight:900;
   letter-spacing:-0.5px;
-  line-height:1;
 }
 
-.logo-sense{
-  font-family:'Fraunces',serif;
-  font-size:20px;
-  font-weight:700;
-  color:var(--rose-mid);
-  letter-spacing:-0.5px;
-  line-height:1;
-}
+.logo-two{color:var(--sienna);}
+.logo-sense{color:var(--cream);}
 
-.logo-rule{
-  width:100%;
-  height:2px;
-  background:linear-gradient(90deg, var(--sage) 0%, var(--rose) 100%);
-  border-radius:1px;
-  margin:3px 0;
+.logo-dot{
+  width:5px;
+  height:5px;
+  border-radius:50%;
+  background:var(--cream-30);
+  margin:0 6px 0 4px;
+  flex-shrink:0;
 }
 
 .nav-links{
@@ -119,517 +99,478 @@ nav{
 }
 
 .nav-links a{
-  font-size:14px;
+  font-size:12px;
   font-weight:500;
-  color:var(--mid);
+  letter-spacing:0.3px;
+  color:var(--cream-55);
   text-decoration:none;
   transition:color 0.15s;
 }
 
-.nav-links a:hover{ color:var(--sage); }
+.nav-links a:hover{color:var(--cream);}
 
-.nav-cta{
-  background:var(--text);
-  color:#fff !important;
-  padding:9px 22px;
-  border-radius:20px;
-  font-size:13px;
-  font-weight:600;
-  text-decoration:none;
-  transition:opacity 0.2s;
+.nav-sub{
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--cream-30);
 }
 
-.nav-cta:hover{ opacity:0.8; }
+.nav-cta{
+  background:var(--cream) !important;
+  color:var(--ink) !important;
+  padding:8px 20px;
+  border-radius:2px;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  transition:background 0.2s,color 0.2s;
+}
 
-@media(max-width:680px){
-  nav{padding:16px 20px;}
-  .nav-links .hide-mobile{display:none;}
+.nav-cta:hover{
+  background:var(--sienna) !important;
+  color:var(--cream) !important;
 }
 
 /* ── HERO ── */
 .hero{
-  max-width:820px;
+  display:grid;
+  grid-template-columns:55% 45%;
+  min-height:calc(100vh - 62px);
+  max-width:1280px;
   margin:0 auto;
-  padding:80px 40px 60px;
-  text-align:center;
+  padding:80px 52px 72px;
+  gap:72px;
+  align-items:center;
 }
 
 .hero-eyebrow{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  margin-bottom:28px;
-}
-
-.hero-dot{
-  width:8px;
-  height:8px;
-  border-radius:50%;
-}
-
-.hero-dot.sage{ background:var(--sage); }
-.hero-dot.rose{ background:var(--rose); }
-
-.hero-eyebrow-text{
   font-family:'JetBrains Mono',monospace;
-  font-size:11px;
-  letter-spacing:2px;
-  color:var(--soft);
+  font-size:10px;
+  letter-spacing:3.5px;
   text-transform:uppercase;
+  color:var(--ink-30);
+  margin-bottom:32px;
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.eyebrow-rule{
+  display:block;
+  width:36px;
+  height:1px;
+  background:var(--ink-30);
+  flex-shrink:0;
 }
 
 .hero h1{
   font-family:'Fraunces',serif;
-  font-size:clamp(36px,6vw,64px);
+  font-size:clamp(56px,7vw,100px);
   font-weight:900;
-  color:var(--text);
-  line-height:1.08;
-  letter-spacing:-2px;
-  margin-bottom:28px;
+  line-height:0.93;
+  letter-spacing:-4px;
+  color:var(--ink);
+  margin-bottom:36px;
 }
 
-.hero h1 .sage{ color:var(--sage); font-style:italic; }
-.hero h1 .rose{ color:var(--rose); font-style:italic; }
+.hero h1 em{
+  font-style:italic;
+  color:var(--sienna);
+}
 
 .hero-lead{
-  font-size:18px;
-  color:var(--mid);
-  line-height:1.8;
-  max-width:580px;
-  margin:0 auto 40px;
+  font-size:16px;
   font-weight:300;
+  color:var(--ink-55);
+  line-height:1.9;
+  max-width:440px;
+  margin-bottom:44px;
 }
 
 .hero-actions{
   display:flex;
-  gap:14px;
-  justify-content:center;
+  gap:12px;
   flex-wrap:wrap;
 }
 
-.btn-primary{
-  background:var(--text);
-  color:#fff;
-  padding:14px 32px;
-  border-radius:20px;
-  font-size:14px;
-  font-weight:600;
+.btn-ink{
+  background:var(--ink);
+  color:var(--cream);
+  padding:14px 30px;
+  border-radius:2px;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:2px;
+  text-transform:uppercase;
   text-decoration:none;
-  transition:opacity 0.2s;
   display:inline-block;
+  transition:background 0.2s;
 }
 
-.btn-primary:hover{ opacity:0.8; }
+.btn-ink:hover{background:var(--sienna);}
 
 .btn-ghost{
-  border:1.5px solid var(--border-mid);
-  color:var(--mid);
-  padding:13px 30px;
-  border-radius:20px;
-  font-size:14px;
-  font-weight:500;
-  text-decoration:none;
-  background:transparent;
-  transition:all 0.2s;
-  display:inline-block;
-}
-
-.btn-ghost:hover{ border-color:var(--rose); color:var(--rose); }
-
-/* ── DIVIDER ── */
-.divider{
-  height:1px;
-  background:var(--border);
-  margin:0 48px;
-}
-
-/* ── THE TWO WORLDS -- MAIN SECTION ── */
-.worlds{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:0;
-  margin:60px 48px;
-  border:1px solid var(--border);
-  border-radius:24px;
-  overflow:hidden;
-  background:var(--card);
-}
-
-.world{
-  padding:52px 48px;
-  position:relative;
-  overflow:hidden;
-}
-
-.world.finance{
-  border-right:1px solid var(--border);
-}
-
-.world-stripe{
-  position:absolute;
-  top:0;
-  left:0;
-  right:0;
-  height:4px;
-}
-
-.world-stripe.sage{ background:var(--sage); }
-.world-stripe.rose{ background:var(--rose); }
-
-.world-number{
-  font-family:'JetBrains Mono',monospace;
-  font-size:10px;
-  letter-spacing:2px;
-  color:var(--soft);
+  border:1.5px solid var(--ink-12);
+  color:var(--ink-55);
+  padding:12px 28px;
+  border-radius:2px;
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:1.5px;
   text-transform:uppercase;
-  margin-bottom:20px;
+  text-decoration:none;
+  display:inline-block;
+  transition:all 0.2s;
 }
 
-.world-icon{
-  width:52px;
-  height:52px;
-  border-radius:50%;
+.btn-ghost:hover{
+  border-color:var(--forest);
+  color:var(--forest);
+}
+
+/* Hero right -- image zone */
+.hero-right{
+  position:relative;
+  align-self:stretch;
+  display:flex;
+  align-items:center;
+}
+
+.hero-image-wrap{
+  width:100%;
+  position:relative;
+}
+
+.hero-image-slot{
+  width:100%;
+  aspect-ratio:4/5;
+  background:var(--cream-mid);
+  border-radius:4px;
+  overflow:hidden;
+  position:relative;
+}
+
+.hero-image-slot img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.img-placeholder{
+  width:100%;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  color:var(--ink-30);
+}
+
+.img-placeholder-icon{
+  width:40px;
+  height:40px;
+  border:1.5px solid currentColor;
+  border-radius:3px;
   display:flex;
   align-items:center;
   justify-content:center;
-  margin-bottom:20px;
-  font-family:'Fraunces',serif;
-  font-size:22px;
-  font-weight:900;
-}
-
-/* RupeeSense logo mark */
-.world-icon-rs{
-  display:flex;
-  align-items:baseline;
-  gap:0;
-  margin-bottom:20px;
-  font-family:'DM Sans','Epilogue',sans-serif;
-  font-weight:800;
-  line-height:1;
-}
-.rs-rupee{
-  font-size:30px;
-  font-weight:800;
-  color:#0E7A5A;
-  line-height:1;
-}
-.rs-x{
-  font-size:16px;
-  font-weight:700;
-  color:#E8602C;
-  vertical-align:sub;
-  line-height:1;
-  margin-left:1px;
-}
-
-/* ClimateSense logo mark */
-.world-icon-cs{
-  display:flex;
-  align-items:baseline;
-  gap:0;
-  margin-bottom:20px;
-  font-family:'Epilogue',sans-serif;
-  font-weight:800;
-  line-height:1;
-}
-.cs-deg{
-  font-size:24px;
-  font-weight:800;
-  color:#2A52B0;
-  line-height:1;
-}
-.cs-c{
-  font-size:24px;
-  font-weight:800;
-  color:#C94040;
-  line-height:1;
-}
-
-.world-tag{
-  display:inline-block;
-  font-size:11px;
-  font-weight:600;
-  letter-spacing:1.2px;
-  text-transform:uppercase;
-  padding:4px 14px;
-  border-radius:20px;
-  margin-bottom:16px;
-}
-
-.world-tag.sage{
-  background:var(--sage-bg);
-  color:var(--sage-text);
-  border:1px solid rgba(107,143,113,0.2);
-}
-
-.world-tag.rose{
-  background:var(--rose-bg);
-  color:var(--rose-text);
-  border:1px solid rgba(176,122,122,0.2);
-}
-
-.world-heading{
-  font-family:'Fraunces',serif;
-  font-size:28px;
-  font-weight:900;
-  color:var(--text);
-  line-height:1.15;
-  letter-spacing:-0.5px;
-  margin-bottom:20px;
-}
-
-.world-body{
-  font-size:15px;
-  color:var(--mid);
-  line-height:1.8;
-  font-weight:300;
-  margin-bottom:20px;
-}
-
-.world-body strong{
-  color:var(--text);
-  font-weight:600;
-}
-
-.world-pullquote{
-  font-family:'Fraunces',serif;
-  font-size:17px;
-  font-style:italic;
-  font-weight:700;
-  line-height:1.5;
-  margin:24px 0;
-  padding-left:18px;
-}
-
-.world-pullquote.sage{
-  border-left:3px solid var(--sage);
-  color:var(--sage-text);
-}
-
-.world-pullquote.rose{
-  border-left:3px solid var(--rose);
-  color:var(--rose-text);
-}
-
-.world-link{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  font-size:14px;
-  font-weight:600;
-  text-decoration:none;
-  padding:11px 22px;
-  border-radius:20px;
-  transition:all 0.2s;
-  margin-top:8px;
-}
-
-.world-link.sage{
-  background:var(--sage-bg);
-  color:var(--sage-text);
-  border:1px solid rgba(107,143,113,0.25);
-}
-
-.world-link.sage:hover{
-  background:var(--sage-bg-deep);
-}
-
-.world-link.rose{
-  background:var(--rose-bg);
-  color:var(--rose-text);
-  border:1px solid rgba(176,122,122,0.25);
-}
-
-.world-link.rose:hover{
-  background:var(--rose-bg-deep);
-}
-
-.world-bg-text{
-  position:absolute;
-  right:-20px;
-  bottom:-30px;
-  font-family:'Fraunces',serif;
-  font-size:120px;
-  font-weight:900;
-  line-height:1;
-  pointer-events:none;
-  user-select:none;
-  opacity:0.035;
-  color:var(--text);
-}
-
-@media(max-width:760px){
-  .worlds{
-    grid-template-columns:1fr;
-    margin:40px 20px;
-  }
-  .world.finance{ border-right:none; border-bottom:1px solid var(--border); }
-  .world{ padding:40px 28px; }
-}
-
-/* ── MANIFESTO BAND ── */
-.manifesto{
-  background:var(--text);
-  padding:80px 48px;
   position:relative;
-  overflow:hidden;
 }
 
-.manifesto::before{
+.img-placeholder-icon::before{
   content:'';
   position:absolute;
-  top:0; left:0; right:0;
-  height:3px;
-  background:linear-gradient(90deg, var(--sage) 0%, var(--rose) 100%);
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  border:1.5px solid currentColor;
+  top:8px;
+  left:8px;
 }
 
-.manifesto-inner{
-  max-width:680px;
-  margin:0 auto;
-  text-align:center;
+.img-placeholder-icon::after{
+  content:'';
+  position:absolute;
+  bottom:8px;
+  left:0;
+  right:0;
+  height:1.5px;
+  background:currentColor;
+  clip-path:polygon(0 100%, 30% 40%, 55% 65%, 75% 30%, 100% 0, 100% 100%);
 }
 
-.manifesto-label{
+.img-placeholder span{
   font-family:'JetBrains Mono',monospace;
-  font-size:10px;
+  font-size:9px;
   letter-spacing:2.5px;
   text-transform:uppercase;
-  color:rgba(255,255,255,0.35);
-  margin-bottom:24px;
 }
 
-.manifesto h2{
+/* Floating stat on image */
+.hero-float{
+  position:absolute;
+  bottom:-22px;
+  left:-36px;
+  background:var(--ink);
+  padding:20px 26px;
+  border-radius:2px;
+  min-width:148px;
+}
+
+.float-num{
   font-family:'Fraunces',serif;
-  font-size:clamp(26px,4vw,42px);
-  font-weight:900;
-  color:#fff;
-  line-height:1.2;
-  letter-spacing:-1px;
-  margin-bottom:28px;
-}
-
-.manifesto h2 em{
-  font-style:italic;
-  color:var(--sage);
-}
-
-.manifesto h2 .rose-em{
-  font-style:italic;
-  color:#D4A0A0;
-}
-
-.manifesto-body{
-  font-size:16px;
-  color:rgba(255,255,255,0.58);
-  line-height:1.85;
-  font-weight:300;
-  margin-bottom:16px;
-}
-
-.manifesto-body strong{
-  color:rgba(255,255,255,0.85);
-  font-weight:500;
-}
-
-.manifesto-rule{
-  width:60px;
-  height:2px;
-  margin:36px auto;
-  background:linear-gradient(90deg, var(--sage) 0%, var(--rose) 100%);
-  border-radius:1px;
-}
-
-/* ── SIGNAL STRIP ── */
-.signal-strip{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:0;
-  margin:60px 48px;
-  border:1px solid var(--border);
-  border-radius:16px;
-  overflow:hidden;
-  background:var(--card);
-}
-
-.signal-item{
-  padding:32px 28px;
-  border-right:1px solid var(--border);
-}
-
-.signal-item:last-child{ border-right:none; }
-
-.signal-num{
-  font-family:'Fraunces',serif;
-  font-size:36px;
+  font-size:44px;
   font-weight:900;
   line-height:1;
+  color:var(--sienna);
+  letter-spacing:-2px;
   margin-bottom:6px;
 }
 
-.signal-num.sage{ color:var(--sage); }
-.signal-num.rose{ color:var(--rose); }
-.signal-num.neutral{ color:var(--mid); }
-
-.signal-label{
-  font-size:13px;
-  color:var(--soft);
+.float-label{
+  font-size:11px;
+  color:var(--cream-30);
+  font-weight:300;
   line-height:1.5;
 }
 
-@media(max-width:600px){
-  .signal-strip{
-    grid-template-columns:1fr;
-    margin:40px 20px;
-  }
-  .signal-item{ border-right:none; border-bottom:1px solid var(--border); }
-  .signal-item:last-child{ border-bottom:none; }
+/* ── HAIRLINE RULE ── */
+.hr{
+  height:1px;
+  background:var(--ink-12);
+  margin:0;
 }
 
-/* ── ABOUT STRIP ── */
+.hr-dark{
+  height:1px;
+  background:var(--cream-12);
+}
+
+/* ── PUBLICATIONS (dark band) ── */
+.pubs{
+  background:var(--ink);
+  display:grid;
+  grid-template-columns:1fr 1fr;
+}
+
+.pub{
+  padding:68px 52px 80px;
+  position:relative;
+}
+
+.pub-finance{
+  border-right:1px solid var(--cream-12);
+}
+
+/* Image slot in pub */
+.pub-image-slot{
+  width:100%;
+  aspect-ratio:16/9;
+  border-radius:3px;
+  overflow:hidden;
+  margin-bottom:40px;
+  position:relative;
+}
+
+.pub-image-slot img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.pub-img-placeholder{
+  width:100%;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.pub-img-placeholder-finance{
+  background:rgba(196,98,26,0.08);
+}
+
+.pub-img-placeholder-climate{
+  background:rgba(58,92,46,0.15);
+}
+
+.pub-img-placeholder span{
+  font-family:'JetBrains Mono',monospace;
+  font-size:9px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+
+.pub-img-placeholder-finance span{color:rgba(196,98,26,0.4);}
+.pub-img-placeholder-climate span{color:rgba(90,158,122,0.4);}
+
+.pub-label{
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  margin-bottom:22px;
+}
+
+.pub-label-finance{color:var(--sienna);}
+.pub-label-climate{color:var(--forest-light);}
+
+.pub-heading{
+  font-family:'Fraunces',serif;
+  font-size:clamp(28px,3vw,44px);
+  font-weight:900;
+  line-height:1.05;
+  letter-spacing:-1.5px;
+  color:var(--cream);
+  margin-bottom:20px;
+}
+
+.pub-body{
+  font-size:14px;
+  font-weight:300;
+  color:var(--cream-55);
+  line-height:1.85;
+  margin-bottom:16px;
+}
+
+.pub-latest{
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  color:var(--cream-30);
+  margin-bottom:8px;
+  margin-top:32px;
+}
+
+.pub-latest-link{
+  font-size:13px;
+  font-weight:400;
+  color:var(--cream-55);
+  text-decoration:none;
+  line-height:1.5;
+  transition:color 0.15s;
+  display:block;
+  margin-bottom:32px;
+}
+
+.pub-latest-link:hover{color:var(--cream);}
+
+.pub-cta{
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  text-decoration:none;
+  padding-bottom:3px;
+  border-bottom:1px solid;
+  transition:all 0.15s;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+}
+
+.pub-cta-finance{
+  color:var(--sienna);
+  border-color:rgba(196,98,26,0.35);
+}
+
+.pub-cta-finance:hover{border-color:var(--sienna);}
+
+.pub-cta-climate{
+  color:var(--forest-light);
+  border-color:rgba(90,158,122,0.35);
+}
+
+.pub-cta-climate:hover{border-color:var(--forest-light);}
+
+/* ── MANIFESTO STRIP ── */
+.strip{
+  background:var(--ink);
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+}
+
+.strip-item{
+  padding:44px 48px;
+  border-right:1px solid var(--cream-12);
+}
+
+.strip-item:last-child{border-right:none;}
+
+.strip-num{
+  font-family:'Fraunces',serif;
+  font-size:52px;
+  font-weight:900;
+  line-height:1;
+  letter-spacing:-2px;
+  margin-bottom:10px;
+}
+
+.strip-num-sienna{color:var(--sienna);}
+.strip-num-forest{color:var(--forest-light);}
+.strip-num-cream{color:var(--cream-30);}
+
+.strip-text{
+  font-size:13px;
+  font-weight:300;
+  color:var(--cream-55);
+  line-height:1.65;
+}
+
+/* ── ABOUT ── */
 .about{
-  max-width:680px;
+  max-width:700px;
   margin:0 auto;
-  padding:60px 40px 80px;
+  padding:100px 52px 100px;
   text-align:center;
 }
 
-.about-label{
+.about-eyebrow{
   font-family:'JetBrains Mono',monospace;
   font-size:10px;
-  letter-spacing:2px;
+  letter-spacing:3.5px;
   text-transform:uppercase;
-  color:var(--soft);
-  margin-bottom:16px;
+  color:var(--ink-30);
+  margin-bottom:28px;
 }
 
 .about h2{
   font-family:'Fraunces',serif;
-  font-size:28px;
-  font-weight:700;
-  color:var(--text);
-  letter-spacing:-0.5px;
-  margin-bottom:16px;
-  line-height:1.2;
+  font-size:clamp(30px,4.5vw,52px);
+  font-weight:900;
+  line-height:1.05;
+  letter-spacing:-2px;
+  color:var(--ink);
+  margin-bottom:28px;
+}
+
+.about h2 em{
+  font-style:italic;
+  color:var(--sienna);
 }
 
 .about-body{
-  font-size:15px;
-  color:var(--mid);
-  line-height:1.8;
+  font-size:16px;
   font-weight:300;
+  color:var(--ink-55);
+  line-height:1.9;
 }
 
 /* ── FOOTER ── */
 footer{
-  background:var(--text);
-  padding:48px;
-  color:rgba(255,255,255,0.45);
-  font-size:13px;
+  background:var(--ink);
+  padding:56px 52px 48px;
 }
 
 .footer-inner{
-  max-width:820px;
+  max-width:1100px;
   margin:0 auto;
 }
 
@@ -637,65 +578,29 @@ footer{
   display:flex;
   align-items:flex-start;
   justify-content:space-between;
-  gap:32px;
-  margin-bottom:40px;
+  gap:48px;
+  margin-bottom:52px;
   flex-wrap:wrap;
 }
 
-.footer-logo-wrap{ margin-bottom:10px; }
-
-.footer-logo{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  margin-bottom:10px;
-  text-decoration:none;
-}
-
-.footer-wordmark{
-  display:flex;
-  flex-direction:column;
-  line-height:1;
-}
-
-.footer-two{
-  font-family:'Fraunces',serif;
-  font-size:18px;
-  font-weight:700;
-  color:var(--sage);
-  letter-spacing:-0.5px;
-}
-
-.footer-sense{
-  font-family:'Fraunces',serif;
-  font-size:18px;
-  font-weight:700;
-  color:#D4A0A0;
-  letter-spacing:-0.5px;
-}
-
-.footer-rule{
-  width:100%;
-  height:1.5px;
-  background:linear-gradient(90deg, var(--sage) 0%, var(--rose) 100%);
-  border-radius:1px;
-  margin:3px 0;
-}
+.footer-brand .logo-word{font-size:24px;}
 
 .footer-tagline{
-  font-size:13px;
-  color:rgba(255,255,255,0.28);
-  line-height:1.6;
-  max-width:210px;
+  font-size:12px;
+  font-weight:300;
+  color:var(--cream-30);
+  line-height:1.75;
+  max-width:220px;
+  margin-top:12px;
 }
 
 .footer-col-title{
-  font-size:10px;
-  font-weight:600;
-  letter-spacing:1.5px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:9px;
+  letter-spacing:2.5px;
   text-transform:uppercase;
-  color:rgba(255,255,255,0.25);
-  margin-bottom:14px;
+  color:var(--cream-30);
+  margin-bottom:16px;
 }
 
 .footer-links{
@@ -706,44 +611,77 @@ footer{
 
 .footer-links a{
   font-size:13px;
-  color:rgba(255,255,255,0.42);
+  font-weight:300;
+  color:rgba(245,235,216,0.38);
   text-decoration:none;
   transition:color 0.15s;
 }
 
-.footer-links a:hover{ color:rgba(255,255,255,0.75); }
+.footer-links a:hover{color:var(--cream);}
 
 .footer-bottom{
-  border-top:1px solid rgba(255,255,255,0.07);
+  border-top:1px solid var(--cream-12);
   padding-top:28px;
   display:flex;
   justify-content:space-between;
-  align-items:center;
+  align-items:flex-start;
+  gap:20px;
   flex-wrap:wrap;
-  gap:12px;
 }
 
 .footer-copy{
-  font-size:12px;
-  color:rgba(255,255,255,0.2);
-}
-
-.footer-disclaimer{
   font-size:11px;
-  color:rgba(255,255,255,0.18);
-  max-width:420px;
-  line-height:1.6;
+  color:var(--cream-30);
+  font-family:'JetBrains Mono',monospace;
 }
 
-@media(max-width:640px){
-  footer{ padding:36px 20px; }
-  .footer-top{ gap:28px; }
-  .footer-bottom{ flex-direction:column; align-items:flex-start; }
-  .manifesto{ padding:60px 24px; }
-  .about{ padding:48px 24px 60px; }
-  .signal-strip{ margin:40px 20px; }
-  .divider{ margin:0 20px; }
-  nav{ padding:16px 20px; }
+.footer-disc{
+  font-size:11px;
+  color:rgba(245,235,216,0.18);
+  max-width:400px;
+  line-height:1.65;
+  font-weight:300;
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  nav{padding:0 28px;}
+  .nav-links .hide-m{display:none;}
+
+  .hero{
+    grid-template-columns:1fr;
+    min-height:auto;
+    padding:60px 28px 52px;
+    gap:48px;
+  }
+
+  .hero-right{order:-1;}
+  .hero-image-slot{aspect-ratio:16/9;}
+  .hero-float{bottom:-16px;left:-12px;}
+
+  .pubs{grid-template-columns:1fr;}
+  .pub-finance{border-right:none;border-bottom:1px solid var(--cream-12);}
+  .pub{padding:52px 28px 60px;}
+
+  .strip{grid-template-columns:1fr;}
+  .strip-item{border-right:none;border-bottom:1px solid var(--cream-12);}
+  .strip-item:last-child{border-bottom:none;}
+
+  .about{padding:72px 28px;}
+  footer{padding:48px 28px 40px;}
+  .footer-top{gap:32px;}
+}
+
+@media(max-width:580px){
+  nav{padding:0 20px;}
+  .hero h1{letter-spacing:-2px;}
+  .hero-float{display:none;}
+  .about{padding:64px 20px;}
+  footer{padding:40px 20px 36px;}
+}
+
+@media(prefers-reduced-motion:reduce){
+  *{transition:none!important;}
 }
 </style>
 </head>
@@ -752,185 +690,142 @@ footer{
 <!-- ── NAV ── -->
 <nav>
   <a href="index.html" class="logo">
-    <div class="logo-monogram">
-      <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="22" cy="22" r="21" stroke="rgba(80,60,50,0.12)" stroke-width="1"/>
-        <!-- "2" in terracotta/rose -->
-        <text x="13" y="25" font-family="Georgia, serif" font-size="19" font-weight="700" fill="#B07060">2</text>
-        <!-- "S" in sage, offset -->
-        <text x="22" y="34" font-family="Georgia, serif" font-size="19" font-weight="700" fill="#5A7A60">S</text>
-      </svg>
-    </div>
-    <div class="logo-wordmark">
-      <span class="logo-two">Two</span>
-      <div class="logo-rule"></div>
-      <span class="logo-sense">Sense</span>
-    </div>
+    <span class="logo-word"><span class="logo-two">Two</span><span class="logo-sense">Sense</span></span>
   </a>
 
   <div class="nav-links">
-    <a href="RupeeSense/index.html" class="hide-mobile">RupeeSense</a>
-    <a href="ClimateSense/index.html" class="hide-mobile">ClimateSense</a>
-    <a href="#about" class="hide-mobile">About</a>
+    <span class="nav-sub hide-m">Finance &amp; Climate</span>
+    <a href="RupeeSense/index.html" class="hide-m">RupeeSense</a>
+    <a href="ClimateSense/index.html" class="hide-m">ClimateSense</a>
+    <a href="#about" class="hide-m">About</a>
     <a href="#newsletter" class="nav-cta">Subscribe</a>
   </div>
 </nav>
 
 <!-- ── HERO ── -->
 <section class="hero">
-  <div class="hero-eyebrow">
-    <span class="hero-dot sage"></span>
-    <span class="hero-eyebrow-text">Finance and Climate</span>
-    <span class="hero-dot rose"></span>
-  </div>
+  <div class="hero-left">
+    <div class="hero-eyebrow">
+      <span class="eyebrow-rule"></span>
+      Finance and Climate
+    </div>
 
-  <h1>Two forces.<br>One <span class="sage">quiet</span> hand<br>on everything <span class="rose">you do.</span></h1>
+    <h1>Two forces.<br><em>Quietly</em><br>running<br>everything.</h1>
 
-  <p class="hero-lead">
-    You did not choose your rent, your job market, or the heat outside your window.
-    Finance and climate chose them for you. TwoSense is where we read the fine print.
-  </p>
-
-  <div class="hero-actions">
-    <a href="RupeeSense/index.html" class="btn-primary">Explore RupeeSense</a>
-    <a href="ClimateSense/index.html" class="btn-ghost">Explore ClimateSense</a>
-  </div>
-</section>
-
-<!-- ── MANIFESTO ── -->
-<section class="manifesto">
-  <div class="manifesto-inner">
-    <div class="manifesto-label">Why TwoSense exists</div>
-
-    <h2>Most of life is<br><em>quietly decided</em> by things<br>we never <span class="rose-em">chose to study.</span></h2>
-
-    <p class="manifesto-body">
-      Nobody hands you a syllabus when you sign your first lease, take out a loan, or move to a city.
-      Nobody explains that the interest rate set in a committee room will determine whether your EMI
-      feels manageable next year. Nobody mentions that the summer getting longer is not just weather --
-      it is a rewriting of where crops grow, where floods arrive, and which jobs survive.
+    <p class="hero-lead">
+      You did not choose your rent, your job market, or the heat outside your window.
+      Finance and climate chose them for you. Your decisions are doing the same thing
+      to someone else right now. TwoSense makes both forces readable, so you know
+      which direction you are pushing.
     </p>
 
-    <div class="manifesto-rule"></div>
+    <div class="hero-actions">
+      <a href="RupeeSense/index.html" class="btn-ink">RupeeSense</a>
+      <a href="ClimateSense/index.html" class="btn-ghost">ClimateSense</a>
+    </div>
+  </div>
 
-    <p class="manifesto-body">
-      Finance and climate are not subjects reserved for economists and scientists.
-      They are the <strong>operating system running underneath ordinary life.</strong>
-      TwoSense exists to make that operating system readable -- not simplified into uselessness,
-      but explained with enough honesty that you can actually do something with it.
-    </p>
+  <div class="hero-right">
+    <div class="hero-image-wrap">
+      <div class="hero-image-slot">
+        <img src="images/hero.jpg" alt="A horse grazes on dry grass at golden hour, Mumbai's skyline rising through the haze behind it — nature and capital in the same frame."/>
+      </div>
+
+      <div class="hero-float">
+        <div class="float-num">2</div>
+        <div class="float-label">Publications.<br>Zero paywalls.</div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- ── THE TWO WORLDS ── -->
-<section class="worlds">
+<div class="hr"></div>
 
-  <!-- FINANCE -->
-  <div class="world finance">
-    <div class="world-stripe sage"></div>
-    <div class="world-bg-text">Rs</div>
+<!-- ── PUBLICATIONS ── -->
+<section class="pubs">
 
-    <div class="world-number">01 / Finance</div>
-    <div class="world-icon-rs">
-      <span class="rs-rupee">₹</span><span class="rs-x">x</span>
-    </div>
-    <span class="world-tag sage">RupeeSense</span>
-
-    <h2 class="world-heading">Money makes decisions before you do.</h2>
-
-    <p class="world-body">
-      Long before you sit down to decide whether to buy a flat or keep renting,
-      the decision has already been shaped by repo rates, inflation figures, credit cycles,
-      and tax structures you have probably never read in full. The math works quietly in the background,
-      and most people engage with only the surface of it -- the EMI amount, the monthly salary number,
-      the mutual fund NAV on an app.
-    </p>
-
-    <div class="world-pullquote sage">
-      The gap between those who understand how money moves and those who do not is not a knowledge gap.
-      It is a compounding gap.
+  <!-- RUPEE SENSE -->
+  <div class="pub pub-finance">
+    <!-- IMAGE SLOT: replace the div below with <img src="your-image.jpg" alt="..."> -->
+    <div class="pub-image-slot">
+      <div class="pub-img-placeholder pub-img-placeholder-finance">
+        <span>Image slot</span>
+      </div>
     </div>
 
-    <p class="world-body">
-      Most financial questions do not have a clean answer on the internet -- just opinions
-      dressed as facts and calculators that assume you already know what you are doing.
-      RupeeSense is written for the moment just before a decision: when you sense something
-      is off about a product you have been sold, when a number does not add up, when you
-      need to understand something well enough to actually act on it. <strong>Smart but busy,
-      curious but not yet confident</strong> -- that is who this is for, and that is the
-      gap these articles are built to close.
+    <div class="pub-label pub-label-finance">01 &mdash; RupeeSense</div>
+    <h2 class="pub-heading">Money makes decisions<br>before you do.</h2>
+    <p class="pub-body">
+      Personal finance for India, written at the moment just before a decision:
+      when a number does not add up, when you need to understand something
+      well enough to actually act on it. Smart but busy. Curious but not yet confident.
     </p>
 
-    <a href="RupeeSense/index.html" class="world-link sage">Read RupeeSense &rarr;</a>
+    <div class="pub-latest">Latest</div>
+    <a href="RupeeSense/articles/ev-vs-petrol-india.html" class="pub-latest-link">
+      EV or Petrol: The Unsolved Paradox &rarr;
+    </a>
+
+    <a href="RupeeSense/index.html" class="pub-cta pub-cta-finance">
+      Read RupeeSense &rarr;
+    </a>
   </div>
 
-  <!-- CLIMATE -->
-  <div class="world climate">
-    <div class="world-stripe rose"></div>
-    <div class="world-bg-text">C</div>
-
-    <div class="world-number">02 / Climate</div>
-    <div class="world-icon-cs">
-      <span class="cs-deg">&deg;</span><span class="cs-c">C</span>
-    </div>
-    <span class="world-tag rose">ClimateSense</span>
-
-    <h2 class="world-heading">The weather changed. So did everything else.</h2>
-
-    <p class="world-body">
-      It started as a temperature conversation. Then it became a crop yield conversation,
-      then an insurance conversation, then an infrastructure conversation,
-      then a geopolitics conversation. Climate change arrived into the mainstream as an environmental story,
-      but it has quietly become the context inside which every other story now takes place.
-    </p>
-
-    <div class="world-pullquote rose">
-      The cost of doing nothing about climate is now showing up in grocery bills,
-      flood insurance premiums, and corporate earnings calls.
-      It stopped being abstract some time ago.
+  <!-- CLIMATE SENSE -->
+  <div class="pub pub-climate">
+    <!-- IMAGE SLOT: replace the div below with <img src="your-image.jpg" alt="..."> -->
+    <div class="pub-image-slot">
+      <div class="pub-img-placeholder pub-img-placeholder-climate">
+        <span>Image slot</span>
+      </div>
     </div>
 
-    <p class="world-body">
-      ClimateSense decodes the jargon so the science actually lands. It connects your
-      <strong>everyday choices to their compounding effects on the planet</strong> -- because
-      awareness without direction changes nothing. You leave each article with something
-      concrete: a habit reconsidered, a system understood, a piece of the picture that
-      was missing. Small acts, when you understand why they matter, stop feeling small.
+    <div class="pub-label pub-label-climate">02 &mdash; ClimateSense</div>
+    <h2 class="pub-heading">The weather changed.<br>So did everything else.</h2>
+    <p class="pub-body">
+      Climate science, data, and finance for readers who understand that temperature
+      is now a financial variable. Clear writing on the story running inside
+      every other story. No jargon unless it earns its place.
     </p>
 
-    <a href="ClimateSense/index.html" class="world-link rose">Read ClimateSense &rarr;</a>
+    <div class="pub-latest">Latest</div>
+    <a href="ClimateSense/articles/climatesense-scope3-article.html" class="pub-latest-link">
+      The Summers You Remember Are Gone &rarr;
+    </a>
+
+    <a href="ClimateSense/index.html" class="pub-cta pub-cta-climate">
+      Read ClimateSense &rarr;
+    </a>
   </div>
 
 </section>
 
-<div class="divider"></div>
-
-<!-- ── SIGNAL NUMBERS ── -->
-<section class="signal-strip">
-  <div class="signal-item">
-    <div class="signal-num sage">2</div>
-    <div class="signal-label">Blogs. One for money, one for the planet. Both for the same person.</div>
+<!-- ── NUMBERS STRIP ── -->
+<section class="strip">
+  <div class="strip-item">
+    <div class="strip-num strip-num-sienna">2</div>
+    <div class="strip-text">Blogs. One for money, one for the planet. Both for the same reader.</div>
   </div>
-  <div class="signal-item">
-    <div class="signal-num rose">0</div>
-    <div class="signal-label">Paywalls. No subscriptions. No locked articles. Ever.</div>
+  <div class="strip-item">
+    <div class="strip-num strip-num-forest">0</div>
+    <div class="strip-text">Paywalls. No subscriptions. No locked articles. Ever.</div>
   </div>
-  <div class="signal-item">
-    <div class="signal-num neutral">1</div>
-    <div class="signal-label">Rule. Write only when there is something worth saying. No filler.</div>
+  <div class="strip-item">
+    <div class="strip-num strip-num-cream">1</div>
+    <div class="strip-text">Rule. Write only when there is something worth saying. No filler.</div>
   </div>
 </section>
 
-<div class="divider"></div>
+<div class="hr"></div>
 
 <!-- ── ABOUT ── -->
 <section class="about" id="about">
-  <div class="about-label">About TwoSense</div>
-  <h2>Independent writing on the two things shaping the world.</h2>
+  <div class="about-eyebrow">About TwoSense</div>
+  <h2>The fine print on<br><em>ordinary life.</em></h2>
   <p class="about-body">
-    TwoSense is an independent publishing project covering finance and climate --
-    two subjects that touch every household, every career, and every country,
-    yet rarely get written about together or written about clearly.
+    TwoSense is an independent publishing project covering finance and climate.
+    Two subjects that touch every household, every career, and every country,
+    yet rarely get written about together, or written about clearly.
     No agenda beyond clarity. No sponsor interests to protect.
     Just careful reading of the evidence, translated into prose that earns your time.
   </p>
@@ -940,21 +835,9 @@ footer{
 <footer id="newsletter">
   <div class="footer-inner">
     <div class="footer-top">
-
-      <div class="footer-logo-wrap">
-        <a href="index.html" class="footer-logo">
-          <div style="width:36px;height:36px;flex-shrink:0;">
-            <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" width="36" height="36">
-              <circle cx="22" cy="22" r="21" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
-              <text x="13" y="25" font-family="Georgia,serif" font-size="19" font-weight="700" fill="#C08880">2</text>
-              <text x="22" y="34" font-family="Georgia,serif" font-size="19" font-weight="700" fill="#7AAA80">S</text>
-            </svg>
-          </div>
-          <div class="footer-wordmark">
-            <span class="footer-two">Two</span>
-            <div class="footer-rule"></div>
-            <span class="footer-sense">Sense</span>
-          </div>
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <span class="logo-word"><span class="logo-two">Two</span><span class="logo-sense">Sense</span></span>
         </a>
         <div class="footer-tagline">Finance and climate, clearly written for people with better things to do than read badly.</div>
       </div>
@@ -963,8 +846,8 @@ footer{
         <div class="footer-col-title">Finance</div>
         <div class="footer-links">
           <a href="RupeeSense/index.html">RupeeSense</a>
-          <a href="RupeeSense/articles/old-vs-new-regime.html">Old vs New Tax Regime</a>
-          <a href="RupeeSense/index.html">More articles</a>
+          <a href="RupeeSense/articles/ev-vs-petrol-india.html">EV or Petrol: The Unsolved Paradox</a>
+          <a href="RupeeSense/index.html">All articles</a>
         </div>
       </div>
 
@@ -973,7 +856,8 @@ footer{
         <div class="footer-links">
           <a href="ClimateSense/index.html">ClimateSense</a>
           <a href="ClimateSense/articles/climatesense-scope3-article.html">Scope 3 Emissions</a>
-          <a href="ClimateSense/index.html">More articles</a>
+          <a href="ClimateSense/articles/the-summers-you-remember.html">The Summers You Remember Are Gone</a>
+          <a href="ClimateSense/index.html">All articles</a>
         </div>
       </div>
 
@@ -984,12 +868,11 @@ footer{
           <a href="#">Contact</a>
         </div>
       </div>
-
     </div>
 
     <div class="footer-bottom">
       <div class="footer-copy">&copy; 2026 TwoSense</div>
-      <div class="footer-disclaimer">For informational and educational purposes only. Not financial or investment advice. Always consult qualified professionals before making financial decisions.</div>
+      <div class="footer-disc">For informational and educational purposes only. Not financial or investment advice. Always consult qualified professionals before making financial decisions.</div>
     </div>
   </div>
 </footer>
