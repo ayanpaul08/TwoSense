@@ -3,217 +3,274 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="description" content="RupeeSense — financial literacy for every Indian. Real numbers, real stories, zero jargon. Learn about tax, savings, investing, insurance and more."/>
+<meta name="description" content="RupeeSense — financial literacy for every Indian. Real numbers, real stories, zero jargon."/>
 <title>RupeeSense — Financial Literacy for Every Indian</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<meta property="og:title" content="RupeeSense — Financial Literacy for Every Indian"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://twosense.in/RupeeSense/"/>
+<meta name="twitter:card" content="summary_large_image"/>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Epilogue:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+img{max-width:100%;display:block;}
+a{color:inherit;}
 
 :root{
-  --base:#EDF5F2;
-  --card:#ffffff;
-  --border:rgba(14,122,90,0.13);
-  --g1:#0E7A5A;
-  --g2:#1A6BAE;
-  --orange:#E8602C;
-  --text:#0C1F1A;
-  --mid:#2D4A3E;
-  --soft:#7A9990;
-  --r:14px;
-  --rs:8px;
-  --new-bg:#E4F4EE;
-  --old-bg:#E6F0FA;
-  --warn-bg:#FAEEDA;
-  --warn-text:#633806;
-  --orange-bg:#FEF0E6;
+  --cream:    #FEF0DC;
+  --cream-mid:#EDD8C0;
+  --night:    #140A04;
+  --mahogany: #3D1208;
+  --gold:     #D4841A;
+  --bright:   #F0A820;
+  --sienna:   #B84E20;
+  --ink:      #3D1A0A;
+  --ink-55:   rgba(61,26,10,0.55);
+  --ink-30:   rgba(61,26,10,0.30);
+  --ink-12:   rgba(61,26,10,0.12);
+  --cream-55: rgba(254,240,220,0.55);
+  --cream-30: rgba(254,240,220,0.30);
+  --cream-12: rgba(254,240,220,0.12);
 }
 
-body{background:var(--base);font-family:'DM Sans',sans-serif;color:var(--text);line-height:1.6;}
+html{scroll-behavior:smooth;}
+body{background:var(--cream);font-family:'Epilogue',sans-serif;color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;}
 
-/* ── NAV ── */
-nav{background:rgba(237,245,242,0.95);border-bottom:1px solid var(--border);padding:16px 40px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;backdrop-filter:blur(8px);}
-.logo{font-family:'DM Sans',sans-serif;font-size:20px;font-weight:800;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:0;letter-spacing:-0.5px;}
-.logo-rx{display:inline-flex;align-items:baseline;gap:0;}
-.logo-rupee{font-size:22px;font-weight:800;color:var(--g1);line-height:1;}
-.logo-x{font-size:13px;font-weight:700;color:var(--orange);vertical-align:sub;line-height:1;margin-left:1px;}
-.logo-name{font-size:19px;font-weight:700;color:var(--text);margin-left:6px;letter-spacing:-0.3px;}
-.nav-links{display:flex;align-items:center;gap:28px;}
-.nav-links a{font-size:14px;font-weight:500;color:var(--mid);text-decoration:none;transition:color 0.15s;}
-.nav-links a:hover{color:var(--g1);}
-.nav-cta{background:var(--g1);color:#fff !important;padding:9px 20px;border-radius:20px;font-size:13px;font-weight:600;text-decoration:none;transition:opacity 0.2s;}
-.nav-cta:hover{opacity:0.85;}
-@media(max-width:640px){.nav-links .hide-mobile{display:none;}.nav{padding:14px 20px;}}
+/* NAV */
+nav{background:var(--night);padding:0 64px;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.logo{display:flex;align-items:center;text-decoration:none;}
+.logo-rs{font-family:'Playfair Display',serif;font-size:21px;font-weight:900;letter-spacing:0.5px;}
+.logo-rupee{color:var(--gold);}
+.logo-x{font-size:13px;font-weight:700;color:var(--sienna);vertical-align:sub;line-height:1;margin-left:1px;}
+.logo-name{color:var(--cream);margin-left:6px;}
+.nav-links{display:flex;align-items:center;gap:36px;}
+.nav-links a{font-size:12px;font-weight:500;letter-spacing:0.3px;color:var(--cream-55);text-decoration:none;transition:color 0.15s;}
+.nav-links a:hover{color:var(--cream);}
+.nav-back{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--cream-30) !important;}
+.nav-back:hover{color:var(--cream-55) !important;}
+.nav-cta{background:var(--gold) !important;color:var(--night) !important;padding:9px 22px;border-radius:2px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;transition:background 0.2s;}
+.nav-cta:hover{background:var(--bright) !important;}
 
-/* ── HERO ── */
-.hero{padding:72px 40px 56px;max-width:860px;margin:0 auto;text-align:center;}
-.hero-badge{display:inline-block;background:var(--new-bg);border:1px solid rgba(14,122,90,0.2);color:var(--g1);font-size:11px;font-weight:600;letter-spacing:1.4px;text-transform:uppercase;padding:6px 16px;border-radius:20px;margin-bottom:24px;}
-.hero h1{font-family:'Playfair Display',serif;font-size:clamp(34px,5vw,56px);font-weight:900;color:var(--text);line-height:1.12;letter-spacing:-1.2px;margin-bottom:20px;}
-.hero h1 em{font-style:italic;color:var(--g1);}
-.hero-lead{font-size:17px;color:var(--mid);line-height:1.75;max-width:580px;margin:0 auto 36px;font-weight:300;}
-.hero-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
-.btn-primary{background:var(--g1);color:#fff;padding:14px 30px;border-radius:20px;font-size:14px;font-weight:600;text-decoration:none;transition:opacity 0.2s,transform 0.15s;display:inline-block;}
-.btn-primary:hover{opacity:0.87;transform:translateY(-1px);}
-.btn-ghost{border:1.5px solid rgba(14,122,90,0.25);color:var(--mid);padding:13px 28px;border-radius:20px;font-size:14px;font-weight:500;text-decoration:none;background:transparent;transition:all 0.2s;display:inline-block;}
-.btn-ghost:hover{border-color:var(--g1);color:var(--g1);}
+/* HERO — full-width split */
+.hero-section{display:grid;grid-template-columns:52% 48%;min-height:calc(100vh - 64px);}
+.hero-left{background:var(--night);padding:80px 64px 80px 72px;display:flex;flex-direction:column;justify-content:center;}
+.hero-eyebrow{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:3.5px;text-transform:uppercase;color:var(--gold);margin-bottom:36px;display:flex;align-items:center;gap:14px;opacity:0.7;}
+.eyebrow-rule{display:block;width:36px;height:1px;background:var(--gold);opacity:0.5;flex-shrink:0;}
+.hero-left h1{font-family:'Playfair Display',serif;font-size:clamp(56px,6vw,96px);font-weight:900;line-height:0.95;letter-spacing:-1px;color:var(--cream);margin-bottom:40px;}
+.hero-left h1 em{font-style:italic;color:var(--gold);}
+.hero-lead{font-size:16px;font-weight:300;color:var(--cream-55);line-height:1.9;max-width:480px;margin-bottom:44px;}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:56px;}
+.btn-primary{background:var(--gold);color:var(--night);padding:14px 30px;border-radius:2px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;display:inline-block;transition:background 0.2s;}
+.btn-primary:hover{background:var(--bright);}
+.btn-ghost{border:1.5px solid var(--cream-30);color:var(--cream-55);padding:12px 28px;border-radius:2px;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;display:inline-block;transition:all 0.2s;}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold);}
+.hero-stat-row{display:flex;gap:0;border-top:1px solid var(--cream-12);padding-top:32px;}
+.hero-stat-item{flex:1;padding-right:24px;border-right:1px solid var(--cream-12);margin-right:24px;}
+.hero-stat-item:last-child{border-right:none;margin-right:0;padding-right:0;}
+.hsi-num{font-family:'Playfair Display',serif;font-size:32px;font-weight:900;color:var(--gold);line-height:1;margin-bottom:4px;}
+.hsi-label{font-size:11px;color:var(--cream-30);font-weight:300;line-height:1.4;}
+.hero-right{background:var(--cream-mid);overflow:hidden;position:relative;}
+.hero-right img{width:100%;height:100%;object-fit:cover;display:block;}
+.hero-img-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;color:var(--ink-30);}
+.hero-img-placeholder span{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:2.5px;text-transform:uppercase;}
 
-/* ── STATS STRIP ── */
-.stats-strip{display:flex;margin:0 40px 60px;border:1px solid var(--border);border-radius:16px;overflow:hidden;background:var(--card);}
-.stat-item{flex:1;padding:22px 16px;text-align:center;border-right:1px solid var(--border);}
-.stat-item:last-child{border-right:none;}
-.stat-num{font-family:'Playfair Display',serif;font-size:30px;font-weight:700;color:var(--g1);display:block;line-height:1;margin-bottom:5px;}
-.stat-label{font-size:12px;color:var(--soft);font-weight:400;letter-spacing:0.3px;}
-@media(max-width:560px){.stats-strip{margin:0 16px 40px;}.stat-num{font-size:22px;}.stat-label{font-size:11px;}}
+/* RULES */
+.hr{height:1px;background:var(--ink-12);}
+.hr-dark{height:1px;background:var(--cream-12);}
 
-/* ── SECTION HEADER ── */
-.section-wrap{max-width:860px;margin:0 auto;padding:0 40px;}
-.section-hdr{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:24px;}
-.section-title{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--text);letter-spacing:-0.4px;}
-.section-link{font-size:13px;font-weight:500;color:var(--g1);text-decoration:none;}
-.section-link:hover{text-decoration:underline;}
-.section-label-sm{font-size:11px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:var(--soft);margin-bottom:8px;}
-.divider{height:1px;background:var(--border);margin:56px 40px;}
+/* STATS STRIP — saffron gold */
+.stats{background:var(--gold);display:grid;grid-template-columns:repeat(4,1fr);}
+.stat{padding:44px 52px;border-right:1px solid rgba(20,10,4,0.15);}
+.stat:last-child{border-right:none;}
+.stat-num{font-family:'Playfair Display',serif;font-size:52px;font-weight:900;line-height:1;color:var(--night);margin-bottom:8px;display:block;}
+.stat-num.light{color:var(--cream);}
+.stat-label{font-size:12px;color:rgba(20,10,4,0.6);font-weight:400;line-height:1.5;}
 
-/* ── FEATURED CARD (tax article — live) ── */
-.featured-wrap{max-width:860px;margin:0 auto;padding:0 40px;margin-bottom:56px;}
-.card-featured{background:var(--card);border-radius:20px;border:1px solid var(--border);overflow:hidden;text-decoration:none;color:inherit;display:table;width:100%;transition:transform 0.2s,box-shadow 0.2s;}
-.card-featured:hover{transform:translateY(-3px);box-shadow:0 14px 44px rgba(14,122,90,0.11);}
-.cf-visual{display:table-cell;width:38%;background:linear-gradient(135deg,#D6EFE4 0%,#C0E4D4 100%);padding:32px;vertical-align:bottom;position:relative;overflow:hidden;}
-.cf-visual-bg{position:absolute;right:-10px;bottom:-20px;font-family:'Playfair Display',serif;font-size:120px;font-weight:900;color:rgba(14,122,90,0.10);line-height:1;pointer-events:none;user-select:none;}
-.cf-live-badge{display:inline-flex;align-items:center;gap:6px;background:var(--g1);color:#fff;font-size:11px;font-weight:600;letter-spacing:0.8px;padding:5px 12px;border-radius:20px;position:absolute;top:28px;left:28px;}
-.cf-live-dot{width:6px;height:6px;border-radius:50%;background:#6FD9A8;flex-shrink:0;}
-.cf-visual-rx{font-family:'DM Sans',sans-serif;font-size:52px;font-weight:800;color:var(--g1);line-height:1;position:relative;z-index:1;padding-top:60px;}
-.cf-visual-rx span{color:var(--orange);font-size:30px;vertical-align:sub;}
-.cf-body{display:table-cell;width:62%;padding:28px 28px 28px 32px;vertical-align:top;background:var(--card);}
-.cf-tag-row{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;}
-.cf-tag{font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:4px 12px;border-radius:20px;}
-.cf-tag.green{background:var(--new-bg);color:#085041;}
-.cf-tag.orange{background:var(--orange-bg);color:#7A2F0A;}
-.cf-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--text);line-height:1.35;margin-bottom:12px;letter-spacing:-0.3px;}
-.cf-excerpt{font-size:14px;color:var(--soft);line-height:1.7;margin-bottom:16px;font-weight:300;}
-.cf-meta{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--soft);flex-wrap:wrap;}
-.cf-meta-dot{width:3px;height:3px;border-radius:50%;background:var(--soft);}
-.cf-read-btn{display:inline-block;background:var(--g1);color:#fff;padding:11px 22px;border-radius:20px;font-size:13px;font-weight:600;text-decoration:none;margin-top:18px;transition:opacity 0.2s;}
-.cf-read-btn:hover{opacity:0.85;}
-@media(max-width:640px){
-  .card-featured{display:block;}
-  .cf-visual{display:block;width:100%;padding:24px 24px 24px 24px;min-height:160px;}
-  .cf-live-badge{top:20px;left:20px;}
-  .cf-visual-rx{padding-top:48px;font-size:40px;}
-  .cf-body{display:block;width:100%;padding:24px;box-sizing:border-box;}
-}
+/* HOW IT WORKS (pillars equivalent) */
+.pillars{max-width:1280px;margin:0 auto;padding:80px 64px;}
+.section-eyebrow{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--ink-30);margin-bottom:14px;}
+.section-heading{font-family:'Playfair Display',serif;font-size:clamp(28px,3vw,44px);font-weight:900;color:var(--ink);letter-spacing:-1px;line-height:1.05;margin-bottom:48px;}
+.pillars-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--ink-12);border-radius:4px;overflow:hidden;}
+.pillar{padding:40px 32px;border-right:1px solid var(--ink-12);}
+.pillar:last-child{border-right:none;}
+.pillar-stripe{height:4px;width:48px;margin-bottom:24px;}
+.pillar-stripe.s1{background:var(--gold);}
+.pillar-stripe.s2{background:var(--sienna);}
+.pillar-stripe.s3{background:var(--mahogany);}
+.pillar-stripe.s4{background:var(--gold);}
+.pillar-num{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--ink-30);margin-bottom:12px;}
+.pillar-kicker{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;}
+.pillar-kicker.s1{color:var(--gold);}
+.pillar-kicker.s2{color:var(--sienna);}
+.pillar-kicker.s3{color:var(--mahogany);}
+.pillar-kicker.s4{color:var(--gold);}
+.pillar-name{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;color:var(--ink);margin-bottom:14px;line-height:1;letter-spacing:-0.5px;}
+.pillar-desc{font-size:13px;color:var(--ink-55);line-height:1.7;font-weight:300;}
 
-/* ── UPCOMING CARDS GRID ── */
-.cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-bottom:56px;}
-.card-upcoming{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:24px;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:12px;position:relative;transition:transform 0.2s,box-shadow 0.2s;}
-.card-upcoming:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(14,122,90,0.09);}
-.card-upcoming.coming{opacity:0.7;cursor:default;}
-.card-upcoming.coming:hover{transform:none;box-shadow:none;}
-.cu-icon{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;font-weight:700;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.5px;}
-.cu-lbl.orange{color:#7A2F0A;}
-.cu-lbl.pink{color:#8C2042;}
-.cu-lbl.blue{color:#0C447C;}
-.cu-lbl.teal{color:#1A6B64;}
-.cu-lbl.purple{color:#4A3D9A;}
-.cu-lbl.green{color:#085041;}
-.cu-icon.green{background:var(--new-bg);}
-.cu-icon.blue{background:var(--old-bg);}
-.cu-icon.orange{background:var(--orange-bg);}
-.cu-icon.purple{background:#F0EEF9;}
-.cu-icon.pink{background:#F9EEF2;}
-.cu-icon.teal{background:#E3F5F3;}
-.cu-tag{font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:20px;width:fit-content;}
-.cu-tag.green{background:var(--new-bg);color:#085041;}
-.cu-tag.blue{background:var(--old-bg);color:#0C447C;}
-.cu-tag.orange{background:var(--orange-bg);color:#7A2F0A;}
-.cu-tag.purple{background:#F0EEF9;color:#4A3D9A;}
-.cu-tag.pink{background:#F9EEF2;color:#8C2042;}
-.cu-tag.teal{background:#E3F5F3;color:#1A6B64;}
-.cu-title{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--text);line-height:1.35;letter-spacing:-0.2px;}
-.cu-excerpt{font-size:13px;color:var(--soft);line-height:1.6;font-weight:300;}
-.coming-pill{position:absolute;top:16px;right:16px;font-size:10px;font-weight:600;letter-spacing:0.8px;text-transform:uppercase;background:var(--base);color:var(--soft);border:1px solid var(--border);padding:3px 10px;border-radius:20px;}
+/* FEATURED CAROUSEL */
+.featured{background:var(--night);padding:72px 64px;}
+.featured-inner{max-width:1280px;margin:0 auto;}
+.section-eyebrow-light{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--cream-30);margin-bottom:14px;}
+.section-heading-light{font-family:'Playfair Display',serif;font-size:clamp(28px,3vw,44px);font-weight:900;color:var(--cream);letter-spacing:-1px;line-height:1.05;}
+.featured-hdr{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:40px;}
+.carousel-nav{display:flex;align-items:center;gap:10px;}
+.carousel-arrow{width:36px;height:36px;border-radius:2px;border:1.5px solid var(--cream-12);background:transparent;color:var(--cream-55);font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.18s;font-family:inherit;}
+.carousel-arrow:hover:not(:disabled){border-color:var(--gold);color:var(--gold);}
+.carousel-arrow:disabled{opacity:0.22;cursor:default;}
+.carousel-dots{display:flex;gap:6px;align-items:center;}
+.cdot{width:6px;height:6px;border-radius:50%;background:var(--cream-12);transition:background 0.2s,transform 0.2s;}
+.cdot.active{background:var(--gold);transform:scale(1.3);}
+.carousel-wrap{overflow:hidden;width:100%;}
+.carousel-track{display:flex;width:100%;transition:transform 0.44s cubic-bezier(0.4,0,0.2,1);}
+.carousel-slide{flex:0 0 100%;width:100%;min-width:0;}
+.card-featured{display:grid;grid-template-columns:36% 64%;background:var(--cream);border-radius:4px;overflow:hidden;text-decoration:none;color:inherit;transition:opacity 0.2s;}
+.card-featured:hover{opacity:0.88;}
+.cf-visual{padding:44px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;min-height:340px;}
+.cf-visual.v-tax{background:var(--mahogany);}
+.cf-visual.v-ev{background:#5C2A0A;}
+.cf-live-badge{position:absolute;top:24px;left:24px;display:inline-flex;align-items:center;gap:6px;background:rgba(254,240,220,0.1);border:1px solid rgba(254,240,220,0.15);color:var(--cream);font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:5px 12px;border-radius:2px;font-family:'JetBrains Mono',monospace;}
+.cf-live-dot{width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0;}
+.cf-visual-word{font-family:'Playfair Display',serif;font-size:56px;font-weight:900;color:var(--cream);line-height:1.0;letter-spacing:-1px;position:relative;z-index:1;}
+.cf-visual-accent{color:var(--gold);}
+.cf-visual-bg{position:absolute;right:-8px;bottom:-20px;font-family:'Playfair Display',serif;font-size:120px;font-weight:900;color:rgba(254,240,220,0.05);line-height:1;z-index:0;pointer-events:none;letter-spacing:-3px;}
+.cf-body{padding:44px;display:flex;flex-direction:column;justify-content:center;}
+.cf-tag-row{display:flex;align-items:flex-start;gap:8px;margin-bottom:18px;flex-wrap:wrap;}
+.cf-tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;border-radius:2px;font-family:'JetBrains Mono',monospace;line-height:1.4;}
+.cf-tag.tax{background:rgba(61,18,8,0.1);color:var(--mahogany);}
+.cf-tag.myth-tag{background:rgba(184,78,32,0.1);color:var(--sienna);}
+.cf-tag.calc{background:rgba(212,132,26,0.12);color:var(--gold);}
+.cf-tag.fuel{background:rgba(61,18,8,0.1);color:var(--mahogany);}
+.cf-title{font-family:'Playfair Display',serif;font-size:26px;font-weight:900;color:var(--ink);line-height:1.2;letter-spacing:-0.5px;margin-bottom:16px;}
+.cf-excerpt{font-size:14px;color:var(--ink-55);line-height:1.8;margin-bottom:24px;font-weight:300;}
+.cf-meta{display:flex;align-items:center;gap:10px;font-size:11px;color:var(--ink-30);flex-wrap:wrap;font-family:'JetBrains Mono',monospace;letter-spacing:0.5px;margin-bottom:28px;}
+.cf-meta-dot{width:3px;height:3px;border-radius:50%;background:var(--ink-30);}
+.cf-read-btn{display:inline-block;background:var(--ink);color:var(--cream);padding:12px 24px;border-radius:2px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:background 0.2s;align-self:flex-start;}
+.cf-read-btn:hover{background:var(--mahogany);}
 
-/* ── TOPIC CHIPS ── */
-.topic-chips{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:56px;}
-.topic-chip{padding:10px 20px;border-radius:20px;font-size:13.5px;font-weight:500;text-decoration:none;border:1.5px solid transparent;transition:all 0.2s;cursor:pointer;}
-.tc-green{background:var(--new-bg);color:#085041;border-color:rgba(14,122,90,0.2);}
-.tc-blue{background:var(--old-bg);color:#0C447C;border-color:rgba(26,107,174,0.2);}
-.tc-orange{background:var(--orange-bg);color:#7A2F0A;border-color:rgba(232,96,44,0.2);}
-.tc-purple{background:#F0EEF9;color:#4A3D9A;border-color:rgba(91,77,184,0.2);}
-.tc-teal{background:#E3F5F3;color:#1A6B64;border-color:rgba(42,157,143,0.2);}
-.tc-pink{background:#F9EEF2;color:#8C2042;border-color:rgba(192,57,90,0.2);}
-.topic-chip:hover{transform:translateY(-2px);filter:brightness(0.94);}
+/* MORE ARTICLES */
+.more-articles{max-width:1280px;margin:0 auto;padding:72px 64px;}
+.more-hdr{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:36px;}
+.section-link{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);text-decoration:none;cursor:pointer;font-family:'JetBrains Mono',monospace;transition:color 0.15s;}
+.section-link:hover{color:var(--sienna);}
+.cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.card-article{background:transparent;border:1px solid var(--ink-12);border-radius:4px;padding:28px;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:12px;position:relative;transition:border-color 0.2s,background 0.2s;}
+.card-article:hover{border-color:var(--gold);background:rgba(212,132,26,0.03);}
+.card-article.coming{opacity:0.6;cursor:default;}
+.card-article.coming:hover{border-color:var(--ink-12);background:transparent;}
+.ca-icon{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;letter-spacing:1px;color:var(--ink-30);}
+.ca-tag{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 8px;border-radius:2px;width:fit-content;font-family:'JetBrains Mono',monospace;}
+.ca-tag.savings{background:rgba(212,132,26,0.1);color:var(--gold);}
+.ca-tag.insurance{background:rgba(184,78,32,0.1);color:var(--sienna);}
+.ca-tag.realestate{background:rgba(61,18,8,0.1);color:var(--mahogany);}
+.ca-tag.investing{background:rgba(212,132,26,0.1);color:var(--gold);}
+.ca-tag.debt{background:rgba(184,78,32,0.1);color:var(--sienna);}
+.ca-tag.psych{background:rgba(61,18,8,0.1);color:var(--mahogany);}
+.ca-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--ink);line-height:1.35;letter-spacing:-0.3px;}
+.ca-excerpt{font-size:13px;color:var(--ink-55);line-height:1.65;font-weight:300;}
+.coming-pill{position:absolute;top:16px;right:16px;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;background:var(--cream-mid);color:var(--ink-30);border:1px solid var(--ink-12);padding:3px 8px;border-radius:2px;font-family:'JetBrains Mono',monospace;}
 
-/* ── MYTH BUSTER DARK BAND ── */
-.myth-band{background:var(--text);padding:56px 40px;margin-bottom:0;}
-.myth-inner{max-width:860px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
-.myth-label{font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#6FD9A8;margin-bottom:12px;}
-.myth-heading{font-family:'Playfair Display',serif;font-size:32px;font-weight:900;color:#fff;line-height:1.2;margin-bottom:14px;letter-spacing:-0.5px;}
-.myth-text{font-size:15px;color:rgba(255,255,255,0.6);line-height:1.7;font-weight:300;margin-bottom:28px;}
-.myth-cta{display:inline-block;background:var(--orange);color:#fff;padding:13px 26px;border-radius:20px;font-size:14px;font-weight:600;text-decoration:none;transition:opacity 0.2s;}
-.myth-cta:hover{opacity:0.87;}
-.myth-rows{display:flex;flex-direction:column;gap:12px;}
+/* TOPICS */
+.topics{max-width:1280px;margin:0 auto;padding:0 64px 72px;}
+.topic-chips{display:flex;gap:8px;flex-wrap:wrap;}
+.topic-chip{padding:8px 14px;border-radius:2px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;border:1.5px solid transparent;transition:opacity 0.15s;cursor:pointer;font-family:'JetBrains Mono',monospace;}
+.topic-chip:hover{opacity:0.65;}
+.tc-gold{background:rgba(212,132,26,0.1);color:var(--gold);border-color:rgba(212,132,26,0.2);}
+.tc-sienna{background:rgba(184,78,32,0.08);color:var(--sienna);border-color:rgba(184,78,32,0.18);}
+.tc-mahogany{background:rgba(61,18,8,0.08);color:var(--mahogany);border-color:rgba(61,18,8,0.15);}
+
+/* MYTH BUSTER */
+.myth{background:var(--mahogany);padding:80px 64px;}
+.myth-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:96px;align-items:center;}
+.myth-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);opacity:0.7;margin-bottom:18px;}
+.myth-heading{font-family:'Playfair Display',serif;font-size:clamp(40px,5vw,68px);font-weight:900;color:var(--cream);line-height:0.95;margin-bottom:24px;letter-spacing:-2px;}
+.myth-heading em{font-style:italic;color:var(--gold);}
+.myth-text{font-size:15px;color:var(--cream-55);line-height:1.8;font-weight:300;margin-bottom:36px;}
+.myth-cta{display:inline-block;border:1.5px solid var(--cream-30);color:var(--cream);padding:12px 28px;border-radius:2px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:all 0.2s;}
+.myth-cta:hover{border-color:var(--gold);color:var(--gold);}
+.myth-rows{display:flex;flex-direction:column;gap:10px;}
 .myth-row{display:flex;align-items:center;gap:10px;}
-.myth-pill{flex:1;padding:12px 16px;border-radius:10px;font-size:13px;font-weight:500;text-align:center;line-height:1.4;}
-.pill-myth{background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.45);text-decoration:line-through;}
-.pill-reality{background:rgba(14,122,90,0.25);color:#6FD9A8;}
-.vs-badge{font-size:10px;font-weight:700;color:#6FD9A8;background:rgba(14,122,90,0.2);padding:4px 8px;border-radius:6px;flex-shrink:0;}
-@media(max-width:640px){.myth-inner{grid-template-columns:1fr;}.myth-band{padding:40px 20px;}}
+.myth-pill{flex:1;padding:14px 18px;border-radius:2px;font-size:13px;font-weight:400;line-height:1.4;}
+.pill-myth{background:rgba(254,240,220,0.04);color:rgba(254,240,220,0.25);text-decoration:line-through;}
+.pill-reality{background:rgba(212,132,26,0.22);color:var(--bright);}
+.vs-badge{font-size:9px;font-weight:700;color:var(--cream-30);border:1px solid var(--cream-12);padding:4px 8px;border-radius:2px;flex-shrink:0;white-space:nowrap;font-family:'JetBrains Mono',monospace;letter-spacing:1px;}
 
-/* ── NEWSLETTER ── */
-.newsletter-wrap{max-width:860px;margin:0 auto;padding:56px 40px;}
-.newsletter-card{background:linear-gradient(135deg,#E2EFF9 0%,#D8EFE8 100%);border-radius:20px;padding:40px;display:flex;align-items:center;justify-content:space-between;gap:32px;border:1px solid rgba(26,107,174,0.15);}
-.nl-left{flex:1;}
-.nl-label{font-size:11px;font-weight:600;letter-spacing:1.4px;text-transform:uppercase;color:var(--g2);margin-bottom:10px;}
-.nl-heading{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--text);line-height:1.2;margin-bottom:8px;letter-spacing:-0.4px;}
-.nl-sub{font-size:14px;color:var(--mid);font-weight:300;}
-.nl-form{display:flex;gap:10px;flex-shrink:0;}
-.nl-input{padding:12px 18px;border-radius:20px;border:1.5px solid rgba(26,107,174,0.2);background:rgba(255,255,255,0.88);font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text);outline:none;width:220px;transition:border-color 0.2s;}
-.nl-input:focus{border-color:var(--g2);}
-.nl-btn{padding:12px 22px;background:var(--g1);color:#fff;border:none;border-radius:20px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:opacity 0.2s;}
-.nl-btn:hover{opacity:0.87;}
-@media(max-width:640px){.newsletter-card{flex-direction:column;padding:28px 24px;}.nl-form{flex-direction:column;width:100%;}.nl-input{width:100%;}.newsletter-wrap{padding:40px 16px;}}
+/* NEWSLETTER — luminous gold */
+.newsletter{background:var(--bright);padding:80px 64px;}
+.newsletter-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:48px;flex-wrap:wrap;}
+.nl-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(20,10,4,0.45);margin-bottom:14px;}
+.nl-heading{font-family:'Playfair Display',serif;font-size:clamp(28px,3.5vw,52px);font-weight:900;color:var(--night);line-height:0.95;margin-bottom:12px;letter-spacing:-1.5px;}
+.nl-sub{font-size:14px;color:rgba(20,10,4,0.55);font-weight:300;}
+.nl-form{display:flex;gap:0;flex-shrink:0;}
+.nl-input{padding:15px 20px;border-radius:2px 0 0 2px;border:1.5px solid rgba(20,10,4,0.18);border-right:none;background:rgba(20,10,4,0.07);font-family:'Epilogue',sans-serif;font-size:14px;color:var(--night);outline:none;width:270px;}
+.nl-input::placeholder{color:rgba(20,10,4,0.32);}
+.nl-input:focus{background:rgba(20,10,4,0.12);}
+.nl-btn{padding:15px 26px;background:var(--night);color:var(--cream);border:none;border-radius:0 2px 2px 0;font-family:'Epilogue',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:background 0.2s;white-space:nowrap;}
+.nl-btn:hover{background:var(--mahogany);}
 
-/* ── HOW IT WORKS ── */
-.how-flow{display:flex;align-items:stretch;gap:0;margin-bottom:56px;background:var(--card);border-radius:var(--r);border:1px solid var(--border);overflow:hidden;}
-.how-step{padding:28px 24px;flex:1;position:relative;display:flex;flex-direction:column;gap:6px;border-right:1px solid var(--border);}
-.how-step:last-child{border-right:none;}
-.how-step:not(:last-child)::after{content:"\2192";position:absolute;right:-12px;top:50%;transform:translateY(-50%);font-size:18px;font-weight:700;color:var(--orange);z-index:2;background:var(--card);padding:2px;}
-.how-kicker{font-size:10px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--orange);}
-.how-title{font-size:16px;font-weight:700;color:var(--text);font-family:'Playfair Display',serif;letter-spacing:-0.2px;}
-.how-desc{font-size:13px;color:var(--soft);line-height:1.55;font-weight:300;}
-@media(max-width:640px){.how-flow{flex-direction:column;}.how-step{border-right:none;border-bottom:1px solid var(--border);}.how-step:last-child{border-bottom:none;}.how-step:not(:last-child)::after{content:"\2193";right:auto;left:50%;top:auto;bottom:-14px;transform:translateX(-50%);background:var(--card);}}
+/* FOOTER */
+footer{background:var(--night);padding:64px 64px 52px;}
+.footer-inner{max-width:1280px;margin:0 auto;}
+.footer-top{display:flex;align-items:flex-start;justify-content:space-between;gap:48px;margin-bottom:56px;flex-wrap:wrap;}
+.footer-logo{font-family:'Playfair Display',serif;font-size:20px;font-weight:900;letter-spacing:0.5px;margin-bottom:14px;}
+.footer-tagline{font-size:12px;color:var(--cream-30);line-height:1.75;max-width:220px;font-weight:300;}
+.footer-col-title{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--cream-30);margin-bottom:16px;}
+.footer-links{display:flex;flex-direction:column;gap:10px;}
+.footer-links a{font-size:13px;font-weight:300;color:rgba(254,240,220,0.35);text-decoration:none;transition:color 0.15s;}
+.footer-links a:hover{color:var(--cream);}
+.footer-bottom{border-top:1px solid var(--cream-12);padding-top:28px;display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap;}
+.footer-copy{font-size:11px;color:var(--cream-30);font-family:'JetBrains Mono',monospace;}
+.footer-disc{font-size:11px;color:rgba(254,240,220,0.18);max-width:440px;line-height:1.65;font-weight:300;}
 
-/* ── FOOTER ── */
-footer{background:var(--text);padding:40px;color:rgba(255,255,255,0.5);font-size:13px;}
-.footer-inner{max-width:860px;margin:0 auto;}
-.footer-top{display:flex;align-items:flex-start;justify-content:space-between;gap:32px;margin-bottom:32px;flex-wrap:wrap;}
-.footer-brand{}
-.footer-logo{display:flex;align-items:baseline;gap:0;margin-bottom:8px;}
-.fl-rupee{font-size:22px;font-weight:800;color:var(--g1);line-height:1;}
-.fl-x{font-size:13px;font-weight:700;color:var(--orange);vertical-align:sub;line-height:1;margin-left:1px;}
-.fl-name{font-size:19px;font-weight:700;color:#fff;margin-left:6px;letter-spacing:-0.3px;}
-.footer-tagline{font-size:13px;color:rgba(255,255,255,0.4);line-height:1.6;max-width:220px;}
-.footer-links-group{}
-.footer-links-title{font-size:11px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:12px;}
-.footer-links{display:flex;flex-direction:column;gap:8px;}
-.footer-links a{font-size:13px;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.15s;}
-.footer-links a:hover{color:#6FD9A8;}
-.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
-.footer-copy{font-size:12px;color:rgba(255,255,255,0.3);}
-.footer-disclaimer{font-size:11px;color:rgba(255,255,255,0.25);max-width:420px;line-height:1.55;}
-@media(max-width:640px){footer{padding:32px 20px;}.footer-top{gap:24px;}.footer-bottom{flex-direction:column;align-items:flex-start;}}
+/* RESPONSIVE */
+@media(max-width:1100px){
+  .hero-section{grid-template-columns:1fr;min-height:auto;}
+  .hero-right{min-height:380px;}
+  .hero-left{padding:64px 44px;}
+  .stats{grid-template-columns:repeat(2,1fr);}
+  .stat{border-bottom:1px solid rgba(20,10,4,0.15);}
+  .pillars-grid{grid-template-columns:1fr;}
+  .pillar{border-right:none;border-bottom:1px solid var(--ink-12);}
+  .pillar:last-child{border-bottom:none;}
+  .card-featured{grid-template-columns:1fr;}
+  .cf-visual{min-height:220px;}
+  .cards-grid{grid-template-columns:repeat(2,1fr);}
+  .myth-inner{grid-template-columns:1fr;gap:48px;}
+  nav,.pillars,.more-articles,.topics,.featured,.myth,.newsletter,footer{padding-left:44px;padding-right:44px;}
+}
+@media(max-width:768px){
+  nav{padding:0 24px;}
+  .hide-mobile{display:none;}
+  .hero-left,.pillars,.more-articles,.topics,.featured,.myth,.newsletter,footer{padding-left:28px;padding-right:28px;}
+  .cards-grid{grid-template-columns:1fr;}
+  .pillars-grid{grid-template-columns:1fr;}
+  .pillar{border-right:none;border-bottom:1px solid var(--ink-12);}
+  .pillar:last-child{border-bottom:none;}
+  .pillar:nth-child(n){border-top:none;}
+  .nl-form{flex-direction:column;width:100%;}
+  .nl-input{width:100%;border-radius:2px;border-right:1.5px solid rgba(20,10,4,0.18);}
+  .nl-btn{border-radius:2px;}
+  .newsletter-inner{flex-direction:column;}
+  .featured-hdr{flex-direction:column;align-items:flex-start;gap:16px;}
+}
+@media(max-width:480px){
+  nav{padding:0 16px;}
+  .hero-left,.pillars,.more-articles,.topics,.featured,.myth,.newsletter,footer{padding-left:20px;padding-right:20px;}
+  .stats{grid-template-columns:1fr;}
+  .stat{border-right:none;}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;}}
 </style>
 </head>
 <body>
 
-<!-- ── NAV ── -->
+<!-- NAV -->
 <nav>
   <a href="../index.html" class="logo">
-    <span class="logo-rx"><span class="logo-rupee">₹</span><span class="logo-x">x</span></span>
-    <span class="logo-name">RupeeSense</span>
+    <span class="logo-rs"><span class="logo-rupee">&#8377;</span><span class="logo-x">x</span><span class="logo-name">RupeeSense</span></span>
   </a>
   <div class="nav-links">
-    <a href="../index.html" class="hide-mobile" style="color:var(--soft);font-size:13px;">&#8592; TwoSense</a>
+    <a href="../index.html" class="nav-back hide-mobile">&larr; TwoSense</a>
     <a href="#topics" class="hide-mobile">Topics</a>
     <a href="#articles" class="hide-mobile">Articles</a>
     <a href="#about" class="hide-mobile">About</a>
@@ -221,254 +278,310 @@ footer{background:var(--text);padding:40px;color:rgba(255,255,255,0.5);font-size
   </div>
 </nav>
 
-<!-- ── HERO ── -->
-<section class="hero">
-  <div class="hero-badge">Financial Literacy for Every Indian</div>
-  <h1>Money makes sense<br>when someone <em>breaks it down.</em></h1>
-  <p class="hero-lead">Real numbers. Real stories. Zero jargon. We decode personal finance using everyday scenarios — so you never make a money mistake out of ignorance again.</p>
-  <div class="hero-actions">
-    <a href="#articles" class="btn-primary">Read the Articles</a>
-    <a href="#topics" class="btn-ghost">Browse Topics</a>
+<!-- HERO -->
+<section class="hero-section">
+  <div class="hero-left">
+    <div class="hero-eyebrow">
+      <span class="eyebrow-rule"></span>
+      Financial Literacy for Every Indian
+    </div>
+    <h1>Money makes<br>sense when you<br>stop reading<br>the front page<br>and <em>flip it over.</em></h1>
+    <p class="hero-lead">The gap between what sounds financially smart and what actually is financially smart is measured in rupees. We measure it.</p>
+    <div class="hero-actions">
+      <a href="#articles" class="btn-primary">Read the Articles</a>
+      <a href="#topics" class="btn-ghost">Browse Topics</a>
+    </div>
+    <div class="hero-stat-row">
+      <div class="hero-stat-item">
+        <div class="hsi-num">&#8377;x</div>
+        <div class="hsi-label">Real numbers always</div>
+      </div>
+      <div class="hero-stat-item">
+        <div class="hsi-num">0</div>
+        <div class="hsi-label">Jargon. Zero.</div>
+      </div>
+      <div class="hero-stat-item">
+        <div class="hsi-num">48+</div>
+        <div class="hsi-label">Topics planned</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <!-- IMAGE SLOT: replace with <img src="../images/rupee-hero.jpg" alt="..."> -->
+    <div class="hero-img-placeholder">
+      <svg width="44" height="36" viewBox="0 0 44 36" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="1" y="1" width="42" height="34" rx="2"/>
+        <circle cx="14" cy="12" r="4"/>
+        <path d="M1 24l10-8 8 6 8-10 16 12"/>
+      </svg>
+      <span>Image slot</span>
+    </div>
   </div>
 </section>
 
-<!-- ── STATS STRIP ── -->
-<div class="stats-strip">
-  <div class="stat-item"><span class="stat-num">₹x</span><span class="stat-label">Real numbers always</span></div>
-  <div class="stat-item"><span class="stat-num">0</span><span class="stat-label">Jargon. Zero.</span></div>
-  <div class="stat-item"><span class="stat-num">48+</span><span class="stat-label">Topics planned</span></div>
-  <div class="stat-item"><span class="stat-num">Free</span><span class="stat-label">Forever to read</span></div>
-</div>
-
-<!-- ── HOW IT WORKS ── -->
-<div class="section-wrap" id="about">
-  <div class="section-label-sm">Our format</div>
-  <div class="section-hdr" style="margin-bottom:20px;">
-    <div class="section-title">How every RupeeSense article is built</div>
+<!-- STATS STRIP — saffron gold -->
+<section class="stats">
+  <div class="stat">
+    <span class="stat-num">&#8377;x</span>
+    <span class="stat-label">Real rupee numbers. Always.</span>
   </div>
-  <div class="how-flow">
-    <div class="how-step">
-      <div class="how-kicker">We expose</div>
-      <div class="how-title">The Myth</div>
-      <div class="how-desc">A popular belief most Indians hold about money — presented plainly, without judgment.</div>
+  <div class="stat">
+    <span class="stat-num">0</span>
+    <span class="stat-label">Jargon. Zero tolerance.</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num light">48+</span>
+    <span class="stat-label" style="color:rgba(254,240,220,0.6);">Topics planned and coming</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num light">Free</span>
+    <span class="stat-label" style="color:rgba(254,240,220,0.6);">Always and forever</span>
+  </div>
+</section>
+
+<div class="hr"></div>
+
+<!-- HOW IT WORKS -->
+<section class="pillars" id="about">
+  <div class="section-eyebrow">Our Format</div>
+  <div class="section-heading">How every RupeeSense article is built</div>
+  <div class="pillars-grid">
+    <div class="pillar">
+      <div class="pillar-stripe s2"></div>
+      <div class="pillar-kicker s2">We narrate</div>
+      <div class="pillar-name">The Story</div>
+      <div class="pillar-desc">A real Indian household, a familiar situation, a money decision that feels completely normal. Priya from Bengaluru. Ramesh from Nagpur. Someone you know making the same call you are about to make.</div>
     </div>
-    <div class="how-step">
-      <div class="how-kicker">We narrate</div>
-      <div class="how-title">The Story</div>
-      <div class="how-desc">A real Indian household, a familiar situation, and a money decision that feels completely normal.</div>
+    <div class="pillar">
+      <div class="pillar-stripe s1"></div>
+      <div class="pillar-kicker s1">We expose &amp; calculate</div>
+      <div class="pillar-name">Myth &amp; Math</div>
+      <div class="pillar-desc">Every article takes a popular financial belief, runs the actual rupee numbers, and shows what reality looks like. No estimates. The exact cost of the myth, calculated. Sometimes with an interactive calculator you can run yourself.</div>
     </div>
-    <div class="how-step">
-      <div class="how-kicker">We calculate</div>
-      <div class="how-title">The Math</div>
-      <div class="how-desc">Actual rupee numbers. No "it depends". No estimates. The exact cost of the myth, calculated.</div>
-    </div>
-    <div class="how-step">
-      <div class="how-kicker">We prescribe</div>
-      <div class="how-title">What to Do Instead</div>
-      <div class="how-desc">A clear, specific action you can take this week — no jargon, no CA required.</div>
+    <div class="pillar">
+      <div class="pillar-stripe s4"></div>
+      <div class="pillar-kicker s4">We prescribe</div>
+      <div class="pillar-name">What to Do</div>
+      <div class="pillar-desc">A clear, specific action you can take this week. No jargon, no CA required. Just the most rational next move, explained plainly and without the usual disclaimers that make advice useless.</div>
     </div>
   </div>
-</div>
+</section>
 
-<!-- ── FEATURED ARTICLE (Live) ── -->
-<div class="featured-wrap" id="articles">
-  <div class="section-label-sm">Live · Read now</div>
-  <div class="section-hdr">
-    <div class="section-title">Articles</div>
+<div class="hr"></div>
+
+<!-- FEATURED ARTICLES CAROUSEL -->
+<section class="featured" id="articles">
+  <div class="featured-inner">
+    <div class="featured-hdr">
+      <div>
+        <div class="section-eyebrow-light">Live Now &middot; 2 Articles</div>
+        <div class="section-heading-light">Read now</div>
+      </div>
+      <div class="carousel-nav">
+        <button class="carousel-arrow" id="prev-btn" onclick="moveCarousel(-1)" disabled aria-label="Previous">&#8592;</button>
+        <div class="carousel-dots">
+          <span class="cdot active" id="dot-0"></span>
+          <span class="cdot" id="dot-1"></span>
+        </div>
+        <button class="carousel-arrow" id="next-btn" onclick="moveCarousel(1)" aria-label="Next">&#8594;</button>
+      </div>
+    </div>
+    <div class="carousel-wrap">
+      <div class="carousel-track" id="carousel-track">
+
+        <!-- Slide 1: Tax Regime -->
+        <div class="carousel-slide">
+          <a href="articles/old-vs-new-regime.html" class="card-featured">
+            <div class="cf-visual v-tax">
+              <div class="cf-live-badge"><span class="cf-live-dot"></span>Live &middot; Read Now</div>
+              <div class="cf-visual-word">Old.<br>New.<br><span class="cf-visual-accent">Which?</span></div>
+              <div class="cf-visual-bg">Tax</div>
+            </div>
+            <div class="cf-body">
+              <div class="cf-tag-row">
+                <span class="cf-tag tax">Income Tax</span>
+                <span class="cf-tag myth-tag">Myth Bust</span>
+                <span class="cf-tag calc">Calculator Inside</span>
+              </div>
+              <div class="cf-title">Old vs New Tax Regime: Which one actually saves you money?</div>
+              <div class="cf-excerpt">Every year millions of Indians overpay tax simply because nobody showed them the numbers. This article compares both regimes with real scenarios, a full slab breakdown, and a free calculator, for salaried employees and freelancers both.</div>
+              <div class="cf-meta">
+                <span>12 min read</span><span class="cf-meta-dot"></span>
+                <span>FY 2025-26</span><span class="cf-meta-dot"></span>
+                <span>ITR deadline: July 31</span>
+              </div>
+              <span class="cf-read-btn">Read the Article &amp; Use the Calculator &rarr;</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Slide 2: EV vs Petrol -->
+        <div class="carousel-slide">
+          <a href="articles/ev-vs-petrol-india.html" class="card-featured">
+            <div class="cf-visual v-ev">
+              <div class="cf-live-badge"><span class="cf-live-dot"></span>Live &middot; Read Now</div>
+              <div class="cf-visual-word">EV<br><span class="cf-visual-accent">vs</span><br>Petrol.</div>
+              <div class="cf-visual-bg">Fuel</div>
+            </div>
+            <div class="cf-body">
+              <div class="cf-tag-row">
+                <span class="cf-tag fuel">Fuel &amp; EVs</span>
+                <span class="cf-tag calc">Calculator Inside</span>
+                <span class="cf-tag myth-tag">June 2026</span>
+              </div>
+              <div class="cf-title">EV or Petrol: The Unsolved Paradox That Just Got Expensive to Ignore</div>
+              <div class="cf-excerpt">A war halfway across the world pushed Kolkata petrol to &#8377;113 a litre in eleven days. Which means the old EV vs petrol debate, the one everyone had quietly shelved, is back on the table. We ran the full cost numbers for an Indian city driver and built a break-even calculator so you can run your own numbers.</div>
+              <div class="cf-meta">
+                <span>10 min read</span><span class="cf-meta-dot"></span>
+                <span>June 2026</span><span class="cf-meta-dot"></span>
+                <span>7 EVs &amp; 8 petrol cars</span>
+              </div>
+              <span class="cf-read-btn">Read the Article &amp; Use the Calculator &rarr;</span>
+            </div>
+          </a>
+        </div>
+
+      </div>
+    </div>
   </div>
+</section>
 
-  <a href="articles/old-vs-new-regime.html" class="card-featured" style="margin-bottom:20px;display:table;">
-    <div class="cf-visual">
-      <div class="cf-live-badge"><span class="cf-live-dot"></span>Live · Read Now</div>
-      <div class="cf-visual-rx">₹<span>x</span></div>
-      <div class="cf-visual-bg">Tax</div>
-    </div>
-    <div class="cf-body">
-      <div class="cf-tag-row">
-        <span class="cf-tag green">Income Tax</span>
-        <span class="cf-tag orange">Myth Bust</span>
-        <span class="cf-tag green">Calculator Inside</span>
-      </div>
-      <div class="cf-title">Old vs New Tax Regime: Which one actually saves you money?</div>
-      <div class="cf-excerpt">Every year millions of Indians overpay tax simply because nobody showed them the numbers. This article compares both regimes with real scenarios, a full slab breakdown, and a free calculator, for salaried employees and freelancers both.</div>
-      <div class="cf-meta">
-        <span>12 min read</span>
-        <span class="cf-meta-dot"></span>
-        <span>FY 2025-26</span>
-        <span class="cf-meta-dot"></span>
-        <span>ITR deadline: July 31</span>
-      </div>
-      <span class="cf-read-btn">Read the Article &amp; Use the Calculator &rarr;</span>
-    </div>
-  </a>
+<div class="hr"></div>
 
-  <a href="articles/ev-vs-petrol-india.html" class="card-featured" style="display:table;">
-    <div class="cf-visual" style="background:linear-gradient(135deg,#FEF0E6 0%,#F5D9C8 100%);">
-      <div class="cf-live-badge" style="background:var(--orange);"><span class="cf-live-dot" style="background:#FFB89A;"></span>Live · Read Now</div>
-      <div class="cf-visual-rx" style="color:var(--orange);font-size:44px;">EV<span style="color:var(--g1);font-size:22px;vertical-align:middle;margin-left:4px;">vs</span></div>
-      <div class="cf-visual-bg" style="color:rgba(232,96,44,0.08);">Fuel</div>
+<!-- MORE ARTICLES -->
+<section class="more-articles">
+  <div class="more-hdr">
+    <div>
+      <div class="section-eyebrow">In the pipeline</div>
+      <div class="section-heading">Next up on RupeeSense</div>
     </div>
-    <div class="cf-body">
-      <div class="cf-tag-row">
-        <span class="cf-tag orange">Fuel &amp; EVs</span>
-        <span class="cf-tag green">Calculator Inside</span>
-        <span class="cf-tag orange">June 2026</span>
-      </div>
-      <div class="cf-title">EV or Petrol: The Unsolved Paradox That Just Got Expensive to Ignore</div>
-      <div class="cf-excerpt">A war halfway across the world pushed Kolkata petrol to &#8377;113 a litre in eleven days. Which means the old EV vs petrol debate -- the one everyone had quietly shelved -- is back on the table. We ran the full cost numbers for an Indian city driver, mapped the charging infrastructure reality, and built a break-even calculator so you can run your own numbers. Pick your city, pick your car, slide the km dial.</div>
-      <div class="cf-meta">
-        <span>10 min read</span>
-        <span class="cf-meta-dot"></span>
-        <span>June 2026</span>
-        <span class="cf-meta-dot"></span>
-        <span>7 EVs &amp; 8 petrol cars in the calculator</span>
-      </div>
-      <span class="cf-read-btn" style="background:var(--orange);">Read the Article &amp; Use the Calculator &rarr;</span>
-    </div>
-  </a>
-
-</div>
-
-<!-- ── UPCOMING ARTICLES ── -->
-<div class="section-wrap">
-  <div class="section-label-sm">Coming soon</div>
-  <div class="section-hdr">
-    <div class="section-title">Next up on RupeeSense</div>
     <span class="section-link">Notify me</span>
   </div>
   <div class="cards-grid">
-
-    <div class="card-upcoming coming">
+    <div class="card-article coming">
       <div class="coming-pill">Coming soon</div>
-      <div class="cu-icon orange cu-lbl">FD</div>
-      <span class="cu-tag orange">Savings</span>
-      <div class="cu-title">Your FD is "Safe" — but safe from what, exactly?</div>
-      <div class="cu-excerpt">Meet Ramesh. He put ₹1,00,000 in an FD at 6.5% while inflation ran at 6%. Ten years later the math tells a story no bank ever will.</div>
+      <div class="ca-icon">FD</div>
+      <span class="ca-tag savings">Savings</span>
+      <div class="ca-title">Your FD is "Safe" — but safe from what, exactly?</div>
+      <div class="ca-excerpt">Meet Ramesh. He put &#8377;1,00,000 in an FD at 6.5% while inflation ran at 6%. Ten years later the math tells a story no bank ever will.</div>
     </div>
-
-    <div class="card-upcoming coming">
+    <div class="card-article coming">
       <div class="coming-pill">Coming soon</div>
-      <div class="cu-icon pink cu-lbl">LIC</div>
-      <span class="cu-tag pink">Insurance</span>
-      <div class="cu-title">LIC endowment plans — the math nobody shows you</div>
-      <div class="cu-excerpt">Your agent called it "investment plus insurance". Run the numbers and find out what it actually is — and what term plus MF would have done instead.</div>
+      <div class="ca-icon">LIC</div>
+      <span class="ca-tag insurance">Insurance</span>
+      <div class="ca-title">LIC endowment plans: the math nobody shows you</div>
+      <div class="ca-excerpt">Your agent called it "investment plus insurance". Run the numbers and find out what it actually is, and what term plus MF would have done instead.</div>
     </div>
-
-    <div class="card-upcoming coming">
+    <div class="card-article coming">
       <div class="coming-pill">Coming soon</div>
-      <div class="cu-icon blue cu-lbl">RE</div>
-      <span class="cu-tag blue">Real Estate</span>
-      <div class="cu-title">Renting vs Buying — the hidden costs nobody tells you</div>
-      <div class="cu-excerpt">Owning a home is the Indian dream. But what does it actually cost per month when you add stamp duty, maintenance, and opportunity cost?</div>
+      <div class="ca-icon">RE</div>
+      <span class="ca-tag realestate">Real Estate</span>
+      <div class="ca-title">Renting vs Buying: the hidden costs nobody tells you</div>
+      <div class="ca-excerpt">Owning a home is the Indian dream. But what does it actually cost per month when you add stamp duty, maintenance, and opportunity cost?</div>
     </div>
-
-    <div class="card-upcoming coming">
+    <div class="card-article coming">
       <div class="coming-pill">Coming soon</div>
-      <div class="cu-icon teal cu-lbl">SIP</div>
-      <span class="cu-tag teal">Investing</span>
-      <div class="cu-title">SIP is not "safe" — here is what that actually means</div>
-      <div class="cu-excerpt">Everyone says start a SIP. Almost nobody explains what can go wrong and why understanding risk is not the same as avoiding it.</div>
+      <div class="ca-icon">SIP</div>
+      <span class="ca-tag investing">Investing</span>
+      <div class="ca-title">SIP is not "safe": here is what that actually means</div>
+      <div class="ca-excerpt">Everyone says start a SIP. Almost nobody explains what can go wrong and why understanding risk is not the same as avoiding it.</div>
     </div>
-
-    <div class="card-upcoming coming">
+    <div class="card-article coming">
       <div class="coming-pill">Coming soon</div>
-      <div class="cu-icon purple cu-lbl">EMI</div>
-      <span class="cu-tag purple">Debt</span>
-      <div class="cu-title">EMI psychology — how ₹5,000 per month hides the real cost</div>
-      <div class="cu-excerpt">The EMI feels small. The total interest paid does not. We break down what that phone, bike, or sofa actually cost you over 24 months.</div>
+      <div class="ca-icon">EMI</div>
+      <span class="ca-tag debt">Debt</span>
+      <div class="ca-title">EMI psychology: how &#8377;5,000 per month hides the real cost</div>
+      <div class="ca-excerpt">The EMI feels small. The total interest paid does not. We break down what that phone, bike, or sofa actually cost you over 24 months.</div>
     </div>
-
-    <div class="card-upcoming coming">
+    <div class="card-article coming">
       <div class="coming-pill">Coming soon</div>
-      <div class="cu-icon green cu-lbl">PSY</div>
-      <span class="cu-tag green">Money Psychology</span>
-      <div class="cu-title">Lifestyle inflation — why raises never make you feel richer</div>
-      <div class="cu-excerpt">You got a 30% hike. Your savings did not move. Here is the compound cost of upgrading your lifestyle every time your income goes up.</div>
+      <div class="ca-icon">PSY</div>
+      <span class="ca-tag psych">Money Psychology</span>
+      <div class="ca-title">Lifestyle inflation: why raises never make you feel richer</div>
+      <div class="ca-excerpt">You got a 30% hike. Your savings did not move. Here is the compound cost of upgrading your lifestyle every time your income goes up.</div>
     </div>
-
   </div>
-</div>
+</section>
 
-<!-- ── TOPICS ── -->
-<div class="section-wrap" id="topics">
-  <div class="section-label-sm">Browse by topic</div>
-  <div class="section-hdr" style="margin-bottom:20px;">
-    <div class="section-title">What we cover</div>
-  </div>
+<div class="hr"></div>
+
+<!-- TOPICS -->
+<section class="topics" id="topics">
+  <div class="section-eyebrow" style="margin-bottom:16px;">Browse by topic</div>
+  <div class="section-heading">What we cover</div>
   <div class="topic-chips">
-    <span class="topic-chip tc-orange">Savings & Banking</span>
-    <span class="topic-chip tc-teal">Investing</span>
-    <span class="topic-chip tc-blue">Real Estate</span>
-    <span class="topic-chip tc-green">Income Tax</span>
-    <span class="topic-chip tc-pink">Insurance</span>
-    <span class="topic-chip tc-purple">Debt & EMIs</span>
-    <span class="topic-chip tc-teal">Money Psychology</span>
-    <span class="topic-chip tc-blue">Macro & Economy</span>
+    <span class="topic-chip tc-gold">Savings &amp; Banking</span>
+    <span class="topic-chip tc-sienna">Investing</span>
+    <span class="topic-chip tc-mahogany">Real Estate</span>
+    <span class="topic-chip tc-gold">Income Tax</span>
+    <span class="topic-chip tc-sienna">Insurance</span>
+    <span class="topic-chip tc-mahogany">Debt &amp; EMIs</span>
+    <span class="topic-chip tc-gold">Money Psychology</span>
+    <span class="topic-chip tc-sienna">Macro &amp; Economy</span>
   </div>
-</div>
+</section>
 
-<!-- ── MYTH BUSTER DARK BAND ── -->
-<div class="myth-band">
+<div class="hr"></div>
+
+<!-- MYTH BUSTER BAND -->
+<section class="myth">
   <div class="myth-inner">
     <div>
       <div class="myth-label">Myth Buster Series</div>
-      <div class="myth-heading">Busting myths<br>one ₹ at a time.</div>
-      <div class="myth-text">Each article takes a popular financial belief, runs the actual numbers, and shows you what reality looks like. No opinions — just math. No jargon — just clarity.</div>
-      <a href="#articles" class="myth-cta">Read the first myth bust →</a>
+      <div class="myth-heading">Busting myths<br>one <em>&#8377;</em> at a time.</div>
+      <div class="myth-text">Each article takes a popular financial belief, runs the actual numbers, and shows you what reality looks like. No opinions, just math. No jargon, just clarity. The truth about money is usually simpler, and more uncomfortable, than the myth.</div>
+      <a href="#articles" class="myth-cta">Read the first myth bust &rarr;</a>
     </div>
     <div class="myth-rows">
       <div class="myth-row">
         <div class="myth-pill pill-myth">"FD is the safest investment"</div>
-        <div class="vs-badge">MYTH</div>
+        <div class="vs-badge">Myth</div>
         <div class="myth-pill pill-reality">Inflation erodes returns silently</div>
       </div>
       <div class="myth-row">
         <div class="myth-pill pill-myth">"Owning a home is always better"</div>
-        <div class="vs-badge">MYTH</div>
+        <div class="vs-badge">Myth</div>
         <div class="myth-pill pill-reality">Depends on city, loan and timeline</div>
       </div>
       <div class="myth-row">
         <div class="myth-pill pill-myth">"LIC policy = investment + insurance"</div>
-        <div class="vs-badge">MYTH</div>
+        <div class="vs-badge">Myth</div>
         <div class="myth-pill pill-reality">Term + MF beats it 2x in returns</div>
       </div>
       <div class="myth-row">
         <div class="myth-pill pill-myth">"I am in the 30% tax bracket"</div>
-        <div class="vs-badge">MYTH</div>
-        <div class="myth-pill pill-reality">Marginal tax — not all income taxed at 30%</div>
+        <div class="vs-badge">Myth</div>
+        <div class="myth-pill pill-reality">Marginal tax, not all income taxed at 30%</div>
       </div>
     </div>
   </div>
-</div>
+</section>
 
-<!-- ── NEWSLETTER ── -->
-<div class="newsletter-wrap" id="newsletter">
-  <div class="newsletter-card">
-    <div class="nl-left">
+<!-- NEWSLETTER — luminous gold -->
+<section class="newsletter" id="newsletter">
+  <div class="newsletter-inner">
+    <div>
       <div class="nl-label">Weekly Newsletter</div>
       <div class="nl-heading">One money lesson,<br>every Sunday morning.</div>
       <div class="nl-sub">Free. No spam. Unsubscribe anytime. Read in under 5 minutes.</div>
     </div>
     <div class="nl-form">
       <input class="nl-input" type="email" placeholder="your@email.com"/>
-      <button class="nl-btn">Subscribe →</button>
+      <button class="nl-btn">Subscribe &rarr;</button>
     </div>
   </div>
-</div>
+</section>
 
-<!-- ── FOOTER ── -->
+<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div class="footer-top">
-      <div class="footer-brand">
-        <div class="footer-logo">
-          <span class="fl-rupee">₹</span><span class="fl-x">x</span>
-          <span class="fl-name">RupeeSense</span>
-        </div>
+      <div>
+        <div class="footer-logo"><span style="color:var(--gold);">&#8377;</span><span style="color:var(--sienna);font-size:13px;vertical-align:sub;margin-left:1px;">x</span><span style="color:var(--cream);margin-left:6px;">RupeeSense</span></div>
         <div class="footer-tagline">Financial literacy for every Indian. Real numbers, real stories, zero jargon.</div>
       </div>
-      <div class="footer-links-group">
-        <div class="footer-links-title">Articles</div>
+      <div>
+        <div class="footer-col-title">Articles</div>
         <div class="footer-links">
           <a href="articles/old-vs-new-regime.html">Old vs New Tax Regime</a>
           <a href="articles/ev-vs-petrol-india.html">EV or Petrol: The Unsolved Paradox</a>
@@ -477,31 +590,48 @@ footer{background:var(--text);padding:40px;color:rgba(255,255,255,0.5);font-size
           <a href="#articles">LIC Endowment Math (soon)</a>
         </div>
       </div>
-      <div class="footer-links-group">
-        <div class="footer-links-title">Topics</div>
+      <div>
+        <div class="footer-col-title">Topics</div>
         <div class="footer-links">
-          <a href="#topics">Savings & Banking</a>
+          <a href="#topics">Savings &amp; Banking</a>
           <a href="#topics">Investing</a>
           <a href="#topics">Income Tax</a>
           <a href="#topics">Insurance</a>
           <a href="#topics">Real Estate</a>
         </div>
       </div>
-      <div class="footer-links-group">
-        <div class="footer-links-title">Site</div>
+      <div>
+        <div class="footer-col-title">Site</div>
         <div class="footer-links">
           <a href="#about">About</a>
           <a href="#newsletter">Newsletter</a>
           <a href="#">Contact</a>
+          <a href="../index.html">TwoSense Hub</a>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
-      <div class="footer-copy">© 2026 RupeeSense</div>
-      <div class="footer-disclaimer">For informational and educational purposes only. Not financial advice. Always consult a qualified professional before making financial decisions. Tax laws subject to change.</div>
+      <div class="footer-copy">&copy; 2026 RupeeSense</div>
+      <div class="footer-disc">For informational and educational purposes only. Not financial advice. Always consult a qualified professional before making financial decisions. Tax laws subject to change.</div>
     </div>
   </div>
 </footer>
 
+<script>
+(function(){
+  var idx=0,total=2;
+  var track=document.getElementById('carousel-track');
+  var prev=document.getElementById('prev-btn');
+  var next=document.getElementById('next-btn');
+  function update(){
+    track.style.transform='translateX(-'+(idx*100)+'%)';
+    prev.disabled=idx===0;next.disabled=idx===total-1;
+    for(var i=0;i<total;i++){var d=document.getElementById('dot-'+i);if(d)d.className='cdot'+(i===idx?' active':'');}
+  }
+  window.moveCarousel=function(dir){idx=Math.max(0,Math.min(total-1,idx+dir));update();};
+  document.addEventListener('keydown',function(e){if(e.key==='ArrowLeft')window.moveCarousel(-1);if(e.key==='ArrowRight')window.moveCarousel(1);});
+  update();
+})();
+</script>
 </body>
 </html>
