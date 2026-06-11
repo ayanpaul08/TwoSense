@@ -20,8 +20,8 @@
   --amber-c:   #C4841A;
 
   /* Article text scale */
-  --ink:       #1A3A28;
-  --mid:       #2E5040;
+  --ink:       #1C2B20;
+  --mid:       #1C2B20;
   --soft:      #6A8A78;
   --ink-12:    rgba(26,58,40,0.12);
   --ink-08:    rgba(26,58,40,0.08);
@@ -55,7 +55,7 @@
   --rs:        2px;
 }
 
-body{background:var(--cream);font-family:'Epilogue',sans-serif;color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;}
+html{overflow-x:hidden;}body{background:var(--cream);font-family:'Epilogue',sans-serif;color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;}
 
 /* ── NAV (matches ClimateSense index) ── */
 nav{background:var(--night);padding:0 64px;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
@@ -80,10 +80,7 @@ nav{background:var(--night);padding:0 64px;height:64px;display:flex;align-items:
 .kn-strip,.infographic-block,.stat-callout,
 .alert-box,.scope-row,.sector-bars{max-width:none;}
 
-/* Dark breakout blocks pull past padding */
-.doom-wrap,.india-band,.guide-wrap{
-  margin-left:-64px;margin-right:-64px;border-radius:0;
-}
+/* Dark breakout blocks — truly full viewport width */
 
 /* ── ARTICLE HEADER ── */
 .article-meta{display:flex;align-items:center;gap:10px;margin-bottom:20px;flex-wrap:wrap;}
@@ -144,14 +141,14 @@ nav{background:var(--night);padding:0 64px;height:64px;display:flex;align-items:
 .alert-body ul li{margin-bottom:6px;}
 
 /* ── KEY NUMBER STRIP ── */
-.kn-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-bottom:32px;}
-.kn-card{background:var(--night);border:1px solid rgba(114,172,67,0.15);border-radius:var(--r);padding:22px 18px;text-align:center;}
+.kn-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0;position:relative;left:50%;width:100vw;margin-left:-50vw;margin-right:-50vw;background:var(--night);border-top:2px solid rgba(114,172,67,0.25);border-bottom:1px solid rgba(253,227,207,0.07);padding:0 max(32px,calc((100vw - 1080px) / 2 + 64px));margin-top:40px;margin-bottom:40px;}
+.kn-card{background:transparent;border:none;border-right:1px solid rgba(253,227,207,0.08);border-radius:0;padding:36px 28px;text-align:center;}.kn-card:last-child{border-right:none;}
 .kn-num{font-family:'Oswald',sans-serif;font-size:34px;font-weight:700;line-height:1;margin-bottom:6px;}
 .kn-num.blue{color:var(--flight);}
 .kn-num.red{color:var(--orange);}
 .kn-num.amber{color:var(--amber-c);}
 .kn-num.teal{color:var(--flight);}
-.kn-label{font-size:12px;color:var(--cream-55);line-height:1.5;font-weight:300;}
+.kn-label{font-size:13px;color:rgba(253,227,207,0.78);line-height:1.55;font-weight:300;}
 
 /* ── GHG / SCOPE CARDS ── */
 .scope-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px;}
@@ -189,17 +186,17 @@ nav{background:var(--night);padding:0 64px;height:64px;display:flex;align-items:
 @media(max-width:560px){.sector-bar-row{grid-template-columns:100px 1fr 52px;gap:8px;}.sbr-label{font-size:12px;}}
 
 /* ── INDIA BAND ── */
-.india-band{background:var(--night);padding:44px 64px;margin-bottom:40px;position:relative;overflow:hidden;}
+.india-band{background:var(--night);padding:52px max(32px,calc((100vw - 1080px) / 2 + 64px)) 44px;margin-top:40px;margin-bottom:40px;margin-left:-50vw;margin-right:-50vw;position:relative;left:50%;width:100vw;overflow:hidden;}
 .india-band::after{content:"IND";position:absolute;right:40px;bottom:16px;font-family:'Oswald',sans-serif;font-size:88px;font-weight:700;color:rgba(253,227,207,0.04);pointer-events:none;letter-spacing:2px;}
 .india-label{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--flight);opacity:0.7;margin-bottom:12px;}
 .india-heading{font-family:'Oswald',sans-serif;font-size:28px;font-weight:700;text-transform:uppercase;color:var(--cream);line-height:1.1;margin-bottom:12px;letter-spacing:0.5px;max-width:520px;}
 .india-text{font-size:15px;color:var(--cream-55);line-height:1.75;font-weight:300;max-width:580px;margin-bottom:28px;}
 .india-stats{display:flex;gap:40px;flex-wrap:wrap;}
 .india-stat-num{font-family:'Oswald',sans-serif;font-size:32px;font-weight:700;color:var(--flight);display:block;line-height:1;margin-bottom:4px;}
-.india-stat-label{font-size:12px;color:var(--cream-30);max-width:150px;font-weight:300;}
+.india-stat-label{font-size:13px;color:rgba(253,227,207,0.78);max-width:180px;font-weight:300;line-height:1.5;}
 
 /* ── GUIDE WRAP ── */
-.guide-wrap{background:var(--night);padding:48px 64px;margin:8px 0 36px;position:relative;overflow:hidden;}
+.guide-wrap{background:var(--night);padding:52px max(32px,calc((100vw - 1080px) / 2 + 64px));margin-top:8px;margin-bottom:36px;margin-left:-50vw;margin-right:-50vw;position:relative;left:50%;width:100vw;overflow:hidden;}
 .guide-kicker{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--flight);opacity:0.7;margin-bottom:10px;}
 .guide-heading{font-family:'Oswald',sans-serif;font-size:32px;font-weight:700;text-transform:uppercase;color:var(--cream);line-height:1.05;letter-spacing:0.5px;margin-bottom:12px;}
 .guide-intro{font-size:15px;color:var(--cream-55);line-height:1.75;font-weight:300;max-width:620px;margin-bottom:36px;}
@@ -287,7 +284,7 @@ footer{background:var(--night);padding:56px 64px 48px;}
 .time-stamp{font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:600;letter-spacing:3px;color:var(--orange);text-transform:uppercase;margin-bottom:12px;margin-top:36px;display:block;max-width:680px;margin-left:auto;margin-right:auto;}
 
 /* ── DOOM SLIDER ── */
-.doom-wrap{background:var(--night);padding:48px 64px;margin:36px 0;position:relative;overflow:hidden;}
+.doom-wrap{background:var(--night);padding:52px max(32px,calc((100vw - 1080px) / 2 + 64px));margin-top:36px;margin-bottom:36px;margin-left:-50vw;margin-right:-50vw;position:relative;left:50%;width:100vw;overflow:hidden;}
 .doom-kicker{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--amber-c);margin-bottom:10px;}
 .doom-heading{font-family:'Oswald',sans-serif;font-size:28px;font-weight:700;text-transform:uppercase;color:var(--cream);line-height:1.1;letter-spacing:0.5px;margin-bottom:8px;}
 .doom-sub{font-size:14px;color:var(--cream-55);line-height:1.7;font-weight:300;max-width:600px;margin-bottom:32px;}
@@ -309,19 +306,29 @@ footer{background:var(--night);padding:56px 64px 48px;}
 .doom-data-note{font-size:11px;color:rgba(253,227,207,0.2);margin-top:22px;line-height:1.65;font-style:italic;}
 @media(max-width:580px){.doom-effects-grid{grid-template-columns:1fr;}.doom-wrap{padding:36px 28px;}}
 
+/* ── ARTICLE HERO (dark full-width header) ── */
+.article-hero{background:var(--night);padding:72px 64px 60px;border-bottom:2px solid var(--flight);}
+.article-hero .hero-inner{max-width:1080px;margin:0 auto;}
+.article-hero .article-meta{max-width:none;margin-left:0;margin-right:0;margin-bottom:24px;}
+.article-hero .meta-tag.blue{background:rgba(114,172,67,0.12);color:var(--flight);border-color:rgba(114,172,67,0.25);}
+.article-hero .meta-tag.red{background:rgba(236,100,38,0.1);color:var(--orange);border-color:rgba(236,100,38,0.2);}
+.article-hero .meta-tag.teal{background:rgba(114,172,67,0.12);color:var(--flight);border-color:rgba(114,172,67,0.25);}
+.article-hero .meta-dot{background:rgba(253,227,207,0.25);}
+.article-hero .meta-date{color:rgba(253,227,207,0.45);}
+.article-hero .article-title{color:var(--cream);max-width:none;margin-left:0;margin-right:0;}
+.article-hero .article-title em{color:var(--flight);}
+.article-hero .article-subtitle{color:rgba(253,227,207,0.65);max-width:700px;margin-left:0;margin-right:0;}
+@media(max-width:900px){.article-hero{padding:56px 40px 48px;}}
+@media(max-width:640px){.article-hero{padding:44px 24px 40px;}}
 /* ── RESPONSIVE ── */
 @media(max-width:900px){
   .page{padding:40px 40px 64px;}
-  .doom-wrap,.india-band,.guide-wrap{margin-left:-40px;margin-right:-40px;}
   .article-bottom{padding:0 40px;}
 }
 @media(max-width:640px){
   nav{padding:0 24px;}
   .page{padding:32px 24px 56px;}
-  .doom-wrap,.india-band,.guide-wrap{margin-left:-24px;margin-right:-24px;}
   .article-bottom{padding:0 24px;}
-  .india-band,.guide-wrap{padding-left:28px;padding-right:28px;}
-  .doom-wrap{padding-left:24px;padding-right:24px;}
   .footer-inner{padding:0;}
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important;}}
@@ -338,19 +345,22 @@ footer{background:var(--night);padding:56px 64px 48px;}
   <a href="../index.html" class="nav-back">&larr; Back to all articles</a>
 </nav>
 
-<div class="page">
-
-  <!-- HEADER -->
-  <div class="article-meta">
-    <span class="meta-tag blue">Climate Science</span>
-    <span class="meta-tag red">Extreme Weather</span>
-    <span class="meta-tag teal">India Focus</span>
-    <span class="meta-dot"></span>
-    <span class="meta-date">June 2026 &middot; 12 min read</span>
+<!-- ARTICLE HERO -->
+<section class="article-hero">
+  <div class="hero-inner">
+    <div class="article-meta">
+      <span class="meta-tag blue">Climate Science</span>
+      <span class="meta-tag red">Extreme Weather</span>
+      <span class="meta-tag teal">India Focus</span>
+      <span class="meta-dot"></span>
+      <span class="meta-date">June 2026 &middot; 12 min read</span>
+    </div>
+    <h1 class="article-title">The <em>Summers</em> You Remember Are Gone</h1>
+    <p class="article-subtitle">Something Has Changed. You Can Feel It.</p>
   </div>
+</section>
 
-  <h1 class="article-title">The <em>Summers</em> You Remember Are Gone</h1>
-  <p class="article-subtitle">Something Has Changed. You Can Feel It.</p>
+<div class="page">
 
   <!-- NARRATIVE HOOK -->
   <span class="time-stamp">June 5, 1996.</span>
